@@ -368,3 +368,67 @@
     background-color: #f8f8f2;
   }
 }
+
+//////Images//////
+h2.SectionTitle.Cool_Text_Anim.Lines {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 120px;
+  padding: 40px 60px 50px 60px;
+  text-transform: uppercase;
+  font-family: "Apfel Grotezk", sans-serif;
+  font-weight: 600;
+  font-size: 96px;
+  line-height: 0.9;
+}
+
+.Arches_Display_Inner.Cool_Anim.Fade.Multiple {
+  display: flex;
+  gap: 50px;
+}
+// YourStylesheet.scss
+.Section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px; // Space between each image
+  padding-bottom: 80px; // Padding around the entire section for spacing from the page edges
+  overflow-x: hidden;
+  .Window_Image {
+    border-radius: 150px 150px 0 0; // Rounded corners
+    overflow: hidden; // Ensures images don't spill outside the border
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Subtle shadow around each image
+    overflow: hidden; // Prevents overflow from being visible outside the container
+    white-space: nowrap; // Ensures the text is in a single line
+    animation: scrollImage 6s linear infinite;
+    img {
+      width: 300px; // Ensures the image covers the entire container
+      height: 400px;
+      display: block; // Removes bottom gap
+      transition: transform 0.8s ease-in-out;
+      // Smooth transform effect
+    }
+  }
+}
+@keyframes scrollImage {
+  0% {
+    transform: translateX(0%); // Bắt đầu từ vị trí ban đầu
+  }
+  100% {
+    transform: translateX(-100%); // Chạy hết chiều rộng của tất cả các ảnh
+  }
+}
+
+.Section .Window_Image {
+  flex: 0 0 auto; // Đảm bảo rằng các ảnh không thay đổi kích thước
+  white-space: nowrap; // Các ảnh sẽ nằm trên cùng một hàng
+  margin-right: -1px; // Giảm bớt khoảng cách giữa các ảnh nếu cần
+}
+
+.Section img {
+  width: 300px; // Đảm bảo kích thước ảnh nhất quán
+  height: 400px;
+  display: block; // Loại bỏ khoảng trống dưới ảnh
+}
