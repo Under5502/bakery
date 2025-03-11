@@ -1,0 +1,51 @@
+.main-section {
+  position: relative;
+  text-align: center;
+  padding: 80px 5%;
+  background: #f8f8f2;
+  color: #112229;
+  display: flex;
+
+  .main-heading {
+    align-items: flex-end;
+    font-size: 36px;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.2;
+    color: #147c98;
+  }
+  .main-title {
+    font-size: 46px;
+  }
+  .main-content {
+    padding-left: 60px;
+    max-width: 700px;
+    margin-left: 150px;
+    font-size: 28px;
+    line-height: 1.6;
+    color: #333;
+    color: #147c98;
+  }
+
+  .parallax-image {
+    position: relative;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    animation: parallaxMove 5s infinite alternate ease-in-out;
+
+    img {
+      width: 150px;
+      height: auto;
+    }
+  }
+
+  @keyframes parallaxMove {
+    from {
+      transform: translateY(0px);
+    }
+    to {
+      transform: translateY(-15px);
+    }
+  }
+}
