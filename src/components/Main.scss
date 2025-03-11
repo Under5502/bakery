@@ -49,3 +49,322 @@
     }
   }
 }
+
+////////product css///////////////////////
+.products-section {
+  position: relative;
+  text-align: center;
+  padding: 50px 0;
+  background: #fefcf5;
+  overflow: hidden;
+  text-decoration: none;
+}
+.products-section a {
+  text-decoration: none; /* Loại bỏ gạch chân cho tất cả liên kết trong .products-section */
+}
+
+/* 📌 Background Marquee (Hiệu ứng chữ chạy nền) */
+.bestsellers-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* 📌 Các hàng chữ chạy nghiêng 15 độ */
+.marquee-content {
+  position: absolute;
+  width: 200%;
+  text-transform: uppercase;
+  font-weight: bold;
+  white-space: nowrap;
+  opacity: 0.8;
+  display: flex;
+  gap: 100px; /* Khoảng cách giữa các chữ */
+  transform: rotate(30deg); /* 🔥 Nghiêng toàn bộ nội dung */
+
+  div {
+    font-size: 110px;
+    font-weight: 900;
+    color: #0a6e90;
+    text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* 📌 4 dòng chữ chạy ngang với vị trí hợp lý */
+.marquee-content:nth-child(1) {
+  top: 5%;
+  animation: marquee-left-right 18s linear infinite alternate;
+}
+.marquee-content:nth-child(2) {
+  top: 25%;
+  animation: marquee-right-left 18s linear infinite alternate;
+}
+.marquee-content:nth-child(3) {
+  top: 45%;
+  animation: marquee-left-right 18s linear infinite alternate;
+}
+.marquee-content:nth-child(4) {
+  bottom: 10%;
+  animation: marquee-right-left 18s linear infinite alternate;
+}
+
+/* 📌 Keyframes chạy ngang + Giữ góc nghiêng */
+@keyframes marquee-left-right {
+  0% {
+    transform: translateX(10%);
+  }
+  100% {
+    transform: translateX(-10%);
+  }
+}
+
+@keyframes marquee-right-left {
+  0% {
+    transform: translateX(-10%);
+  }
+  100% {
+    transform: translateX(10%);
+  }
+}
+
+/* 📌 Danh sách sản phẩm */
+.product-display {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+/* 📌 Khung sản phẩm */
+.product-item {
+  box-sizing: border-box;
+  border: 4px solid #147c98;
+  border-radius: 500px 500px 5rem 5rem;
+  font-size: 1.1rem;
+  flex-basis: 30%;
+  background-color: #f8f8f2;
+  width: 416px;
+  height: 623px;
+}
+
+/* 📌 Viền cong chỉ ở góc trên */
+.product-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  clip-path: inset(0px round 50px 50px 0 0);
+  pointer-events: none;
+}
+
+/* 📌 Ảnh sản phẩm */
+.product-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 260px;
+  border-radius: 50px 50px 0 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+/* 📌 Hover ảnh phóng to */
+.product-item:hover .product-image img {
+  transform: scale(1.05);
+}
+
+/* 📌 Hiển thị thông tin sản phẩm */
+.product-info {
+  text-align: left; /* Aligns text to the left */
+  padding-left: 20px;
+}
+
+.product-info h3 {
+  color: #000;
+  font-size: 24px;
+  font-family: "Apfel Grotezk", sans-serif;
+  font-weight: 800;
+}
+
+.product-info span {
+  font-size: 14px;
+
+  color: #000;
+}
+
+/* 📌 Số lượng & Nút Add to Cart */
+.product-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+/* 📌 Giá sản phẩm */
+.price {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* 📌 Nút số lượng */
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.quantity-selector button {
+  width: 40px;
+  height: 40px;
+  background: #147c98;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.quantity-selector input {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+}
+
+/* 📌 Nút Add to Cart */
+.products-section {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  flex-wrap: wrap;
+  background: #f9f9f9; // Neutral background color
+}
+
+.product-card {
+  width: 300px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  text-align: center; // Center-align text
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  border-radius: 5px; // Soft rounded corners for images
+}
+
+.product-details {
+  span {
+    font-size: 30px;
+    font-weight: 500;
+    padding-left: 20px;
+  }
+  h3 {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  p {
+    color: #666;
+    font-size: 14px;
+  }
+}
+
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.quantity-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+
+  input {
+    border: none;
+    background-color: #f8f8f2;
+    font-size: 40px;
+    font-weight: 500;
+  }
+
+  .Minus {
+    aspect-ratio: 1;
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--dark);
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.28, 0.71, 0, 0.98);
+
+    &:hover {
+      background-color: #ccc;
+    }
+  }
+
+  .Plus {
+    aspect-ratio: 1;
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--dark);
+    border-radius: 100px;
+    display: flex;
+    background-color: #ffa7ee;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.28, 0.71, 0, 0.98);
+
+    &:hover {
+      background-color: #ccc;
+    }
+  }
+}
+
+.add-to-cart {
+  text-transform: uppercase;
+  width: 90%;
+  padding: 1.2rem 1.4rem 1rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 100px;
+  background-color: #ffa7ee;
+  &:hover {
+    background-color: #f8f8f2;
+  }
+}

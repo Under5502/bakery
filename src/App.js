@@ -3,7 +3,8 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 import Main from "./components/Main";
-import Products from "./components/Products";
+import YourStylesheet from "./components/YourStylesheet";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
       <Header />
       <Hero />
       <Main />
-      <Products />
+      <YourStylesheet />
       <Footer />
     </div>
   );
