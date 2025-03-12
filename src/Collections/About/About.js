@@ -1,9 +1,8 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import "../About/About.scss";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 function About() {
-  const [isActive, setIsActive] = useState(false);
   const events = [
     {
       id: "event_KwADYX",
@@ -24,20 +23,7 @@ function About() {
       height: 22,
     },
   ];
-  useEffect(() => {
-    const section = document.querySelector(".Timeline_Section");
 
-    const handleScroll = () => {
-      const scrolled = section.scrollTop;
-      setIsActive(scrolled > 400);
-    };
-
-    section.addEventListener("scroll", handleScroll);
-
-    return () => {
-      section.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
   return (
     <div className="about-container">
       <div className="about">
@@ -208,6 +194,7 @@ function About() {
             <a key={event.id} href={`#${event.id}`} className="Timeline_Anchor">
               <div className="Contain_Fluid">
                 <img
+                  className="img-timeline"
                   src={`//bernicebakery.com/cdn/shop/files/${event.image}?v=1738794346&width=40`}
                   alt=""
                   srcSet={`//bernicebakery.com/cdn/shop/files/${event.image}?v=1738794346&width=40 40w`}

@@ -72,7 +72,7 @@ p {
   position: absolute;
   width: 5px;
   height: 212%;
-  background-color: #ccc;
+  background-color: #7a2020;
   border-radius: 10px;
   top: 85%;
   left: 47%;
@@ -81,4 +81,12 @@ p {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+
+img.img-timeline {
+  background-color: #147c97;
+  border-radius: 50%;
+  /* font-size: 32px; */
+  width: 50px;
+  height: 50px;
 }
