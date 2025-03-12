@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../Body/Newsletter.scss";
+import "../Footer/Newsletter.scss";
 import Button from "react-bootstrap/Button";
 
 function Newsletter() {

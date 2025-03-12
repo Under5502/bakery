@@ -17,7 +17,7 @@ const Footer = () => {
               Montréal, QC H4C 1T4
             </p>
             <p>
-              <Link to={"/"}>bonjour@bernicebakery.com</Link>
+              <Link to="/">bonjour@bernicebakery.com</Link>
             </p>
             <p>(514) 931-8444</p>
             <p className="follow-text">Follow us on Instagram</p>

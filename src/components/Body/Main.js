@@ -31,7 +31,6 @@ const Main = () => {
       ingredients: ["White chocolate", "Dark chocolate", "Chunks"],
     },
     {
-      id: "43568390406341",
       name: "S'mores",
       format: "Box of 6",
       weight: "4oz",
@@ -91,11 +90,11 @@ const Main = () => {
         {/* Tiêu đề */}
         <div className="main-heading">
           <h2 className="main-title">
-            <span>Good</span> <span>food</span> <span>should</span>
-            <br />
-            <span>both</span> <span>comfort</span> <span>and</span>
-            <br />
-            <span>nourish</span> <span>the</span> <span>soul.</span>
+            <span>Good food should</span>
+
+            <span>both comfort and</span>
+
+            <span>nourish the soul.</span>
           </h2>
           <img
             src="https://bernicebakery.com/cdn/shop/files/cake.svg?v=1714513357&width=400"
@@ -168,7 +167,7 @@ const Main = () => {
                   <input
                     type="number"
                     name="quantity"
-                    value="1"
+                    defaultValue="1"
                     pattern="[0-9]*"
                     aria-label="Quantity"
                   />
@@ -285,7 +284,7 @@ const Main = () => {
                 <input
                   type="number"
                   name="quantity"
-                  value="1"
+                  defaultValue="1"
                   pattern="[0-9]*"
                   aria-label="Quantity"
                 />
@@ -306,9 +305,9 @@ const Main = () => {
                 d="M15 18l-6-6 6-6"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </button>
@@ -318,9 +317,9 @@ const Main = () => {
                 d="M9 6l6 6-6 6"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </button>
@@ -340,7 +339,7 @@ const Main = () => {
             <img
               src="//bernicebakery.com/cdn/shop/files/Fove_12.png?v=1721333605&amp;width=200"
               alt=""
-              srcset="//bernicebakery.com/cdn/shop/files/Fove_12.png?v=1721333605&amp;width=200 200w"
+              srcSet="//bernicebakery.com/cdn/shop/files/Fove_12.png?v=1721333605&amp;width=200 200w"
               width="200"
               height="152"
               loading="lazy"
@@ -357,7 +356,7 @@ const Main = () => {
             <img
               src="//bernicebakery.com/cdn/shop/files/4.png?v=1714669992&amp;width=200"
               alt=""
-              srcset="//bernicebakery.com/cdn/shop/files/4.png?v=1714669992&amp;width=200 200w"
+              srcSet="//bernicebakery.com/cdn/shop/files/4.png?v=1714669992&amp;width=200 200w"
               width="200"
               height="59"
               loading="lazy"
@@ -375,7 +374,7 @@ const Main = () => {
             <img
               src="//bernicebakery.com/cdn/shop/files/Journal-de-montreal-logo.png?v=1729211396&amp;width=200"
               alt=""
-              srcset="//bernicebakery.com/cdn/shop/files/Journal-de-montreal-logo.png?v=1729211396&amp;width=200 200w"
+              srcSet="//bernicebakery.com/cdn/shop/files/Journal-de-montreal-logo.png?v=1729211396&amp;width=200 200w"
               width="200"
               height="123"
               loading="lazy"
@@ -393,7 +392,7 @@ const Main = () => {
             <img
               src="//bernicebakery.com/cdn/shop/files/Journal-de-montreal-logo.png?v=1729211396&amp;width=200"
               alt=""
-              srcset="//bernicebakery.com/cdn/shop/files/Journal-de-montreal-logo.png?v=1729211396&amp;width=200 200w"
+              srcSet="//bernicebakery.com/cdn/shop/files/Journal-de-montreal-logo.png?v=1729211396&amp;width=200 200w"
               width="200"
               height="123"
               loading="lazy"
@@ -411,7 +410,7 @@ const Main = () => {
             <img
               src="//bernicebakery.com/cdn/shop/files/Journal-de-montreal-logo.png?v=1729211396&amp;width=200"
               alt=""
-              srcset="//bernicebakery.com/cdn/shop/files/Journal-de-montreal-logo.png?v=1729211396&amp;width=200 200w"
+              srcSet="//bernicebakery.com/cdn/shop/files/Journal-de-montreal-logo.png?v=1729211396&amp;width=200 200w"
               width="200"
               height="123"
               loading="lazy"

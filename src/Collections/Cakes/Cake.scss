@@ -1,0 +1,95 @@
+.Collection-container-cake {
+  padding: 155px 70px;
+  background-color: #f8f8f2;
+
+  .cookies-footer-children-cake {
+    .other-cookies-cake {
+      background-color: #147c98;
+      flex-basis: 50%;
+      border-radius: 3rem;
+      color: #f8f8f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .special-cake-cake {
+      background-color: #ffa7ee;
+      flex-basis: 50%;
+      border-radius: 3rem;
+      color: #f8f8f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 3rem;
+    }
+
+    img {
+      border-radius: 50%;
+      height: 200px;
+      width: 200px;
+      margin-bottom: 30px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+
+    h3 {
+      font-family: "Apfel Grotezk", sans-serif;
+      font-weight: 800;
+      font-size: 40px;
+      text-align: center;
+    }
+  }
+
+  h2 {
+    display: flex;
+    flex-direction: column;
+    color: black;
+    translate: none;
+    rotate: none;
+    scale: none;
+    transform: translate3d(0px, -1.01rem, 0px);
+    font-size: 5rem;
+    margin: 1rem 0;
+    text-transform: uppercase;
+    font-family: "Apfel Grotezk", sans-serif;
+    font-weight: 800;
+  }
+
+  .Cool_Anim-cake {
+    padding-right: 600px;
+  }
+
+  p {
+    padding-right: 80px;
+    font-size: 17px;
+    font-weight: 400;
+  }
+}
+
+.Collection-bottom-cake {
+  display: flex;
+}
+
+.product-cookies1-cake {
+  display: flex;
+  flex-wrap: wrap;
+  border: none;
+}
+
+h2.h2-cake-cake {
+  color: black;
+}
+
+.cookies-footer-children-cake {
+  display: flex;
+  gap: 4vh;
+}

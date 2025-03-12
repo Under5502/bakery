@@ -5,14 +5,23 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Main from "./components/Body/Main";
+import Layouts from "./Layout";
+import Cookie from "./Collections/Cookies/Cookie";
+import Cake from "./Collections/Cakes/Cake";
+import About from "./Collections/About/About";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <Routes>
-      <Route path="" element={<App />} />
-      <Route path="/" element={<Main />} />
-    </Routes>
+    <Layouts>
+      <Routes>
+        <Route path="" element={<App />} />
+        <Route path="/" element={<Main />} />
+        <Route path="/cookies" element={<Cookie />} />
+        <Route path="/cakes" element={<Cake />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </Layouts>
   </BrowserRouter>
 );
 

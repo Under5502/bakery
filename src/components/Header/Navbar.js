@@ -1,33 +1,33 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingBag, faSearch } from "@fortawesome/free-solid-svg-icons";
-import "../Header/Header.scss"; // Ensure SCSS file is correctly set up
-import { Link } from "react-router-dom";
+import "../Header/Navbar.scss";
+import { Link, useLocation } from "react-router-dom";
 
-function Header() {
+function Navbar() {
   const [showNav, setShowNav] = useState(false);
 
   useEffect(() => {
     const toggleNav = () => {
-      // This checks if the scroll position is greater than the window's height (100vh)
       setShowNav(window.scrollY > window.innerHeight);
     };
 
     window.addEventListener("scroll", toggleNav);
 
-    // Cleanup function to remove event listener
     return () => {
       window.removeEventListener("scroll", toggleNav);
     };
   }, []);
 
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+
   return (
     <>
-      {/* Always shown if showNav is false */}
-      {!showNav && (
+      {isHome && !showNav && (
         <div className="header-container">
           <div className="logo">
-            <Link to={"/"}>
+            <Link to="/">
               <div className="Logo-Light">
                 <img
                   src="//bernicebakery.com/cdn/shop/files/bernice-logo-temp.png?v=1714674815&width=300"
@@ -44,7 +44,7 @@ function Header() {
                 <li key={item}>
                   <Link
                     className="Grow_Anim"
-                    to={`/collections/${item.toLowerCase()}`}
+                    to={`/${item.toLowerCase()}`}
                     aria-label={item}
                   >
                     {item}
@@ -52,23 +52,19 @@ function Header() {
                 </li>
               ))}
               <li>
-                <Link to={"/"} className="Grow_Anim">
+                <Link to="/fr" className="Grow_Anim">
                   Français
                 </Link>
               </li>
             </ul>
             <div className="menu-right">
               <div className="main-menu_right">
-                <Link
-                  className="menu_icon"
-                  to={"/cart"}
-                  data-action="open-cart"
-                >
+                <Link className="menu_icon" to="/cart" data-action="open-cart">
                   <FontAwesomeIcon icon={faShoppingBag} className="Icon-cart" />
                 </Link>
                 <Link
                   className="menu_icon"
-                  to={"/search"}
+                  to="/search"
                   data-action="toggle-search"
                 >
                   <FontAwesomeIcon icon={faSearch} className="Icon-search" />
@@ -79,11 +75,10 @@ function Header() {
         </div>
       )}
 
-      {/* Shown only when showNav is true */}
-      {showNav && (
+      {(!isHome || showNav) && (
         <div className="header-container-nav">
           <div className="logo-nav">
-            <Link to={"/"}>
+            <Link to="/">
               <div className="Logo-Dark">
                 <img
                   src="//bernicebakery.com/cdn/shop/files/bernice-logo-temp-dark.png?v=1714674815&width=300"
@@ -98,43 +93,43 @@ function Header() {
             <ul className="main-menu-nav">
               {["Cookies", "Cakes", "About", "Contact"].map((item) => (
                 <li key={item}>
-                  <a
+                  <Link
                     className="Grow_Anim"
-                    href={`/collections/${item.toLowerCase()}`}
+                    to={`/${item.toLowerCase()}`}
                     aria-label={item}
                   >
                     {item}
-                  </a>
+                  </Link>
                 </li>
               ))}
               <li>
-                <a className="Grow_Anim" href="/">
+                <Link to="/fr" className="Grow_Anim">
                   Français
-                </a>
+                </Link>
               </li>
             </ul>
             <div className="menu-right-nav">
               <div className="main-menu_right-nav">
-                <a
+                <Link
                   className="menu_icon-nav"
-                  href="/cart"
+                  to="/cart"
                   data-action="open-cart-nav"
                 >
                   <FontAwesomeIcon
                     icon={faShoppingBag}
                     className="Icon-cart-nav"
                   />
-                </a>
-                <a
+                </Link>
+                <Link
                   className="menu_icon-nav"
-                  href="/search"
+                  to="/search"
                   data-action="toggle-search"
                 >
                   <FontAwesomeIcon
                     icon={faSearch}
                     className="Icon-search-nav"
                   />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -144,4 +139,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default Navbar;
