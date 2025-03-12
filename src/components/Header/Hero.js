@@ -1,5 +1,6 @@
 import React from "react";
 import { Container } from "react-bootstrap";
+import "../Header/Hero.scss";
 
 const Hero = () => {
   return (
@@ -9,6 +10,7 @@ const Hero = () => {
         src="https://bernicebakery.com/cdn/shop/files/bernicefrontcounter.jpg?v=1712175696&width=1920"
         alt="Bakery Interior"
         className="w-100 h-100 object-fit-cover"
+        style={{ filter: "brightness(80%)" }}
       />
 
       {/* Hero Text */}

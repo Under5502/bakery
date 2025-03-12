@@ -1,5 +1,6 @@
 import React from "react";
-import "./Main.scss"; // Import SCSS
+import "../Body/Main.scss"; // Import SCSS
+import { Link } from "react-router-dom";
 
 const Main = () => {
   const products = [
@@ -135,7 +136,7 @@ const Main = () => {
         <div className="product-display">
           {products.map((product) => (
             <div key={product.id} className="product-item">
-              <a href={product.link} className="product-image">
+              <Link to={product.link} className="product-image">
                 {product.ingredients.map((ingredient, index) => (
                   <span key={index} className="ingredient-label">
                     {ingredient}
@@ -151,14 +152,14 @@ const Main = () => {
                   alt={product.name}
                   className="img-hover"
                 />
-              </a>
+              </Link>
               <div className="product-info">
-                <a href={product.link}>
+                <Link to={product.link}>
                   <h3>{product.name}</h3>
                   <span>{product.format}</span>
                   <span className="separator-dot"> • </span>
                   <span>{product.weight}</span>
-                </a>
+                </Link>
               </div>
               <div className="product-details">
                 <span className="price">{product.price}</span>
@@ -207,14 +208,14 @@ const Main = () => {
             {images.map((image, index) => (
               <div
                 key={index}
-                className="Window_Image Instant"
+                className="Window_Image1 Instant"
                 style={{ opacity: 1 }}
               >
                 <div
-                  className="Window_Image_Limit"
+                  className="Window_Image1_Limit"
                   style={{ height: "100%", width: "100%" }}
                 >
-                  <div className="Window_Image_Container Fluid">
+                  <div className="Window_Image1_Container Fluid">
                     <img
                       src={image.src}
                       alt={image.alt}
@@ -232,6 +233,192 @@ const Main = () => {
           </div>
         </div>
       </section>
+      {/* GallerySection */}
+      <div className="Section-btn">
+        <div className="Collection_Browser_Tabs">
+          <div className="Collection_Browser_Tab_Button-Cookies">
+            <button>
+              <span>COOKIES</span>
+            </button>
+          </div>
+          <div className="Collection_Browser_Tab_Button-Cake">
+            <button>
+              <span>CAKES</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      {/* ////product//// */}
+
+      <div className="product-cookies">
+        {products.map((product) => (
+          <div key={product.id} className="product-item-cookies">
+            <Link to={product.link} className="product-image-cookies">
+              {product.ingredients.map((ingredient, index) => (
+                <span key={index} className="ingredient-label">
+                  {ingredient}
+                </span>
+              ))}
+              <img
+                src={product.image1}
+                alt={product.name}
+                className="img-default"
+              />
+              <img
+                src={product.image2}
+                alt={product.name}
+                className="img-hover"
+              />
+            </Link>
+            <div className="product-info">
+              <Link to={product.link}>
+                <h3>{product.name}</h3>
+                <span>{product.format}</span>
+                <span className="separator-dot"> • </span>
+                <span>{product.weight}</span>
+              </Link>
+            </div>
+            <div className="product-details">
+              <span className="price">{product.price}</span>
+              <div className="quantity-selector">
+                <button className="Minus">-</button>
+                <input
+                  type="number"
+                  name="quantity"
+                  value="1"
+                  pattern="[0-9]*"
+                  aria-label="Quantity"
+                />
+                <button className="Plus">+</button>
+              </div>
+            </div>
+            <button className="add-to-cart">Add To Cart</button>
+          </div>
+        ))}
+      </div>
+
+      {/* Bottom */}
+      <div className="bottom">
+        <div className="bottom-navigate">
+          <button>
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M15 18l-6-6 6-6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+          <button>
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M9 6l6 6-6 6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+        <div className="view-all">VIEW ALL</div>
+      </div>
+      {/* Testimonial */}
+      <div className="Testimonial-container">
+        <div className="Testimonial">
+          <h3 className="Citations">‘’</h3>
+          <p>
+            Why You Need To Go: This is one of those bakeries that's like
+            stepping into a little oasis. Not only is the decor so beautiful and
+            so serene, but the pastries themselves are incredible, too.
+          </p>
+          <div className="Testimonial-logo">
+            <img
+              src="//bernicebakery.com/cdn/shop/files/Fove_12.png?v=1721333605&amp;width=200"
+              alt=""
+              srcset="//bernicebakery.com/cdn/shop/files/Fove_12.png?v=1721333605&amp;width=200 200w"
+              width="200"
+              height="152"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div className="Testimonial">
+          <h3 className="Citations">‘’</h3>
+          <p>
+            Bernice puts forth the kind of sweets that take you back to
+            childhood. Nothing too complex, but everything is well done.
+          </p>
+          <div className="Testimonial-logo">
+            <img
+              src="//bernicebakery.com/cdn/shop/files/4.png?v=1714669992&amp;width=200"
+              alt=""
+              srcset="//bernicebakery.com/cdn/shop/files/4.png?v=1714669992&amp;width=200 200w"
+              width="200"
+              height="59"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div className="Testimonial">
+          <h3 className="Citations">‘’</h3>
+          <p>
+            I still remember that bite. A moist crumb which caresses here and
+            which does not take long to melt, releasing its aromas of spices,
+            and which does not saturate the palate with sugar.
+          </p>
+          <div className="Testimonial-logo">
+            <img
+              src="//bernicebakery.com/cdn/shop/files/Journal-de-montreal-logo.png?v=1729211396&amp;width=200"
+              alt=""
+              srcset="//bernicebakery.com/cdn/shop/files/Journal-de-montreal-logo.png?v=1729211396&amp;width=200 200w"
+              width="200"
+              height="123"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div className="Testimonial">
+          <h3 className="Citations">‘’</h3>
+          <p>
+            I still remember that bite. A moist crumb which caresses here and
+            which does not take long to melt, releasing its aromas of spices,
+            and which does not saturate the palate with sugar.
+          </p>
+          <div className="Testimonial-logo">
+            <img
+              src="//bernicebakery.com/cdn/shop/files/Journal-de-montreal-logo.png?v=1729211396&amp;width=200"
+              alt=""
+              srcset="//bernicebakery.com/cdn/shop/files/Journal-de-montreal-logo.png?v=1729211396&amp;width=200 200w"
+              width="200"
+              height="123"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <div className="Testimonial">
+          <h3 className="Citations">‘’</h3>
+          <p>
+            I still remember that bite. A moist crumb which caresses here and
+            which does not take long to melt, releasing its aromas of spices,
+            and which does not saturate the palate with sugar.
+          </p>
+          <div className="Testimonial-logo">
+            <img
+              src="//bernicebakery.com/cdn/shop/files/Journal-de-montreal-logo.png?v=1729211396&amp;width=200"
+              alt=""
+              srcset="//bernicebakery.com/cdn/shop/files/Journal-de-montreal-logo.png?v=1729211396&amp;width=200 200w"
+              width="200"
+              height="123"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
     </>
   );
 };

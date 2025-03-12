@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import "./Footer.scss"; // Import SCSS
+import "../Footer/Footer.scss"; // Import SCSS
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -16,9 +17,7 @@ const Footer = () => {
               Montréal, QC H4C 1T4
             </p>
             <p>
-              <a href="mailto:bonjour@bernicebakery.com">
-                bonjour@bernicebakery.com
-              </a>
+              <Link to={"/"}>bonjour@bernicebakery.com</Link>
             </p>
             <p>(514) 931-8444</p>
             <p className="follow-text">Follow us on Instagram</p>
@@ -40,12 +39,12 @@ const Footer = () => {
           <Col md={6} className="footer-menu">
             <Row>
               <Col>
-                <a href="#">COOKIES</a>
-                <a href="#">CAKES</a>
+                <Link to="/cookies">COOKIES</Link>
+                <Link to="/cakes">CAKES</Link>
               </Col>
               <Col>
-                <a href="#">ABOUT</a>
-                <a href="#">CONTACT</a>
+                <Link to="/about">ABOUT</Link>
+                <Link to="/contact">CONTACT</Link>
               </Col>
             </Row>
           </Col>

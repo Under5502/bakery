@@ -1,0 +1,78 @@
+.Newsletter_Container {
+  border: 1px solid #333;
+  background-color: #147c98;
+  color: #f8f8f2;
+  border-radius: 2rem;
+  padding: 2rem 4rem;
+  width: 60%;
+  min-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-bottom: 30px;
+
+  h2 {
+    font-size: 4rem;
+    font-family: var(--title-font);
+    text-transform: uppercase;
+    text-align: center;
+    margin: 40px;
+  }
+
+  p {
+    font-family: "balto", sans-serif;
+    line-height: 1.25;
+    margin-bottom: 30px;
+  }
+}
+
+.Newsletter__Inner {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+
+  .btn-join {
+    margin-left: 20px;
+    border-radius: 100px;
+    padding: 0 30px;
+    font-weight: 500;
+  }
+
+  .Form__Input,
+  .Search .Form__Input {
+    border-radius: 10000px;
+    height: 50px;
+    width: 333px;
+    border: none;
+    outline: none;
+    padding: 1rem 1.2rem 0.8rem;
+    font-family: "Apfel Grotezk", sans-serif;
+    background-color: #ffa7ee;
+    text-transform: uppercase;
+    font-size: 1rem;
+  }
+
+  .Form__Submit,
+  .Search .Form__Submit {
+    background-color: #112229;
+    border: 2px solid #112229;
+    margin-left: 6px;
+  }
+}
+
+.Newsletter_Floating_Img.Left {
+  position: absolute;
+  left: -50px;
+  top: -35px;
+  width: 140px;
+  z-index: 1;
+}
+.Newsletter_Floating_Img.Right {
+  position: absolute;
+  left: 95%;
+  top: 54%;
+  width: 140px;
+  height: 140px;
+}

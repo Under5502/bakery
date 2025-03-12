@@ -1,10 +1,10 @@
 import React from "react";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Footer from "./components/Footer";
-import Main from "./components/Main";
-import GallerySection from "./components/GallerySection";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Header from "../src/components/Header/Header";
+import Hero from "../src/components/Header/Hero";
+import Footer from "../src/components/Footer/Footer";
+import Main from "../src/components/Body/Main";
+import Newsletter from "../src/components/Body/Newsletter";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <Header />
       <Hero />
       <Main />
-      <GallerySection />
+      <Newsletter />
       <Footer />
     </div>
   );
