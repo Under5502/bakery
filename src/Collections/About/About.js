@@ -1,7 +1,29 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
+import { useEffect, useState } from "react";
 import "../About/About.scss";
 
 function About() {
+  const [scroll, setScroll] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const scrollY = window.scrollY;
+
+      const scrollPercent = (scrollY / (documentHeight - windowHeight)) * 300;
+
+      console.log(scrollPercent);
+      setScroll(scrollPercent);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const events = [
     {
       id: "event_KwADYX",
@@ -201,6 +223,20 @@ function About() {
                   height={event.height}
                 />
               </div>
+            </a>
+          ))}
+        </div>
+
+        {/* /////////////////// */}
+
+        <div
+          className="Timeline_Line-2 Cool_Anim Fade"
+          style={{ height: `${scroll}%` }}
+        >
+          <div className="Timeline_Inner"></div>
+          {events.map((event) => (
+            <a key={event.id} href={`#${event.id}`} className="Timeline_Anchor">
+              <div className="Contain_Fluid"></div>
             </a>
           ))}
         </div>

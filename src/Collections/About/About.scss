@@ -60,13 +60,12 @@ p {
   }
 }
 
-.scroll-indicator {
-  position: absolute;
-  width: 10px;
-  height: 0;
-  background: #a84545;
-  top: 0;
-  left: 47%;
+img.img-timeline {
+  background-color: #147c97;
+  border-radius: 50%;
+  /* font-size: 32px; */
+  width: 50px;
+  height: 50px;
 }
 
 .Timeline_Line {
@@ -84,25 +83,17 @@ p {
   align-items: center;
 }
 
-.Timeline_Line::after {
+.Timeline_Line-2 {
   position: absolute;
   width: 5px;
-  height: 212%;
+
   background-color: #147c97;
   border-radius: 10px;
   top: 85%;
   left: 47%;
-  animation: animation 10s linear infinite;
-}
-
-@keyframes animation {
-  
-}
-
-img.img-timeline {
-  background-color: #147c97;
-  border-radius: 50%;
-  /* font-size: 32px; */
-  width: 50px;
-  height: 50px;
+  transform: translate(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
