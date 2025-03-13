@@ -1,11 +1,10 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import i18n from "./i18next/i18next";
 
 import Hero from "../src/components/Header/Hero";
-import Footer from "../src/components/Footer/Footer";
+
 import Main from "../src/components/Body/Main";
-import Newsletter from "./components/Footer/Newsletter";
-import Navbar from "./components/Header/Navbar";
 
 function App() {
   return (

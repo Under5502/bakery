@@ -262,8 +262,11 @@
   color: white;
   font-size: 20px;
   font-weight: bold;
+  pointer-events: none;
   border-radius: 50%;
   border: none;
+  font-variation-settings: "STCH" 1, "wdth" 100, "wght" 480;
+  text-align: center;
   cursor: pointer;
 }
 

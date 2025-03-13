@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import "../About/About.scss";
-import { useEffect, useState, useRef } from "react";
 
 function About() {
   const events = [

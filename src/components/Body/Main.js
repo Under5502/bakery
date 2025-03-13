@@ -2,10 +2,9 @@ import React from "react";
 import "../Body/Main.scss"; // Import SCSS
 import { Link } from "react-router-dom";
 
-const Main = () => {
+const Main = (props) => {
   const products = [
     {
-      id: "43568369139909",
       name: "Birthday",
       format: "Box of 6",
       weight: "4oz",
@@ -14,11 +13,10 @@ const Main = () => {
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-100_websize_noBG.png?v=1728434205&width=480",
       image2:
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-111_websize_noBG.png?v=1728434172&width=480",
-      link: "/products/birthday-sprinkle",
+      link: "/product",
       ingredients: ["White chocolate", "Sprinkles"],
     },
     {
-      id: "43122499289285",
       name: "Chocolate Chunk",
       format: "Box of 6",
       weight: "4oz",
@@ -27,7 +25,7 @@ const Main = () => {
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-83_websize_noBG.png?v=1728434128&width=480",
       image2:
         "https://bernicebakery.com/cdn/shop/files/Bernice-28.png?v=1728434336&width=480",
-      link: "/products/cookie-4",
+      link: "/product",
       ingredients: ["White chocolate", "Dark chocolate", "Chunks"],
     },
     {
@@ -39,7 +37,7 @@ const Main = () => {
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-89_websize_noBG.png?v=1728434267&width=480",
       image2:
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-130_websize_noBG.png?v=1728434280&width=480",
-      link: "/products/smores",
+      link: "/product",
       ingredients: ["Marshmallows", "Dark chocolate", "Graham crackers"],
     },
   ];
@@ -51,36 +49,42 @@ const Main = () => {
       alt: "Description for image 168",
       width: "500",
       height: "750",
+      link: "/product",
     },
     {
       src: "//bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-50.jpg?v=1721423202&width=500",
       alt: "Description for image 50",
       width: "500",
       height: "750",
+      link: "/product",
     },
     {
       src: "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-164.jpg?v=1721423202&width=500",
       alt: "Description for image 123",
       width: "500",
       height: "750",
+      link: "/product",
     },
     {
       src: "//bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-59.jpg?v=1721423202&width=500",
       alt: "Description for image 531",
       width: "500",
       height: "750",
+      link: "/product",
     },
     {
       src: "//bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-160.jpg?v=1716391349&width=500",
       alt: "Description for image 531",
       width: "500",
       height: "750",
+      link: "/product",
     },
     {
       src: "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-4.jpg?v=1721423203&width=500",
       alt: "Description for image 531",
       width: "500",
       height: "750",
+      link: "/product",
     },
   ];
 

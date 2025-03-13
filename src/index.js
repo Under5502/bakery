@@ -9,6 +9,9 @@ import Layouts from "./Layout";
 import Cookie from "./Collections/Cookies/Cookie";
 import Cake from "./Collections/Cakes/Cake";
 import About from "./Collections/About/About";
+import Contact from "./Collections/Contact/Contact";
+import ProductPage from "./ProductPage/ProductPage";
+import "../src/i18next/i18next";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -20,6 +23,8 @@ root.render(
         <Route path="/cookies" element={<Cookie />} />
         <Route path="/cakes" element={<Cake />} />
         <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/product" element={<ProductPage />} />
       </Routes>
     </Layouts>
   </BrowserRouter>

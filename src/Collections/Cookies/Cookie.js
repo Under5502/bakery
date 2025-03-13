@@ -12,7 +12,7 @@ function Cookie() {
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-100_websize_noBG.png?v=1728434205&width=480",
       image2:
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-111_websize_noBG.png?v=1728434172&width=480",
-      link: "/products/birthday-sprinkle",
+      link: "/product",
       ingredients: ["White chocolate", "Sprinkles"],
     },
     {
@@ -25,7 +25,7 @@ function Cookie() {
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-83_websize_noBG.png?v=1728434128&width=480",
       image2:
         "https://bernicebakery.com/cdn/shop/files/Bernice-28.png?v=1728434336&width=480",
-      link: "/products/cookie-4",
+      link: "/product",
       ingredients: ["White chocolate", "Dark chocolate", "Chunks"],
     },
     {
@@ -37,7 +37,7 @@ function Cookie() {
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-89_websize_noBG.png?v=1728434267&width=480",
       image2:
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-130_websize_noBG.png?v=1728434280&width=480",
-      link: "/products/smores",
+      link: "/product",
       ingredients: ["Marshmallows", "Dark chocolate", "Graham crackers"],
     },
     {
@@ -49,7 +49,7 @@ function Cookie() {
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=480",
       image2:
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=352 352w, //bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=480 480w",
-      link: "/products/smores",
+      link: "/product",
       ingredients: ["Marshmallows", "Dark chocolate", "Graham crackers"],
     },
     {
@@ -61,7 +61,7 @@ function Cookie() {
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=480",
       image2:
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=352 352w, //bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=480 480w",
-      link: "/products/smores",
+      link: "/product",
       ingredients: ["Marshmallows", "Dark chocolate", "Graham crackers"],
     },
     {
@@ -73,7 +73,7 @@ function Cookie() {
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=480",
       image2:
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=352 352w, //bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=480 480w",
-      link: "/products/smores",
+      link: "/product",
       ingredients: ["Marshmallows", "Dark chocolate", "Graham crackers"],
     },
     {
@@ -85,7 +85,7 @@ function Cookie() {
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=480",
       image2:
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=352 352w, //bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=480 480w",
-      link: "/products/smores",
+      link: "/product",
       ingredients: ["Marshmallows", "Dark chocolate", "Graham crackers"],
     },
   ];

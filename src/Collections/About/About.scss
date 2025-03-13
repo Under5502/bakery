@@ -4,6 +4,7 @@
 
 .about-container {
   padding: 70px;
+  background-color: #f8f8f2;
 }
 h2 {
   display: flex;
@@ -72,7 +73,7 @@ p {
   position: absolute;
   width: 5px;
   height: 212%;
-  background-color: #7a2020;
+  background-color: #ccc;
   border-radius: 10px;
   top: 85%;
   left: 47%;
@@ -81,6 +82,21 @@ p {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+
+.Timeline_Line::after {
+  position: absolute;
+  width: 5px;
+  height: 212%;
+  background-color: #147c97;
+  border-radius: 10px;
+  top: 85%;
+  left: 47%;
+  animation: animation 10s linear infinite;
+}
+
+@keyframes animation {
+  
 }
 
 img.img-timeline {
