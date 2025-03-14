@@ -21,7 +21,8 @@ function App() {
     <div className="position-relative">
       <Hero />
       <Main onCartClick={handleShowCart} />
-      {isCartVisible && <Cart onClose={handleCloseCart()} />}
+
+      {isCartVisible && <Cart onClose={handleCloseCart} />}
     </div>
   );
 }

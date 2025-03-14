@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const Main = ({ onCartClick }) => {
-
   const handleOnCartClick = () => {
     onCartClick();
   };
@@ -190,7 +189,7 @@ const Main = ({ onCartClick }) => {
                   </button>
                 </div>
               </div>
-              <button className="add-to-cart" onClick={handleOnCartClick()}>
+              <button className="add-to-cart" onClick={handleOnCartClick}>
                 Add To Cart
               </button>
             </div>
@@ -313,7 +312,9 @@ const Main = ({ onCartClick }) => {
                 </button>
               </div>
             </div>
-            <button className="add-to-cart">Add To Cart</button>
+            <button className="add-to-cart" onClick={handleOnCartClick}>
+              Add To Cart
+            </button>
           </div>
         ))}
       </div>
