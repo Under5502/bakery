@@ -1,11 +1,16 @@
 import React from "react";
 import "../Body/Main.scss"; // Import SCSS
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
+const Main = ({ onCartClick }) => {
 
-const Main = (props) => {
+  const handleOnCartClick = () => {
+    onCartClick();
+  };
   const products = [
     {
+      id: 1,
       name: "Birthday",
       format: "Box of 6",
       weight: "4oz",
@@ -18,6 +23,7 @@ const Main = (props) => {
       ingredients: ["White chocolate", "Sprinkles"],
     },
     {
+      id: 2,
       name: "Chocolate Chunk",
       format: "Box of 6",
       weight: "4oz",
@@ -30,16 +36,17 @@ const Main = (props) => {
       ingredients: ["White chocolate", "Dark chocolate", "Chunks"],
     },
     {
-      name: "S'mores",
+      id: 3,
+      name: "Chocolate Chunk",
       format: "Box of 6",
       weight: "4oz",
       price: "$29",
       image1:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-89_websize_noBG.png?v=1728434267&width=480",
+        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-83_websize_noBG.png?v=1728434128&width=480",
       image2:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-130_websize_noBG.png?v=1728434280&width=480",
+        "https://bernicebakery.com/cdn/shop/files/Bernice-28.png?v=1728434336&width=480",
       link: "/product",
-      ingredients: ["Marshmallows", "Dark chocolate", "Graham crackers"],
+      ingredients: ["White chocolate", "Dark chocolate", "Chunks"],
     },
   ];
 
@@ -168,7 +175,9 @@ const Main = (props) => {
               <div className="product-details">
                 <span className="price">{product.price}</span>
                 <div className="quantity-selector">
-                  <button className="Minus"><span>-</span></button>
+                  <button className="Minus">
+                    <span>-</span>
+                  </button>
                   <input
                     type="number"
                     name="quantity"
@@ -176,10 +185,14 @@ const Main = (props) => {
                     pattern="[0-9]*"
                     aria-label="Quantity"
                   />
-                  <button className="Plus"><span>+</span></button>
+                  <button className="Plus">
+                    <span>+</span>
+                  </button>
                 </div>
               </div>
-              <button className="add-to-cart">Add To Cart</button>
+              <button className="add-to-cart" onClick={handleOnCartClick()}>
+                Add To Cart
+              </button>
             </div>
           ))}
         </div>
@@ -285,7 +298,9 @@ const Main = (props) => {
             <div className="product-details">
               <span className="price">{product.price}</span>
               <div className="quantity-selector">
-                <button className="Minus"><span>-</span></button>
+                <button className="Minus">
+                  <span>-</span>
+                </button>
                 <input
                   type="number"
                   name="quantity"
@@ -293,7 +308,9 @@ const Main = (props) => {
                   pattern="[0-9]*"
                   aria-label="Quantity"
                 />
-                <button className="Plus"><span>+</span></button>
+                <button className="Plus">
+                  <span>+</span>
+                </button>
               </div>
             </div>
             <button className="add-to-cart">Add To Cart</button>

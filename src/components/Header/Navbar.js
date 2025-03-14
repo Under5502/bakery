@@ -4,7 +4,7 @@ import { faShoppingBag, faSearch } from "@fortawesome/free-solid-svg-icons";
 import "../Header/Navbar.scss";
 import { Link, useLocation } from "react-router-dom";
 
-function Navbar() {
+function Navbar({ onCartClick }) {
   const [showNav, setShowNav] = useState(false);
 
   useEffect(() => {
@@ -59,9 +59,9 @@ function Navbar() {
             </ul>
             <div className="menu-right">
               <div className="main-menu_right">
-                <Link className="menu_icon" to="/cart" data-action="open-cart">
+                <button className="menu_icon" onClick={onCartClick}>
                   <FontAwesomeIcon icon={faShoppingBag} className="Icon-cart" />
-                </Link>
+                </button>
                 <Link
                   className="menu_icon"
                   to="/search"
@@ -110,16 +110,13 @@ function Navbar() {
             </ul>
             <div className="menu-right-nav">
               <div className="main-menu_right-nav">
-                <Link
-                  className="menu_icon-nav"
-                  to="/cart"
-                  data-action="open-cart-nav"
-                >
+                <button className="menu_icon-nav" onClick={onCartClick}>
                   <FontAwesomeIcon
                     icon={faShoppingBag}
                     className="Icon-cart-nav"
                   />
-                </Link>
+                </button>
+
                 <Link
                   className="menu_icon-nav"
                   to="/search"

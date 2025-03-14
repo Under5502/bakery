@@ -19,32 +19,37 @@
   .main-menu {
     display: flex;
 
-    .menu_icon {
-      svg.Icon-cart {
-        height: 12px;
-      }
+    svg.Icon-cart {
+      height: 12px;
     }
   }
+}
 
-  .main-menu_right {
-    display: flex;
-    gap: 20px;
-  }
+.main-menu_right {
+  display: flex;
+  gap: 20px;
+}
 
-  ul {
-    list-style-type: none;
-    margin-right: 50px;
-    display: flex;
-    gap: 50px;
-  }
+ul {
+  list-style-type: none;
+  margin-right: 50px;
+  display: flex;
+  gap: 50px;
+}
 
-  a {
-    text-decoration: none;
-    color: #f8f8f2;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 1.5rem;
-  }
+a {
+  text-decoration: none;
+  color: #f8f8f2;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.menu_icon {
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 25px;
 }
 
 ///////////navbar-light/////////////////////
@@ -100,4 +105,11 @@
       color: #ffa7ee;
     }
   }
+}
+
+.menu_icon-nav {
+  border: none;
+  background-color: transparent;
+  color: black;
+  font-size: 25px;
 }
