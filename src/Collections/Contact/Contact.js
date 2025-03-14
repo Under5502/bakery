@@ -41,7 +41,7 @@ function Contact() {
           className="img-contact"
           src="//bernicebakery.com/cdn/shop/files/Two_Food_Photograhers.jpg?v=1716473606&amp;width=1920"
           alt=""
-          srcset="//bernicebakery.com/cdn/shop/files/Two_Food_Photograhers.jpg?v=1716473606&amp;width=352 352w, //bernicebakery.com/cdn/shop/files/Two_Food_Photograhers.jpg?v=1716473606&amp;width=832 832w, //bernicebakery.com/cdn/shop/files/Two_Food_Photograhers.jpg?v=1716473606&amp;width=1200 1200w, //bernicebakery.com/cdn/shop/files/Two_Food_Photograhers.jpg?v=1716473606&amp;width=1920 1920w"
+          srcSet="//bernicebakery.com/cdn/shop/files/Two_Food_Photograhers.jpg?v=1716473606&amp;width=352 352w, //bernicebakery.com/cdn/shop/files/Two_Food_Photograhers.jpg?v=1716473606&amp;width=832 832w, //bernicebakery.com/cdn/shop/files/Two_Food_Photograhers.jpg?v=1716473606&amp;width=1200 1200w, //bernicebakery.com/cdn/shop/files/Two_Food_Photograhers.jpg?v=1716473606&amp;width=1920 1920w"
           width="560"
           height="797"
         />

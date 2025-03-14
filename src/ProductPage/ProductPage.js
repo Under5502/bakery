@@ -113,7 +113,7 @@ function ProductPage() {
               <span className="Separator_Dot"></span>
               <span>4oz</span>
               <span className="Separator_Dot"></span>
-              <span class="Product_Price">$29.00</span>
+              <span className="Product_Price">$29.00</span>
             </div>
 
             {/* ///////// */}
@@ -266,7 +266,9 @@ function ProductPage() {
               <div className="product-details">
                 <span className="price">{product.price}</span>
                 <div className="quantity-selector">
-                  <button className="Minus">-</button>
+                  <button className="Minus">
+                    <span>-</span>
+                  </button>
                   <input
                     type="number"
                     name="quantity"
@@ -274,7 +276,9 @@ function ProductPage() {
                     pattern="[0-9]*"
                     aria-label="Quantity"
                   />
-                  <button className="Plus">+</button>
+                  <button className="Plus">
+                    <span>+</span>
+                  </button>
                 </div>
               </div>
               <button className="add-to-cart">Add To Cart</button>

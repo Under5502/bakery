@@ -151,7 +151,9 @@ function Cake() {
                 <div className="product-details">
                   <span className="price">{product.price}</span>
                   <div className="quantity-selector">
-                    <button className="Minus">-</button>
+                    <button className="Minus">
+                      <span>-</span>
+                    </button>
                     <input
                       type="number"
                       name="quantity"
@@ -159,7 +161,9 @@ function Cake() {
                       pattern="[0-9]*"
                       aria-label="Quantity"
                     />
-                    <button className="Plus">+</button>
+                    <button className="Plus">
+                      <span>+</span>
+                    </button>
                   </div>
                 </div>
                 <button className="add-to-cart">Add To Cart</button>
@@ -207,7 +211,9 @@ function Cake() {
                 <div className="product-details">
                   <span className="price">{product.price}</span>
                   <div className="quantity-selector">
-                    <button className="Minus">-</button>
+                    <button className="Minus">
+                      <span>-</span>
+                    </button>
                     <input
                       type="number"
                       name="quantity"
@@ -215,7 +221,9 @@ function Cake() {
                       pattern="[0-9]*"
                       aria-label="Quantity"
                     />
-                    <button className="Plus">+</button>
+                    <button className="Plus">
+                      <span>+</span>
+                    </button>
                   </div>
                 </div>
                 <button className="add-to-cart">Add To Cart</button>
@@ -232,7 +240,7 @@ function Cake() {
               <img
                 src="//bernicebakery.com/cdn/shop/collections/CookiesForBag.jpg?v=1715882158&amp;width=480"
                 alt="Cookies"
-                srcset="//bernicebakery.com/cdn/shop/collections/CookiesForBag.jpg?v=1715882158&amp;width=352 352w, //bernicebakery.com/cdn/shop/collections/CookiesForBag.jpg?v=1715882158&amp;width=480 480w"
+                srcSet="//bernicebakery.com/cdn/shop/collections/CookiesForBag.jpg?v=1715882158&amp;width=352 352w, //bernicebakery.com/cdn/shop/collections/CookiesForBag.jpg?v=1715882158&amp;width=480 480w"
                 width="480"
                 height="320"
               />
@@ -244,7 +252,7 @@ function Cake() {
               <img
                 src="//bernicebakery.com/cdn/shop/files/Bernice-24.jpg?v=1727835564&amp;width=480"
                 alt=""
-                srcset="//bernicebakery.com/cdn/shop/files/Bernice-24.jpg?v=1727835564&amp;width=352 352w, //bernicebakery.com/cdn/shop/files/Bernice-24.jpg?v=1727835564&amp;width=480 480w"
+                srcSet="//bernicebakery.com/cdn/shop/files/Bernice-24.jpg?v=1727835564&amp;width=352 352w, //bernicebakery.com/cdn/shop/files/Bernice-24.jpg?v=1727835564&amp;width=480 480w"
                 width="480"
                 height="600"
               />

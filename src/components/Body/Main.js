@@ -2,6 +2,7 @@ import React from "react";
 import "../Body/Main.scss"; // Import SCSS
 import { Link } from "react-router-dom";
 
+
 const Main = (props) => {
   const products = [
     {
@@ -167,7 +168,7 @@ const Main = (props) => {
               <div className="product-details">
                 <span className="price">{product.price}</span>
                 <div className="quantity-selector">
-                  <button className="Minus">-</button>
+                  <button className="Minus"><span>-</span></button>
                   <input
                     type="number"
                     name="quantity"
@@ -175,7 +176,7 @@ const Main = (props) => {
                     pattern="[0-9]*"
                     aria-label="Quantity"
                   />
-                  <button className="Plus">+</button>
+                  <button className="Plus"><span>+</span></button>
                 </div>
               </div>
               <button className="add-to-cart">Add To Cart</button>
@@ -284,7 +285,7 @@ const Main = (props) => {
             <div className="product-details">
               <span className="price">{product.price}</span>
               <div className="quantity-selector">
-                <button className="Minus">-</button>
+                <button className="Minus"><span>-</span></button>
                 <input
                   type="number"
                   name="quantity"
@@ -292,7 +293,7 @@ const Main = (props) => {
                   pattern="[0-9]*"
                   aria-label="Quantity"
                 />
-                <button className="Plus">+</button>
+                <button className="Plus"><span>+</span></button>
               </div>
             </div>
             <button className="add-to-cart">Add To Cart</button>

@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import i18n from "./i18next/i18next";
+
 
 import Hero from "../src/components/Header/Hero";
 

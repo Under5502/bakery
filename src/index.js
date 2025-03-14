@@ -11,7 +11,7 @@ import Cake from "./Collections/Cakes/Cake";
 import About from "./Collections/About/About";
 import Contact from "./Collections/Contact/Contact";
 import ProductPage from "./ProductPage/ProductPage";
-import "../src/i18next/i18next";
+import Cart from "./components/Body/Cart";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -25,6 +25,7 @@ root.render(
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/product" element={<ProductPage />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </Layouts>
   </BrowserRouter>

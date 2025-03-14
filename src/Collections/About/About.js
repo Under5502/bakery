@@ -216,7 +216,7 @@ function About() {
               <div className="Contain_Fluid">
                 <img
                   className="img-timeline"
-                  src={`//bernicebakery.com/cdn/shop/files/${event.image}?v=1738794346&width=40`}
+                  src={`//bernicebakery.com/cdn/shop/files/${event.image}?v=1738794346&width=100`}
                   alt=""
                   srcSet={`//bernicebakery.com/cdn/shop/files/${event.image}?v=1738794346&width=40 40w`}
                   width={event.width}
