@@ -5,7 +5,7 @@ function Cart() {
     {
       name: "Birthday",
 
-      price: "$29",
+      price: "$29.00",
       image1:
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-100_websize_noBG.png?v=1728434205&width=480",
 
@@ -14,7 +14,7 @@ function Cart() {
     {
       name: "Chocolate Chunk",
 
-      price: "$29",
+      price: "$29.00",
       image1:
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-83_websize_noBG.png?v=1728434128&width=480",
 
@@ -22,7 +22,7 @@ function Cart() {
     },
     {
       name: "S'mores",
-      price: "$29",
+      price: "$29.00",
       image1:
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-89_websize_noBG.png?v=1728434267&width=480",
 
@@ -31,70 +31,83 @@ function Cart() {
   ];
   return (
     <div className="cart-container">
-      <div className="cart-top">
-        <h2 className="h2-cart">CART</h2>
-        <button className="cart-close">
-          <svg
-            className="Icon Icon-close"
-            role="presentation"
-            viewBox="0 0 16 14"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M15 0L1 14m14 0L1 0"
-              stroke="currentColor"
-              fill="none"
-              fillRule="evenodd"
-            />
-          </svg>
-        </button>
-      </div>
-      <div className="cart-content">
-        <div className="cart-content-product">
-          <div className="cart-display">
-            {products.map((product) => (
-              <div key={product.id} className="cart-item">
-                <Link to={product.link} className="cart-image">
-                  <img
-                    src={product.image1}
-                    alt={product.name}
-                    className="cart-default"
-                  />
-                </Link>
-                <div className="cart-info">
-                  <Link to={product.link}>
-                    <h3>{product.name}</h3>
+      <div className="cart-main">
+        <div className="cart-top">
+          <h2 className="h2-cart">CART</h2>
+          <button className="cart-close">
+            <svg
+              className="Icon Icon-close"
+              role="presentation"
+              viewBox="0 0 16 14"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 0L1 14m14 0L1 0"
+                stroke="currentColor"
+                fill="none"
+                fillRule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
+        <hr className="cart-hr" />
+        <div className="cart-content">
+          <div className="cart-content-product">
+            <div className="cart-image">
+              {products.map((product) => (
+                <div key={product.id} className="cart-item">
+                  <Link to={product.link} className="cart-item">
+                    <img
+                      src={product.image1}
+                      alt={product.name}
+                      className="cart-default"
+                    />
                   </Link>
                 </div>
-                <div className="cart-details">
-                  <span className="price-cart">{product.price}</span>
-                  <div className="quantity-selector">
-                    <button className="Minus-cart">
-                      <span>-</span>
-                    </button>
-                    <input
-                      type="number"
-                      name="quantity"
-                      defaultValue="1"
-                      pattern="[0-9]*"
-                      aria-label="Quantity"
-                    />
-                    <button className="Plus-cart">
-                      <span>+</span>
-                    </button>
+              ))}
+            </div>
+
+            <div className="cart-display">
+              {products.map((product) => (
+                <div key={product.id} className="cart-item">
+                  <div className="cart-info">
+                    <h3 className="cart-name">
+                      {" "}
+                      <Link to={product.link}>{product.name} </Link>
+                    </h3>
+                    <span className="price-cart">{product.price}</span>
+                  </div>
+                  <div className="cart-details">
+                    <div className="cart-selector">
+                      <button className="Minus-cart">
+                        <span className="cart-btn">-</span>
+                      </button>
+                      <input
+                        type="number"
+                        name="quantity"
+                        defaultValue="1"
+                        pattern="[0-9]*"
+                        aria-label="Quantity"
+                      />
+                      <button className="Plus-cart">
+                        <span className="cart-btn">+</span>
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-      <div className="cart-bottom">
-        <button className="btn-checkout">
-          <span>Check Out</span>
-          <span className="btn-cham">.</span>
-          <span className="price-sum">$169.00</span>
-        </button>
+        <div className="cart-bottom">
+          <button className="btn-checkout">
+            <div className="in-btn">
+              <span className="checkout">Check Out</span>
+              <span className="btn-cham"></span>
+              <span className="price-sum">$169.00</span>
+            </div>
+          </button>
+        </div>
       </div>
     </div>
   );
