@@ -1,7 +1,7 @@
 import React from "react";
 import "../Body/Main.scss"; // Import SCSS
+import Hero from "../Header/Hero";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
 const Main = ({ onCartClick }) => {
   const handleOnCartClick = () => {
@@ -97,6 +97,7 @@ const Main = ({ onCartClick }) => {
 
   return (
     <>
+      <Hero />
       <section className="main-section">
         {/* Tiêu đề */}
         <div className="main-heading">

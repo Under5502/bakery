@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import "../Cakes/Cake.scss";
-function Cake() {
+function Cake({ onAddToCart }) {
   const products = [
     {
       id: "43568369139909",
@@ -167,7 +167,9 @@ function Cake() {
                     </button>
                   </div>
                 </div>
-                <button className="add-to-cart">Add To Cart</button>
+                <button className="add-to-cart" onClick={onAddToCart}>
+                  Add To Cart
+                </button>
               </div>
             ))}
           </div>
@@ -227,7 +229,9 @@ function Cake() {
                     </button>
                   </div>
                 </div>
-                <button className="add-to-cart">Add To Cart</button>
+                <button className="add-to-cart" onClick={onAddToCart}>
+                  Add To Cart
+                </button>
               </div>
             ))}
           </div>

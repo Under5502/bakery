@@ -5,6 +5,16 @@ import "../Header/Navbar.scss";
 import { Link, useLocation } from "react-router-dom";
 
 function Navbar({ onCartClick }) {
+  const [showSearch, setShowSearch] = useState(false);
+
+  const handleSearchToggle = () => {
+    setShowSearch(!showSearch);
+  };
+
+  const handleCloseSearch = () => {
+    setShowSearch(false);
+  };
+
   const [showNav, setShowNav] = useState(false);
 
   useEffect(() => {
@@ -62,74 +72,105 @@ function Navbar({ onCartClick }) {
                 <button className="menu_icon" onClick={onCartClick}>
                   <FontAwesomeIcon icon={faShoppingBag} className="Icon-cart" />
                 </button>
-                <Link
-                  className="menu_icon"
-                  to="/search"
-                  data-action="toggle-search"
-                >
+                <button className="menu_icon" onClick={handleSearchToggle}>
                   <FontAwesomeIcon icon={faSearch} className="Icon-search" />
-                </Link>
+                </button>
               </div>
             </div>
           </div>
         </div>
       )}
-
+      {/* ////////////////////nav-light /////////////////////////////////////*/}
       {(!isHome || showNav) && (
         <div className="header-container-nav">
-          <div className="logo-nav">
-            <Link to="/">
-              <div className="Logo-Dark">
-                <img
-                  src="//bernicebakery.com/cdn/shop/files/bernice-logo-temp-dark.png?v=1714674815&width=300"
-                  alt="Bernice Bakery"
-                  width="300"
-                  height="49"
-                />
-              </div>
-            </Link>
-          </div>
-          <div className="menu-container-nav">
-            <ul className="main-menu-nav">
-              {["Cookies", "Cakes", "About", "Contact"].map((item) => (
-                <li key={item}>
-                  <Link
-                    className="Grow_Anim"
-                    to={`/${item.toLowerCase()}`}
-                    aria-label={item}
-                  >
-                    {item}
+          <div className="nav-light">
+            <div className="logo-nav">
+              <Link to="/">
+                <div className="Logo-Dark">
+                  <img
+                    src="//bernicebakery.com/cdn/shop/files/bernice-logo-temp-dark.png?v=1714674815&width=300"
+                    alt="Bernice Bakery"
+                    width="300"
+                    height="49"
+                  />
+                </div>
+              </Link>
+            </div>
+            <div className="menu-container-nav">
+              <ul className="main-menu-nav">
+                {["Cookies", "Cakes", "About", "Contact"].map((item) => (
+                  <li key={item}>
+                    <Link
+                      className="Grow_Anim"
+                      to={`/${item.toLowerCase()}`}
+                      aria-label={item}
+                    >
+                      {item}
+                    </Link>
+                  </li>
+                ))}
+                <li>
+                  <Link to="/fr" className="Grow_Anim">
+                    Français
                   </Link>
                 </li>
-              ))}
-              <li>
-                <Link to="/fr" className="Grow_Anim">
-                  Français
-                </Link>
-              </li>
-            </ul>
-            <div className="menu-right-nav">
-              <div className="main-menu_right-nav">
-                <button className="menu_icon-nav" onClick={onCartClick}>
-                  <FontAwesomeIcon
-                    icon={faShoppingBag}
-                    className="Icon-cart-nav"
-                  />
-                </button>
+              </ul>
+              <div className="menu-right-nav">
+                <div className="main-menu_right-nav">
+                  <button className="menu_icon-nav" onClick={onCartClick}>
+                    <FontAwesomeIcon
+                      icon={faShoppingBag}
+                      className="Icon-cart-nav"
+                    />
+                  </button>
 
-                <Link
-                  className="menu_icon-nav"
-                  to="/search"
-                  data-action="toggle-search"
-                >
-                  <FontAwesomeIcon
-                    icon={faSearch}
-                    className="Icon-search-nav"
-                  />
-                </Link>
+                  <button
+                    className="menu_icon-nav"
+                    onClick={handleSearchToggle}
+                  >
+                    <FontAwesomeIcon
+                      icon={faSearch}
+                      className="Icon-search-nav"
+                    />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
+          {showSearch && (
+            <div className="Search_Popup">
+              <div className="Search_Popup_Inner">
+                <form className="Search Form">
+                  <input
+                    type="text"
+                    name="q"
+                    id="result-q"
+                    className="Form__Input"
+                    placeholder="PRODUCT, COLLECTION, PAGE..."
+                  />
+                  <div className="Form_Button Form__Submit">
+                    <button type="submit" className="Button Button--primary">
+                      Search
+                    </button>
+                  </div>
+                </form>
+                <button className="search-close" onClick={handleCloseSearch}>
+                  <svg
+                    className="Icon Icon-close"
+                    role="presentation"
+                    viewBox="0 0 16 14"
+                  >
+                    <path
+                      d="M15 0L1 14m14 0L1 0"
+                      stroke="currentColor"
+                      fill="none"
+                      fillRule="evenodd" // <-- lưu ý: dùng `fillRule` thay vì `fill-rule`
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       )}
     </>
