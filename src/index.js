@@ -2,36 +2,30 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import Main from "./components/Body/Main";
 import Layouts from "./Layout";
+import Main from "./components/Body/Main";
 import Cookie from "./Collections/Cookies/Cookie";
 import Cake from "./Collections/Cakes/Cake";
 import About from "./Collections/About/About";
 import Contact from "./Collections/Contact/Contact";
 import ProductPage from "./ProductPage/ProductPage";
-import Cart from "./components/Body/Cart";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <Layouts>
-      <Routes>
-        <Route path="" element={<App />} />
-        <Route path="/" element={<Main />} />
-        <Route path="/cookies" element={<Cookie />} />
-        <Route path="/cakes" element={<Cake />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/product" element={<ProductPage />} />
-        <Route path="/cart" element={<Cart />} />
-      </Routes>
-    </Layouts>
+    <Routes>
+      {/* Route cha sử dụng Layouts */}
+      <Route path="/" element={<Layouts />}>
+        <Route index element={<Main />} />
+        <Route path="cookies" element={<Cookie />} />
+        <Route path="cakes" element={<Cake />} />
+        <Route path="about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="product" element={<ProductPage />} />
+      </Route>
+    </Routes>
   </BrowserRouter>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

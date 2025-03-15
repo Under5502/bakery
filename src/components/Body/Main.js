@@ -2,10 +2,15 @@ import React from "react";
 import "../Body/Main.scss"; // Import SCSS
 import Hero from "../Header/Hero";
 import { Link } from "react-router-dom";
-
-const Main = ({ onCartClick }) => {
-  const handleOnCartClick = () => {
-    onCartClick();
+import { useOutletContext } from "react-router-dom";
+const Main = () => {
+  const { onAddToCart } = useOutletContext();
+  const handleClick = () => {
+    if (typeof onAddToCart === "function") {
+      onAddToCart();
+    } else {
+      console.warn("onAddToCart is not a function");
+    }
   };
   const products = [
     {
@@ -190,7 +195,7 @@ const Main = ({ onCartClick }) => {
                   </button>
                 </div>
               </div>
-              <button className="add-to-cart" onClick={handleOnCartClick}>
+              <button className="add-to-cart" onClick={handleClick}>
                 Add To Cart
               </button>
             </div>
@@ -313,7 +318,7 @@ const Main = ({ onCartClick }) => {
                 </button>
               </div>
             </div>
-            <button className="add-to-cart" onClick={handleOnCartClick}>
+            <button className="add-to-cart" onClick={handleClick}>
               Add To Cart
             </button>
           </div>

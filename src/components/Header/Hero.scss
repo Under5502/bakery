@@ -9,7 +9,7 @@
 
   .hero-content {
     display: flex;
-    padding: 20% 0 0 30px;
+    padding: 150px 4px 0 30px;
     color: #f8f8f2;
 
     .hero-h1 {
@@ -35,8 +35,8 @@
       justify-content: center;
       transition: 0.9s all cubic-bezier(0.28, 0.71, 0, 0.98);
       transform: rotate(30deg);
-
-      &:hover {
+      margin: 150px 80px;
+        &:hover {
         transform: scale(0.9) rotate(10deg);
 
         mask-image: url(https://bernicebakery.com/cdn/shop/t/2/assets/bite-mask.svg?v=85915998415614872721715593152);

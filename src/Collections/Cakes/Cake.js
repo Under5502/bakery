@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 
 import "../Cakes/Cake.scss";
-function Cake({ onAddToCart }) {
+
+function Cake() {
+  const { onAddToCart } = useOutletContext();
   const products = [
     {
       id: "43568369139909",

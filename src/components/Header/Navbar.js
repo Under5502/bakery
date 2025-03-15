@@ -34,7 +34,7 @@ function Navbar({ onCartClick }) {
 
   return (
     <>
-      {isHome && !showNav && (
+      {isHome && !showNav && !showSearch && (
         <div className="header-container">
           <div className="logo">
             <Link to="/">
@@ -81,7 +81,7 @@ function Navbar({ onCartClick }) {
         </div>
       )}
       {/* ////////////////////nav-light /////////////////////////////////////*/}
-      {(!isHome || showNav) && (
+      {(!isHome || showNav || showSearch) && (
         <div className="header-container-nav">
           <div className="nav-light">
             <div className="logo-nav">

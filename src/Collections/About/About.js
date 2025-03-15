@@ -11,7 +11,7 @@ function About() {
       const documentHeight = document.documentElement.scrollHeight;
       const scrollY = window.scrollY;
 
-      const scrollPercent = (scrollY / (documentHeight - windowHeight)) * 300;
+      const scrollPercent = (scrollY / (documentHeight - windowHeight)) * 320;
 
       console.log(scrollPercent);
       setScroll(scrollPercent);

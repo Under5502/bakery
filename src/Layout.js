@@ -2,22 +2,21 @@ import Cart from "./components/Body/Cart";
 import Footer from "./components/Footer/Footer";
 import Newsletter from "./components/Footer/Newsletter";
 import Navbar from "./components/Header/Navbar";
-import { useState, cloneElement } from "react";
+import { useState } from "react";
+import { Outlet } from "react-router-dom";
 
-function Layouts({ children }) {
+function Layouts() {
   const [isCartVisible, setIsCartVisible] = useState(false);
 
   const handleOpenCart = () => setIsCartVisible(true);
   const handleCloseCart = () => setIsCartVisible(false);
 
-  const childrenWithProps = cloneElement(children, {
-    onAddToCart: handleOpenCart,
-  });
   return (
     <div>
       <Navbar onCartClick={handleOpenCart} />
-
-      <main>{childrenWithProps}</main>
+      <main>
+        <Outlet context={{ onAddToCart: handleOpenCart }} />
+      </main>
       <Newsletter />
       <Footer />
       {isCartVisible && <Cart onClose={handleCloseCart} />}

@@ -7,8 +7,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <Container>
-        <Row>
-          {/* Cột Thông Tin */}
+        <Row className="footer-container">
           <Col md={3} className="footer-info">
             <h2 className="footer-brand">BERNICE BAKERY</h2>
             <p>
@@ -16,11 +15,14 @@ const Footer = () => {
               <br />
               Montréal, QC H4C 1T4
             </p>
-            <p>
-              <Link to="/">bonjour@bernicebakery.com</Link>
+            <p className="footer-information">
+              <Link to="/" className="bonjour">
+                bonjour@bernicebakery.com
+              </Link>
+              <Link to="/" className="bonjour">
+                (514) 931-8444
+              </Link>
             </p>
-            <p>(514) 931-8444</p>
-            <p className="follow-text">Follow us on Instagram</p>
             <div className="social-icons">
               <img
                 src="https://media.vneconomy.vn/640x360/images/upload/2023/03/30/1200x630wa.png"
@@ -33,11 +35,21 @@ const Footer = () => {
                 className="icon"
               />
             </div>
+            <p className="follow-text">
+              <a
+                href="https://www.instagram.com/vunguyen.22/"
+                className="bonjour"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Follow us on Instagram
+              </a>
+            </p>
           </Col>
 
           {/* Cột Menu */}
           <Col md={6} className="footer-menu">
-            <Row>
+            <Row className="information">
               <Col>
                 <Link to="/cookies">COOKIES</Link>
                 <Link to="/cakes">CAKES</Link>
@@ -51,15 +63,15 @@ const Footer = () => {
 
           {/* Cột Đăng Ký Email */}
           <Col md={3} className="footer-newsletter">
-            <h2>GET 15% OFF YOUR FIRST ORDER</h2>
+            <h2 className="discount">GET 15% OFF YOUR FIRST ORDER</h2>
             <div className="subscribe">
               <input type="email" placeholder="EMAIL" />
-              <button>JOIN</button>
+              <button className="join">JOIN</button>
             </div>
           </Col>
         </Row>
         <div className="Footer_Big_Logo">
-          <span className="Footer_Big_Logo_Text">Bernice</span>
+          <h1 className="footer-big-logo">Bernice </h1>
         </div>
 
         {/* Dòng Bản Quyền */}

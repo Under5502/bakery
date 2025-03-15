@@ -13,13 +13,25 @@ function Contact() {
         <div className="form-submit">
           <Form className="form-container">
             <Form.Group className="form-header">
-              <Form.Control type="text" placeholder="FIRST NAME" />
-              <Form.Control type="text" placeholder="LST NAME" />
+              <Form.Control
+                className="name"
+                type="text"
+                placeholder="FIRST NAME"
+              />
+              <Form.Control
+                className="name"
+                type="text"
+                placeholder="LAST NAME"
+              />
             </Form.Group>
 
             <Form.Group className="form-body">
-              <Form.Control type="text" placeholder="PHONE NUMBER" />
-              <Form.Control type="email" placeholder="EMAIL" />
+              <Form.Control
+                className="name"
+                type="text"
+                placeholder="PHONE NUMBER"
+              />
+              <Form.Control className="name" type="email" placeholder="EMAIL" />
             </Form.Group>
 
             <Form.Group className="form-footer">

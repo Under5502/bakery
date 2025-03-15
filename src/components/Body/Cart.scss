@@ -22,7 +22,7 @@
     margin-bottom: -20px;
     .h2-cart {
       font-size: 33px;
-      margin-top: 50px;
+      margin-top: 40px;
     }
 
     .cart-close {
@@ -32,11 +32,19 @@
       background-color: white;
       margin-top: 30px;
       margin-left: 124px;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        color: #ffa7ee;
+        transform: scale(1.1);
+      }
     }
   }
 
   .cart-hr {
-    border: 2px solid black;
+    border: 2px solid #147c98;
+    width: 100%;
   }
   .cart-main {
     margin: 0 30px;
@@ -52,13 +60,16 @@
   .cart-image {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 30px;
+
+    padding-top: 20px;
   }
 
   .cart-display {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 10px;
+
     margin-top: 10px;
   }
   img {
@@ -89,6 +100,7 @@
       height: 60px;
       background-color: #ffa7ee;
       border-radius: 50px;
+      cursor: pointer;
 
       &:hover {
         background-color: white;
@@ -135,6 +147,7 @@
       border: none;
       background-color: #147c98;
       border-radius: 50px;
+      cursor: pointer;
 
       &:hover {
         mask-image: url("https://bernicebakery.com/cdn/shop/t/2/assets/bite-mask.svg?v=85915998415614872721715593152");
@@ -160,6 +173,7 @@
       border: none;
       background-color: #ffa7ee;
       border-radius: 50px;
+      cursor: pointer;
       &:hover {
         mask-image: url("https://bernicebakery.com/cdn/shop/t/2/assets/bite-mask.svg?v=85915998415614872721715593152");
       }
@@ -182,6 +196,7 @@
       font-size: 1.2rem;
       font-weight: 500;
       transition: all 0.3s ease;
+      cursor: pointer;
 
       &:hover {
         color: #ffa7ee;

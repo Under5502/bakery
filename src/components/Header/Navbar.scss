@@ -18,6 +18,7 @@
     display: flex;
     gap: 20px;
     font-size: 20px;
+    margin-right: 95px;
   }
 
   .main-menu {
@@ -30,6 +31,7 @@
 }
 
 .main-menu_right {
+  margin-top: 20px;
   display: flex;
   gap: 20px;
 }
@@ -47,6 +49,11 @@ a {
   text-transform: uppercase;
   font-weight: 700;
   font-size: 1.5rem;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #ffa7ee;
+  }
 }
 
 .menu_icon {
@@ -54,6 +61,11 @@ a {
   background-color: transparent;
   color: white;
   font-size: 25px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  &:hover {
+    color: #ffa7ee;
+  }
 }
 
 ///////////navbar-light/////////////////////
@@ -110,6 +122,10 @@ a {
     font-size: 20px;
   }
 
+  .menu-right-nav {
+    margin-top: 22px;
+  }
+
   button.Button.Button--primary {
     border: none;
     background-color: black;
@@ -129,7 +145,7 @@ a {
     border: none;
     background-color: white;
     width: 35px;
-
+    cursor: pointer;
     &:hover {
       color: #ffa7ee;
       transform: scale(0.8);
@@ -176,6 +192,11 @@ a {
   background-color: transparent;
   color: black;
   font-size: 25px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  &:hover {
+    color: #ffa7ee;
+  }
 }
 
 .Search_Popup {

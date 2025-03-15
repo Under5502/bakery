@@ -7,8 +7,7 @@ const Hero = () => {
     <div className="hero-container ">
       <div className="hero-content">
         <div className="text-hero">
-          <h1 className="hero-h1">A BAKING </h1>
-          <h1 className="hero-h1">LOVE AFFAIR</h1>
+          <h1 className="hero-h1">A BAKING LOVE AFFAIR</h1>
         </div>
 
         <div className="indulge">

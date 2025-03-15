@@ -1,6 +1,8 @@
 import "../Cookies/Cookie.scss";
 import { Link } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 function Cookie() {
+  const { onAddToCart } = useOutletContext();
   const products = [
     {
       id: "43568369139909",
@@ -164,7 +166,9 @@ function Cookie() {
                     </button>
                   </div>
                 </div>
-                <button className="add-to-cart">Add To Cart</button>
+                <button className="add-to-cart" onClick={onAddToCart}>
+                  Add To Cart
+                </button>
               </div>
             ))}
           </div>
@@ -224,7 +228,9 @@ function Cookie() {
                     </button>
                   </div>
                 </div>
-                <button className="add-to-cart">Add To Cart</button>
+                <button className="add-to-cart" onClick={onAddToCart}>
+                  Add To Cart
+                </button>
               </div>
             ))}
           </div>

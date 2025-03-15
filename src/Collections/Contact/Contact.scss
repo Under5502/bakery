@@ -2,7 +2,7 @@
   padding-top: 80px;
   background-color: #f8f8f2;
   display: flex;
-  gap: 300px;
+  gap: 360px;
   overflow: hidden;
 
   .contact-form {
@@ -15,7 +15,7 @@
         display: flex;
         gap: 30px;
         /* font-size: 32px; */
-        width: 140%;
+        width: 155%;
         height: 50px;
         /* border-radius: 50px; */
         margin: 50px 0;
@@ -30,7 +30,7 @@
         display: flex;
         gap: 30px;
         /* font-size: 32px; */
-        width: 140%;
+        width: 155%;
         height: 50px;
         /* border-radius: 50px; */
         margin: 50px 0;
@@ -47,17 +47,15 @@
         height: 60px;
         /* border-radius: 50px; */
         margin-bottom: 50px;
-        ::placeholder {
-          padding: 10px;
-          font-size: 15px;
-          font-weight: 500;
-        }
       }
       input.form-control {
         border-radius: 20px;
+
+        font-weight: 500;
       }
       input.form-footer-1.form-control {
         padding-bottom: 25%;
+        padding-top: 20px;
       }
     }
 
@@ -78,10 +76,54 @@
   }
   button.btn.btn-dark {
     margin-top: 30%;
-    /* height: 24%; */
-    width: 51%;
+
+    width: 40%;
     padding: 15px 0px;
     border-radius: 50px;
     margin-left: 50px;
+    border: none;
+    background-color: black;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover {
+      border: 2px solid black;
+      color: black;
+      background-color: #f8f8f2;
+    }
   }
+}
+
+.contact-container .contact-form .form-submit input.form-control {
+  border-radius: 20px;
+  width: 140%;
+  border: none;
+}
+
+.contact-container .contact-form .form-submit .form-footer {
+  height: 60px;
+  /* border-radius: 50px; */
+  margin-bottom: 50px;
+  width: 110%;
+
+  ::placeholder {
+    padding: 10px;
+  }
+}
+
+.contact-container .contact-form .form-submit input.form-footer-1.form-control {
+  padding-bottom: 35%;
+}
+
+.contact-container
+  .contact-form
+  .form-submit
+  input.form-footer-1.form-control::placeholder {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.contact-h2 {
+  margin: 20px -37px;
 }
