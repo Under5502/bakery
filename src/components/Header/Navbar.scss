@@ -67,7 +67,8 @@ a {
   z-index: 100;
   align-items: center;
   justify-content: space-between;
-  padding: 30px 4vw;
+  padding-top: 30px;
+
   transition: all 1s cubic-bezier(0.28, 0.71, 0, 0.98);
   background-color: #ffffff;
 
@@ -80,6 +81,7 @@ a {
   .Search_Popup_Inner {
     display: flex;
     gap: 740px;
+    padding-bottom: 20px;
   }
 
   .Search.Form {

@@ -16,6 +16,7 @@ function Layouts({ children }) {
   return (
     <div>
       <Navbar onCartClick={handleOpenCart} />
+
       <main>{childrenWithProps}</main>
       <Newsletter />
       <Footer />
