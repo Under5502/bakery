@@ -1,13 +1,48 @@
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import "../ProductPage/ProductPage.scss";
 import React from "react";
+import { useState } from "react";
 
 function ProductPage() {
-  const products = [
+  const [mainProductQuantity, setMainProductQuantity] = useState(1);
+
+  const handleIncreaseMainQuantity = () => {
+    setMainProductQuantity((prev) => prev + 1);
+  };
+
+  const handleDecreaseMainQuantity = () => {
+    if (mainProductQuantity > 1) {
+      setMainProductQuantity((prev) => prev - 1);
+    }
+  };
+
+  const handleIncreaseQuantity = (id) => {
+    setProducts(
+      products.map((product) =>
+        product.id === id
+          ? { ...product, quantity: product.quantity + 1 }
+          : product
+      )
+    );
+  };
+
+  const handleDecreaseQuantity = (id) => {
+    setProducts(
+      products.map((product) =>
+        product.id === id && product.quantity > 1
+          ? { ...product, quantity: product.quantity - 1 }
+          : product
+      )
+    );
+  };
+
+  const { onAddToCart } = useOutletContext();
+  const [products, setProducts] = useState([
     {
       id: "43568369139909",
       name: "Birthday",
       format: "Box of 6",
+      quantity: 1,
       weight: "4oz",
       price: "$29",
       image1:
@@ -21,6 +56,7 @@ function ProductPage() {
       id: "43122499289285",
       name: "Chocolate Chunk",
       format: "Box of 6",
+      quantity: 1,
       weight: "4oz",
       price: "$29",
       image1:
@@ -34,6 +70,7 @@ function ProductPage() {
       name: "S'mores",
       format: "Box of 6",
       weight: "4oz",
+      quantity: 1,
       price: "$29",
       image1:
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-89_websize_noBG.png?v=1728434267&width=480",
@@ -42,7 +79,7 @@ function ProductPage() {
       link: "/product",
       ingredients: ["Marshmallows", "Dark chocolate", "Graham crackers"],
     },
-  ];
+  ]);
   return (
     <div className="product-container">
       <div className="product-top">
@@ -169,11 +206,21 @@ function ProductPage() {
               <div className="Product_Form_Quantity">
                 {/* Normally you would import CSS in the React component or use inline styles */}
                 <div className="Quantity_Selector">
-                  <div className="Minus_Button Quantity_Selector_Button">
+                  <div
+                    className="Minus_Button Quantity_Selector_Button"
+                    onClick={handleDecreaseMainQuantity}
+                  >
                     <span>-</span>
                   </div>
-                  <input type="number" value="1" pattern="[0-9]*" />
-                  <div className="Plus_Button Quantity_Selector_Button">
+                  <input
+                    type="number"
+                    value={mainProductQuantity}
+                    pattern="[0-9]*"
+                  />
+                  <div
+                    className="Plus_Button Quantity_Selector_Button"
+                    onClick={handleIncreaseMainQuantity}
+                  >
                     <span>+</span>
                   </div>
                 </div>
@@ -182,7 +229,9 @@ function ProductPage() {
             {/* ////////// */}
 
             <div className="product-form-bottom">
-              <button className="add-to-cart-product">ADD TO CART</button>
+              <button className="add-to-cart-product" onClick={onAddToCart}>
+                ADD TO CART
+              </button>
             </div>
           </div>
 
@@ -266,17 +315,23 @@ function ProductPage() {
               <div className="product-details">
                 <span className="price">{product.price}</span>
                 <div className="quantity-selector">
-                  <button className="Minus">
+                  <button
+                    className="Minus"
+                    onClick={() => handleDecreaseQuantity(product.id)}
+                  >
                     <span>-</span>
                   </button>
                   <input
                     type="number"
                     name="quantity"
-                    defaultValue="1"
+                    value={product.quantity}
                     pattern="[0-9]*"
                     aria-label="Quantity"
                   />
-                  <button className="Plus">
+                  <button
+                    className="Plus"
+                    onClick={() => handleIncreaseQuantity(product.id)}
+                  >
                     <span>+</span>
                   </button>
                 </div>

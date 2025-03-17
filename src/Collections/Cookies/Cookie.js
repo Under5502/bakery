@@ -1,13 +1,34 @@
 import "../Cookies/Cookie.scss";
 import { Link } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
+import { useState } from "react";
 function Cookie() {
   const { onAddToCart } = useOutletContext();
-  const products = [
+  const handleIncreaseQuantity = (id) => {
+    setProducts(
+      products.map((product) =>
+        product.id === id
+          ? { ...product, quantity: product.quantity + 1 }
+          : product
+      )
+    );
+  };
+
+  const handleDecreaseQuantity = (id) => {
+    setProducts(
+      products.map((product) =>
+        product.id === id && product.quantity > 1
+          ? { ...product, quantity: product.quantity - 1 }
+          : product
+      )
+    );
+  };
+  const [products, setProducts] = useState([
     {
       id: "43568369139909",
       name: "Birthday",
       format: "Box of 6",
+      quantity: 1,
       weight: "4oz",
       price: "$29",
       image1:
@@ -20,6 +41,7 @@ function Cookie() {
     {
       id: "43122499289285",
       name: "Chocolate Chunk",
+      quantity: 1,
       format: "Box of 6",
       weight: "4oz",
       price: "$29",
@@ -33,6 +55,7 @@ function Cookie() {
     {
       name: "S'mores",
       format: "Box of 6",
+      quantity: 1,
       weight: "4oz",
       price: "$29",
       image1:
@@ -46,6 +69,7 @@ function Cookie() {
       name: "CARAMEL",
       format: "Box of 6",
       weight: "4oz",
+      quantity: 1,
       price: "$29",
       image1:
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=480",
@@ -57,6 +81,7 @@ function Cookie() {
     {
       name: "CARAMEL",
       format: "Box of 6",
+      quantity: 1,
       weight: "4oz",
       price: "$29",
       image1:
@@ -69,6 +94,7 @@ function Cookie() {
     {
       name: "CARAMEL",
       format: "Box of 6",
+      quantity: 1,
       weight: "4oz",
       price: "$29",
       image1:
@@ -81,6 +107,7 @@ function Cookie() {
     {
       name: "CARAMEL",
       format: "Box of 6",
+      quantity: 1,
       weight: "4oz",
       price: "$29",
       image1:
@@ -90,7 +117,7 @@ function Cookie() {
       link: "/product",
       ingredients: ["Marshmallows", "Dark chocolate", "Graham crackers"],
     },
-  ];
+  ]);
   return (
     <div className="Collection-container">
       <div className="cookies">
@@ -151,17 +178,23 @@ function Cookie() {
                 <div className="product-details">
                   <span className="price">{product.price}</span>
                   <div className="quantity-selector">
-                    <button className="Minus">
+                    <button
+                      className="Minus"
+                      onClick={() => handleDecreaseQuantity(product.id)}
+                    >
                       <span>-</span>
                     </button>
                     <input
                       type="number"
                       name="quantity"
-                      defaultValue="1"
+                      value={product.quantity}
                       pattern="[0-9]*"
                       aria-label="Quantity"
                     />
-                    <button className="Plus">
+                    <button
+                      className="Plus"
+                      onClick={() => handleIncreaseQuantity(product.id)}
+                    >
                       <span>+</span>
                     </button>
                   </div>
@@ -213,17 +246,23 @@ function Cookie() {
                 <div className="product-details">
                   <span className="price">{product.price}</span>
                   <div className="quantity-selector">
-                    <button className="Minus">
+                    <button
+                      className="Minus"
+                      onClick={() => handleDecreaseQuantity(product.id)}
+                    >
                       <span>-</span>
                     </button>
                     <input
                       type="number"
                       name="quantity"
-                      defaultValue="1"
+                      value={product.quantity}
                       pattern="[0-9]*"
                       aria-label="Quantity"
                     />
-                    <button className="Plus">
+                    <button
+                      className="Plus"
+                      onClick={() => handleIncreaseQuantity(product.id)}
+                    >
                       <span>+</span>
                     </button>
                   </div>

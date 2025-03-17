@@ -277,9 +277,11 @@
   width: 40px;
   height: 40px;
   text-align: center;
+  margin-left: 15px;
   font-size: 16px;
   border: 2px solid #ddd;
   border-radius: 5px;
+  pointer-events: none;
 }
 
 /* 📌 Nút Add to Cart */
@@ -357,6 +359,7 @@
 
     &:hover {
       mask-image: url("https://bernicebakery.com/cdn/shop/t/2/assets/bite-mask.svg?v=85915998415614872721715593152");
+      transform: rotate(15deg);
     }
   }
 
@@ -376,6 +379,7 @@
 
     &:hover {
       mask-image: url("https://bernicebakery.com/cdn/shop/t/2/assets/bite-mask.svg?v=85915998415614872721715593152");
+      transform: rotate(15deg);
     }
   }
 }

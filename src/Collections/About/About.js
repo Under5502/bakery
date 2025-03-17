@@ -11,17 +11,14 @@ function About() {
       const documentHeight = document.documentElement.scrollHeight;
       const scrollY = window.scrollY;
 
-      const scrollPercent = (scrollY / (documentHeight - windowHeight)) * 320;
+      const rawScroll = (scrollY / (documentHeight - windowHeight)) * 320;
+      const scrollPercent = Math.max(0, Math.min(rawScroll, 204));
 
-      console.log(scrollPercent);
       setScroll(scrollPercent);
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const events = [

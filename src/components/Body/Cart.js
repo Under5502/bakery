@@ -3,11 +3,41 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 function Cart({ onClose }) {
+  const getTotalPrice = () => {
+    return products
+      .reduce((total, product) => {
+        const numericPrice = parseFloat(product.price.replace("$", ""));
+        return total + numericPrice * product.quantity;
+      }, 0)
+      .toFixed(2);
+  };
+
+  const handleIncreaseQuantity = (id) => {
+    setProducts(
+      products.map((product) =>
+        product.id === id
+          ? { ...product, quantity: product.quantity + 1 }
+          : product
+      )
+    );
+  };
+
+  const handleDecreaseQuantity = (id) => {
+    setProducts(
+      products.map((product) =>
+        product.id === id && product.quantity > 1
+          ? { ...product, quantity: product.quantity - 1 }
+          : product
+      )
+    );
+  };
+
   const [products, setProducts] = useState([
     {
       id: 1,
       name: "Birthday",
       price: "$29.00",
+      quantity: 1,
       image1:
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-100_websize_noBG.png?v=1728434205&width=480",
       link: "/product",
@@ -16,6 +46,7 @@ function Cart({ onClose }) {
       id: 2,
       name: "Chocolate Chunk",
       price: "$29.00",
+      quantity: 1,
       image1:
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-83_websize_noBG.png?v=1728434128&width=480",
       link: "/product",
@@ -24,6 +55,7 @@ function Cart({ onClose }) {
       id: 3,
       name: "S'mores",
       price: "$29.00",
+      quantity: 1,
       image1:
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-89_websize_noBG.png?v=1728434267&width=480",
       link: "/product",
@@ -85,17 +117,23 @@ function Cart({ onClose }) {
                   <div className="cart-item-change">
                     <div className="cart-details">
                       <div className="cart-selector">
-                        <button className="Minus-cart">
+                        <button
+                          className="Minus-cart"
+                          onClick={() => handleDecreaseQuantity(product.id)}
+                        >
                           <span className="cart-btn">-</span>
                         </button>
                         <input
                           type="number"
                           name="quantity"
-                          defaultValue="1"
+                          value={product.quantity}
                           pattern="[0-9]*"
                           aria-label="Quantity"
                         />
-                        <button className="Plus-cart">
+                        <button
+                          className="Plus-cart"
+                          onClick={() => handleIncreaseQuantity(product.id)}
+                        >
                           <span className="cart-btn">+</span>
                         </button>
                       </div>
@@ -119,7 +157,7 @@ function Cart({ onClose }) {
             <div className="in-btn">
               <span className="checkout">Check Out</span>
               <span className="btn-cham"></span>
-              <span className="price-sum">$169.00</span>
+              <span className="price-sum">${getTotalPrice()}</span>
             </div>
           </button>
         </div>

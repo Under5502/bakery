@@ -1,9 +1,9 @@
 .product-container {
-  padding-top: 110px;
+  padding-top: 150px;
 
   .product-top {
     display: flex;
-    gap: 80px;
+    gap: 50px;
   }
   .product-infos {
     .title-birthday {
@@ -72,15 +72,21 @@
       width: 40px;
       background-color: #147c98;
       text-align: center;
+      border: none;
       /* font-size: 53px; */
       align-items: center;
       cursor: pointer;
+      &:hover {
+        mask-image: url("https://bernicebakery.com/cdn/shop/t/2/assets/bite-mask.svg?v=85915998415614872721715593152");
+        transform: rotate(15deg);
+      }
 
       span {
         font-size: 55px;
-        position: absolute;
-        top: 45%;
-        right: 37%;
+        position: relative;
+        top: -58%;
+
+        color: black;
       }
     }
 
@@ -89,17 +95,22 @@
       border-radius: 100%;
       height: 40px;
       width: 40px;
+      border: none;
       background-color: #ffa7ee;
       text-align: center;
       /* font-size: 53px; */
       align-items: center;
       cursor: pointer;
-
       span {
         font-size: 50px;
-        position: absolute;
-        top: 330px;
-        right: 395px;
+        position: relative;
+        top: -46%;
+
+        z-index: 1000px;
+      }
+      &:hover {
+        mask-image: url("https://bernicebakery.com/cdn/shop/t/2/assets/bite-mask.svg?v=85915998415614872721715593152");
+        transform: rotate(15deg);
       }
     }
     input[type="number"] {
@@ -110,6 +121,7 @@
       padding: -22px;
       margin-left: 1rem;
       width: 4rem;
+      font-size: 30px;
 
       pointer-events: none;
       text-align: center;
@@ -131,6 +143,8 @@
     font-size: 23px;
     font-weight: 600;
     margin: 20px 0;
+    cursor: pointer;
+    
 
     &:hover {
       background-color: #f8f8f2;

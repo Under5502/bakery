@@ -3,21 +3,43 @@ import "../Body/Main.scss"; // Import SCSS
 import Hero from "../Header/Hero";
 import { Link } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
+import { useState } from "react";
 const Main = () => {
   const { onAddToCart } = useOutletContext();
-  const handleClick = () => {
+  const handleClick = (product) => {
     if (typeof onAddToCart === "function") {
-      onAddToCart();
+      onAddToCart(product);
     } else {
       console.warn("onAddToCart is not a function");
     }
   };
-  const products = [
+
+  const handleIncreaseQuantity = (id) => {
+    setProducts(
+      products.map((product) =>
+        product.id === id
+          ? { ...product, quantity: product.quantity + 1 }
+          : product
+      )
+    );
+  };
+
+  const handleDecreaseQuantity = (id) => {
+    setProducts(
+      products.map((product) =>
+        product.id === id && product.quantity > 1
+          ? { ...product, quantity: product.quantity - 1 }
+          : product
+      )
+    );
+  };
+  const [products, setProducts] = useState([
     {
       id: 1,
       name: "Birthday",
       format: "Box of 6",
       weight: "4oz",
+      quantity: 1,
       price: "$29",
       image1:
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-100_websize_noBG.png?v=1728434205&width=480",
@@ -31,6 +53,7 @@ const Main = () => {
       name: "Chocolate Chunk",
       format: "Box of 6",
       weight: "4oz",
+      quantity: 1,
       price: "$29",
       image1:
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-83_websize_noBG.png?v=1728434128&width=480",
@@ -44,6 +67,7 @@ const Main = () => {
       name: "Chocolate Chunk",
       format: "Box of 6",
       weight: "4oz",
+      quantity: 1,
       price: "$29",
       image1:
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-83_websize_noBG.png?v=1728434128&width=480",
@@ -52,7 +76,7 @@ const Main = () => {
       link: "/product",
       ingredients: ["White chocolate", "Dark chocolate", "Chunks"],
     },
-  ];
+  ]);
 
   ////////Images///////////
   const images = [
@@ -180,17 +204,23 @@ const Main = () => {
               <div className="product-details">
                 <span className="price">{product.price}</span>
                 <div className="quantity-selector">
-                  <button className="Minus">
+                  <button
+                    className="Minus"
+                    onClick={() => handleDecreaseQuantity(product.id)}
+                  >
                     <span>-</span>
                   </button>
                   <input
                     type="number"
                     name="quantity"
-                    defaultValue="1"
+                    value={product.quantity}
                     pattern="[0-9]*"
                     aria-label="Quantity"
                   />
-                  <button className="Plus">
+                  <button
+                    className="Plus"
+                    onClick={() => handleIncreaseQuantity(product.id)}
+                  >
                     <span>+</span>
                   </button>
                 </div>
@@ -303,17 +333,22 @@ const Main = () => {
             <div className="product-details">
               <span className="price">{product.price}</span>
               <div className="quantity-selector">
-                <button className="Minus">
+                <button
+                  className="Minus"
+                  onClick={() => handleDecreaseQuantity(product.id)}
+                >
                   <span>-</span>
                 </button>
                 <input
                   type="number"
                   name="quantity"
-                  defaultValue="1"
+                  value={product.quantity}
                   pattern="[0-9]*"
-                  aria-label="Quantity"
                 />
-                <button className="Plus">
+                <button
+                  className="Plus"
+                  onClick={() => handleIncreaseQuantity(product.id)}
+                >
                   <span>+</span>
                 </button>
               </div>

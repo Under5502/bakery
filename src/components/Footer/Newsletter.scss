@@ -42,12 +42,22 @@ body {
     border-radius: 100px;
     padding: 0 30px;
     font-weight: 500;
+    border: none;
+    background-color: #112229;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      border: 2px solid #112229;
+      background-color: #f8f8f2;
+      color: black;
+    }
   }
 
   .Form__Input,
   .Search .Form__Input {
     border-radius: 10000px;
-    height: 50px;
+    height: 20px;
     width: 333px;
     border: none;
     outline: none;
