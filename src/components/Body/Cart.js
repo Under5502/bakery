@@ -158,13 +158,11 @@ function Cart({ onClose, onCheckoutClick }) {
             className="btn-checkout"
             onClick={onCheckoutClick}
           >
-            
             <div className="in-btn">
               <span className="checkout">Check Out</span>
               <span className="btn-cham"></span>
               <span className="price-sum">${getTotalPrice()}</span>
             </div>
-            
           </button>
         </div>
       </div>

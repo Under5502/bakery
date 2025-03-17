@@ -613,3 +613,10 @@ h2.SectionTitle.Cool_Text_Anim.Lines {
     transform: translateX(-100%);
   }
 }
+
+.product-cake {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap onto the next line */
+  justify-content: space-between; /* Maintains spacing between items */
+  margin: 40px; /* This negative margin can help manage spacing between wrap items */
+}

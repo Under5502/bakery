@@ -45,7 +45,6 @@ function Layouts() {
       animate="visible"
       exit="exit"
       variants={pageVariants}
-      transition={{ duration: 0.8, ease: "easeInOut" }}
     >
       <Navbar onCartClick={handleOpenCart} />
       <main>

@@ -7,6 +7,11 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 const Main = () => {
+  const [currentTab, setCurrentTab] = useState("cookies"); // Mặc định hiển thị Cookies
+
+  const handleTabClick = (tab) => {
+    setCurrentTab(tab);
+  };
   const { onAddToCart } = useOutletContext();
   const handleClick = (product) => {
     if (typeof onAddToCart === "function") {
@@ -59,7 +64,7 @@ const Main = () => {
       image1:
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-100_websize_noBG.png?v=1728434205&width=480",
       image2:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-111_websize_noBG.png?v=1728434172&width=480",
+        "https://bernicebakery.com/cdn/shop/files/Bernice-28.png?v=1728434336&width=480",
       link: "/product",
       ingredients: ["White chocolate", "Sprinkles"],
     },
@@ -211,22 +216,13 @@ const Main = () => {
           {products.map((product) => (
             <div key={product.id} className="product-item">
               <Link to={product.link} className="product-image">
-                {product.ingredients.map((ingredient, index) => (
-                  <span key={index} className="ingredient-label">
-                    {ingredient}
-                  </span>
-                ))}
                 <img
-                  src={product.image1}
+                  src={product.image1} // Chỉ hiển thị 1 ảnh mặc định
                   alt={product.name}
                   className="img-default"
                 />
-                <img
-                  src={product.image2}
-                  alt={product.name}
-                  className="img-hover"
-                />
               </Link>
+
               <div className="product-info">
                 <Link to={product.link}>
                   <h3>{product.name}</h3>
@@ -344,12 +340,12 @@ const Main = () => {
       <div className="Section-btn">
         <div className="Collection_Browser_Tabs">
           <div className="Collection_Browser_Tab_Button-Cookies">
-            <button>
+            <button onClick={() => handleTabClick("cookies")}>
               <span>COOKIES</span>
             </button>
           </div>
           <div className="Collection_Browser_Tab_Button-Cake">
-            <button>
+            <button onClick={() => handleTabClick("cake")}>
               <span>CAKES</span>
             </button>
           </div>
@@ -358,61 +354,125 @@ const Main = () => {
       {/* ////product//// */}
 
       <div className="product-cookies">
-        {products.map((product) => (
-          <div key={product.id} className="product-item-cookies">
-            <Link to={product.link} className="product-image-cookies">
-              {product.ingredients.map((ingredient, index) => (
-                <span key={index} className="ingredient-label">
-                  {ingredient}
-                </span>
-              ))}
-              <img
-                src={product.image1}
-                alt={product.name}
-                className="img-default"
-              />
-              <img
-                src={product.image2}
-                alt={product.name}
-                className="img-hover"
-              />
-            </Link>
-            <div className="product-info">
-              <Link to={product.link}>
-                <h3>{product.name}</h3>
-                <span>{product.format}</span>
-                <span className="separator-dot"> • </span>
-                <span>{product.weight}</span>
-              </Link>
-            </div>
-            <div className="product-details">
-              <span className="price">{product.price}</span>
-              <div className="quantity-selector">
-                <button
-                  className="Minus"
-                  onClick={() => handleDecreaseQuantity(product.id)}
-                >
-                  <span>-</span>
-                </button>
-                <input
-                  type="number"
-                  name="quantity"
-                  value={product.quantity}
-                  pattern="[0-9]*"
+        {currentTab === "cookies" &&
+          products.map((product) => (
+            <div key={product.id} className="product-item-cookies">
+              <Link to={product.link} className="product-image-cookies">
+                {product.ingredients.map((ingredient, index) => (
+                  <span key={index} className="ingredient-label">
+                    {ingredient}
+                  </span>
+                ))}
+                <img
+                  src={product.image2}
+                  alt={product.name}
+                  className="img-default"
                 />
-                <button
-                  className="Plus"
-                  onClick={() => handleIncreaseQuantity(product.id)}
-                >
-                  <span>+</span>
-                </button>
+                <img
+                  src={product.image1}
+                  alt={product.name}
+                  className="img-hover"
+                />
+              </Link>
+              <div className="product-info">
+                <Link to={product.link}>
+                  <h3>{product.name}</h3>
+                  <span>{product.format}</span>
+                  <span className="separator-dot"> • </span>
+                  <span>{product.weight}</span>
+                </Link>
               </div>
+              <div className="product-details">
+                <span className="price">{product.price}</span>
+                <div className="quantity-selector">
+                  <button
+                    className="Minus"
+                    onClick={() => handleDecreaseQuantity(product.id)}
+                  >
+                    <span>-</span>
+                  </button>
+                  <input
+                    type="number"
+                    name="quantity"
+                    value={product.quantity}
+                    pattern="[0-9]*"
+                  />
+                  <button
+                    className="Plus"
+                    onClick={() => handleIncreaseQuantity(product.id)}
+                  >
+                    <span>+</span>
+                  </button>
+                </div>
+              </div>
+              <button className="add-to-cart" onClick={handleClick}>
+                Add To Cart
+              </button>
             </div>
-            <button className="add-to-cart" onClick={handleClick}>
-              Add To Cart
-            </button>
-          </div>
-        ))}
+          ))}
+      </div>
+
+      {/* Cake//////////// */}
+      <div className="product-cookies">
+        {currentTab === "cake" &&
+          products.map((product) => (
+            <div key={product.id} className="product-item-cookies">
+              <Link to={product.link} className="product-image-cookies">
+                {product.ingredients.map((ingredient, index) => (
+                  <span key={index} className="ingredient-label">
+                    {ingredient}
+                  </span>
+                ))}
+                <img
+                  src={product.image1}
+                  alt={product.name}
+                  className="img-default"
+                />
+                <img
+                  src={product.image2}
+                  alt={product.name}
+                  className="img-hover"
+                />
+              </Link>
+              <div className="product-info">
+                <Link to={product.link}>
+                  <h3>{product.name}</h3>
+                  <span>{product.format}</span>
+                  <span className="separator-dot"> • </span>
+                  <span>{product.weight}</span>
+                </Link>
+              </div>
+              <div className="product-details">
+                <span className="price">{product.price}</span>
+                <div className="quantity-selector">
+                  <button
+                    className="Minus"
+                    onClick={() => handleDecreaseQuantity(product.id)}
+                  >
+                    <span>-</span>
+                  </button>
+                  <input
+                    type="number"
+                    name="quantity"
+                    value={product.quantity}
+                    pattern="[0-9]*"
+                  />
+                  <button
+                    className="Plus"
+                    onClick={() => handleIncreaseQuantity(product.id)}
+                  >
+                    <span>+</span>
+                  </button>
+                </div>
+              </div>
+              <button
+                className="add-to-cart"
+                onClick={() => handleClick(product)}
+              >
+                Add To Cart
+              </button>
+            </div>
+          ))}
       </div>
 
       {/* Bottom */}
