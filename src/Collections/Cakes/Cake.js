@@ -2,6 +2,7 @@ import { Link, useOutletContext } from "react-router-dom";
 
 import "../Cakes/Cake.scss";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 function Cake() {
   const handleIncreaseQuantity = (id) => {
@@ -23,6 +24,23 @@ function Cake() {
       )
     );
   };
+  const slideFromBottomLeft = {
+    hidden: {
+      opacity: 0,
+      x: -50,
+      y: -100,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+    },
+  };
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   const { onAddToCart } = useOutletContext();
   const [products, setProducts] = useState([
     {
@@ -149,8 +167,15 @@ function Cake() {
             </p>
           </div>
         </div>
-        <div className="Collection-bottom-cake">
-          <div className="product-cookies1-cake">
+        <motion.div
+          className="Collection-bottom-cake"
+          initial="hidden"
+          animate="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          variants={slideFromBottomLeft}
+        >
+          <iv className="product-cookies1-cake">
             {products.map((product) => (
               <div key={product.id} className="product-item-cookies">
                 <Link to={product.link} className="product-image-cookies">
@@ -207,15 +232,21 @@ function Cake() {
                 </button>
               </div>
             ))}
-          </div>
-        </div>
+          </iv>
+        </motion.div>
       </div>
       <div className="special-cookies-cake">
         <div className="Collection-top-cake">
-          <h2>
+          <motion.h2
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            variants={slideFromBottomLeft}
+          >
             <span>SPECIALTY AND</span>
             <span>SEASONAL CAKES</span>
-          </h2>
+          </motion.h2>
         </div>
         <div className="Collection-bottom-cake">
           <div className="product-cookies1-cake">
@@ -279,7 +310,16 @@ function Cake() {
         </div>
       </div>
       <div className="cookies-footer-cake">
-        <h2 className="h2-cake-cake">ROOM FOR MORE?</h2>
+        <motion.h2
+          className="h2-cake-cake"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          variants={fadeInUp}
+        >
+          ROOM FOR MORE?
+        </motion.h2>
         <div className="cookies-footer-children-cake">
           <div className="other-cookies-cake">
             <div>

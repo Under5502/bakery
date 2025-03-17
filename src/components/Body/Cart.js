@@ -2,7 +2,7 @@ import "../Body/Cart.scss";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-function Cart({ onClose }) {
+function Cart({ onClose, onCheckoutClick }) {
   const getTotalPrice = () => {
     return products
       .reduce((total, product) => {
@@ -153,12 +153,18 @@ function Cart({ onClose }) {
           </div>
         </div>
         <div className="cart-bottom">
-          <button className="btn-checkout">
+          <button
+            type="button"
+            className="btn-checkout"
+            onClick={onCheckoutClick}
+          >
+            
             <div className="in-btn">
               <span className="checkout">Check Out</span>
               <span className="btn-cham"></span>
               <span className="price-sum">${getTotalPrice()}</span>
             </div>
+            
           </button>
         </div>
       </div>

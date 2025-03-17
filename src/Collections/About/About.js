@@ -1,9 +1,14 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import { useEffect, useState } from "react";
 import "../About/About.scss";
+import { motion } from "framer-motion";
 
 function About() {
   const [scroll, setScroll] = useState(0);
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0 },
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,8 +51,23 @@ function About() {
     <div className="about-container">
       <div className="about">
         <div className="Collection-about">
-          <h2>ABOUT US</h2>
-          <div className="Cool_Anim-about">
+          <h2
+            initial="hidden"
+            animate="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            variants={fadeInUp}
+          >
+            ABOUT US
+          </h2>
+          <motion.div
+            className="Cool_Anim-about"
+            initial="hidden"
+            animate="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            variants={fadeInUp}
+          >
             <p>
               <span>
                 We are a cozy and charming local bakehouse in the Saint Henri
@@ -73,7 +93,7 @@ function About() {
                 goodness
               </span>
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
 
@@ -81,7 +101,14 @@ function About() {
 
       {/* /////////// */}
 
-      <div className="Timeline-container">
+      <motion.div
+        className="Timeline-container"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        variants={fadeInUp}
+      >
         <div className="Timeline_Content">
           <h2>A passion for baking</h2>
           <p>
@@ -118,11 +145,18 @@ function About() {
             }}
           />
         </div>
-      </div>
+      </motion.div>
 
       {/* .///////////////// */}
 
-      <div className="Timeline-container">
+      <motion.div
+        className="Timeline-container"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        variants={fadeInUp}
+      >
         <div className="Timeline_Content">
           <h2>A passion for baking</h2>
           <p>
@@ -159,9 +193,16 @@ function About() {
             }}
           />
         </div>
-      </div>
+      </motion.div>
       {/*  */}
-      <div className="Timeline-container">
+      <motion.div
+        className="Timeline-container"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        variants={fadeInUp}
+      >
         <div className="Timeline_Content">
           <h2>A passion for baking</h2>
           <p>
@@ -198,7 +239,7 @@ function About() {
             }}
           />
         </div>
-      </div>
+      </motion.div>
 
       {/* Scroll  */}
 

@@ -4,6 +4,8 @@ import Hero from "../Header/Hero";
 import { Link } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
 import { useState } from "react";
+import { motion } from "framer-motion";
+
 const Main = () => {
   const { onAddToCart } = useOutletContext();
   const handleClick = (product) => {
@@ -32,6 +34,19 @@ const Main = () => {
           : product
       )
     );
+  };
+
+  const slideFromBottomLeft = {
+    hidden: {
+      opacity: 0,
+      x: -50,
+      y: 50,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+    },
   };
   const [products, setProducts] = useState([
     {
@@ -129,7 +144,14 @@ const Main = () => {
       <Hero />
       <section className="main-section">
         {/* Tiêu đề */}
-        <div className="main-heading">
+        <motion.div
+          className="main-heading"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+          variants={slideFromBottomLeft}
+        >
           <h2 className="main-title">
             <span>Good food should</span>
 
@@ -137,23 +159,35 @@ const Main = () => {
 
             <span>nourish the soul.</span>
           </h2>
-          <img
+          <motion.img
             src="https://bernicebakery.com/cdn/shop/files/cake.svg?v=1714513357&width=400"
             alt="Cake Illustration"
             width="200"
             height="132"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            variants={slideFromBottomLeft}
           />
-        </div>
+        </motion.div>
 
         {/* Nội dung */}
-        <div className="main-content">
+        <motion.div
+          className="main-content"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          variants={slideFromBottomLeft}
+        >
           <p>
             We are centrally located in the neighborhood of St-Henri. Stop by
             for a coffee, catch up on work, or grab some of our delicious
             goodies to go. With cookies and cakes available for online order,
             there’s something for everyone, and every occasion.
           </p>
-        </div>
+        </motion.div>
       </section>
 
       {/*  Product */}
@@ -244,18 +278,39 @@ const Main = () => {
             className="SectionTitle Cool_Text_Anim Lines"
             aria-label="The best things in life are sweet"
           >
-            <span className="Line" aria-hidden="true">
+            <motion.span
+              className="Line"
+              aria-hidden="true"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              variants={slideFromBottomLeft}
+            >
               The best things in life
-            </span>
-            <span className="Line" aria-hidden="true">
+            </motion.span>
+            <motion.span
+              className="Line"
+              aria-hidden="true"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              variants={slideFromBottomLeft}
+            >
               are sweet
-            </span>
+            </motion.span>
           </h2>
         </div>
         <div className="Arches_Display_Container">
-          <div
+          <motion.div
             className="Arches_Display_Inner Cool_Anim Fade Multiple"
             style={{ transform: "translate(-13.3429px, 0px)", opacity: 1 }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            variants={slideFromBottomLeft}
           >
             {images.map((image, index) => (
               <div
@@ -282,7 +337,7 @@ const Main = () => {
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
       {/* GallerySection */}

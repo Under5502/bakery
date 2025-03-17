@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../Footer/Newsletter.scss";
 import Button from "react-bootstrap/Button";
+import { motion } from "framer-motion";
 
 function Newsletter() {
   const [email, setEmail] = useState("");
@@ -11,15 +12,41 @@ function Newsletter() {
     console.log("Submitted:", email);
   };
 
+  const slideFromBottomLeft = {
+    hidden: {
+      opacity: 0,
+      x: -50,
+      y: 50,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+    },
+  };
+
   return (
     <div className="Newsletter_Container">
-      <h2
-        className="Cool_Text_Anim Lines"
+      <motion.h2
+        className="Cool_Text_Anim"
         aria-label="Get 15% off your first order"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        variants={slideFromBottomLeft}
       >
         Get 15% off your first order
-      </h2>
-      <p>Subscribe to our newsletter and get 15% off your first purchase!</p>
+      </motion.h2>
+      <motion.p
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        variants={slideFromBottomLeft}
+      >
+        Subscribe to our newsletter and get 15% off your first purchase!
+      </motion.p>
       <form
         method="post"
         action="/contact#newsletter_id"

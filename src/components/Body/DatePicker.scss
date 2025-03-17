@@ -1,0 +1,90 @@
+.Date_Picker_Popup_Content {
+  position: relative;
+  border: 1px solid;
+  width: 50%;
+  height: 100%;
+  background-color: white;
+  z-index: 9999999 !important;
+  position: fixed !important;
+
+  top: 0;
+  right: 25%;
+  .Drawer_Top {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px;
+  }
+  .date {
+    font-size: 25px;
+    text-align: center;
+    padding-top: 15px;
+  }
+
+  .date-hr {
+    margin: 0 25px;
+    border: 2px solid #147c98;
+    margin-top: -10px;
+  }
+  .date-p {
+    margin: 35px 20px;
+    line-height: 1.25;
+  }
+
+  .Drawer_Close {
+    border: none;
+    width: 40px;
+    height: 65px;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .form-date {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 0 20px;
+  }
+
+  .title-date {
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  .date-submit {
+    height: 60px;
+    border: solid #147c98;
+    border-radius: 15px;
+  }
+  .Cart_Checkout_Button {
+    align-items: center;
+    border: none;
+    width: 100%;
+    background-color: #ffa7ee;
+    height: 60px;
+    border-radius: 50px;
+    margin: 25px 0;
+    margin-bottom: 40px;
+    cursor: pointer;
+
+    &:hover {
+      border: 2px solid #ffa7ee;
+      background-color: white;
+      color: black;
+    }
+  }
+  .span-date {
+    font-weight: 800;
+    font-size: 25px;
+    text-transform: uppercase;
+  }
+
+  input[type="date"] {
+    font-size: 1.2rem;
+    padding: 0 20px;
+  }
+
+  input[type="time"] {
+    font-size: 1.2rem;
+    padding: 0 20px;
+  }
+}

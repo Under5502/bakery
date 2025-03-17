@@ -2,6 +2,7 @@ import "../Cookies/Cookie.scss";
 import { Link } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
 import { useState } from "react";
+import { motion } from "framer-motion";
 function Cookie() {
   const { onAddToCart } = useOutletContext();
   const handleIncreaseQuantity = (id) => {
@@ -23,6 +24,23 @@ function Cookie() {
       )
     );
   };
+  const slideFromBottomLeft = {
+    hidden: {
+      opacity: 0,
+      x: -50,
+      y: 50,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+    },
+  };
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   const [products, setProducts] = useState([
     {
       id: "43568369139909",
@@ -146,7 +164,14 @@ function Cookie() {
             </p>
           </div>
         </div>
-        <div className="Collection-bottom">
+        <motion.div
+          className="Collection-bottom"
+          initial="hidden"
+          animate="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          variants={slideFromBottomLeft}
+        >
           <div className="product-cookies1">
             {products.map((product) => (
               <div key={product.id} className="product-item-cookies">
@@ -205,14 +230,20 @@ function Cookie() {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
       <div className="special-cookies">
         <div className="Collection-top">
-          <h2>
+          <motion.h2
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            variants={slideFromBottomLeft}
+          >
             <span>SPECIALTY</span>
             <span>COOKIES</span>
-          </h2>
+          </motion.h2>
         </div>
         <div className="Collection-bottom">
           <div className="product-cookies1">
@@ -276,7 +307,16 @@ function Cookie() {
         </div>
       </div>
       <div className="cookies-footer">
-        <h2 className="h2-cake">ROOM FOR MORE?</h2>
+        <motion.h2
+          className="h2-cake"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          variants={fadeInUp}
+        >
+          ROOM FOR MORE?
+        </motion.h2>
         <div className="cookies-footer-children">
           <div className="other-cookies">
             <div>
