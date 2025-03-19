@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../Header/Hero.scss";
+import "./Hero.scss";
 import { motion } from "framer-motion";
 
 const Hero = () => {

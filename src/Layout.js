@@ -1,6 +1,6 @@
 import Cart from "./components/Cart/Cart";
-import Footer from "./Page/Footer/Footer";
-import Newsletter from "./Page/Footer/Newsletter";
+import Footer from "./components/Footer/Footer";
+import Newsletter from "./components/Footer/Newsletter";
 import Navbar from "./components/Header/Navbar";
 import DatePicker from "./components/Cart/DatePicker";
 import { useState } from "react";
