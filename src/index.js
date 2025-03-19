@@ -8,7 +8,7 @@ import Cookie from "./Collections/Cookies/Cookie";
 import Cake from "./Collections/Cakes/Cake";
 import About from "./Collections/About/About";
 import Contact from "./Collections/Contact/Contact";
-import ProductPage from "./ProductPage/ProductPage";
+import ProductPage from "./Page/ProductPage/ProductPage";
 import ScrollTop from "./components/ScrollTop";
 import Main from "./Page/Body/Main";
 import DatePicker from "./components/Cart/DatePicker";

@@ -1,5 +1,5 @@
 import { Link, useOutletContext } from "react-router-dom";
-import "../ProductPage/ProductPage.scss";
+import "./ProductPage.scss";
 import React from "react";
 import { useState } from "react";
 
