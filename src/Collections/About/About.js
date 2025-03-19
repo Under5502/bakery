@@ -15,9 +15,13 @@ function About() {
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
       const scrollY = window.scrollY;
+      const isMobile = window.innerWidth <= 768;
+      const baseScroll = isMobile ? 525 : 320;
+      const rawScroll =
+        (scrollY / (documentHeight - windowHeight)) * baseScroll;
 
-      const rawScroll = (scrollY / (documentHeight - windowHeight)) * 320;
-      const scrollPercent = Math.max(0, Math.min(rawScroll, 204));
+      const maxScroll = isMobile ? 520 : 245;
+      const scrollPercent = Math.max(0, Math.min(rawScroll, maxScroll));
 
       setScroll(scrollPercent);
     };
@@ -57,6 +61,7 @@ function About() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             variants={fadeInUp}
+            className="h2-about"
           >
             ABOUT US
           </h2>
@@ -162,7 +167,7 @@ function About() {
             <h2>The birth of Bernice Bakery</h2>
             <div className="Timeline-Image-2">
               <img
-                src="https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-6.jpg?v=1716391225&width=1440"
+                src="https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-6.jpg?v=1716391225&width=700"
                 alt="Detailed description of the image"
                 className="Parallax_Image_2"
                 style={{
@@ -172,7 +177,7 @@ function About() {
             </div>
           </div>
           <div className="about-p2">
-            <p>
+            <p className="p-p2">
               Honing his vast culinary experience, and channeling into a
               catering company for many years, allowed Jami to gather the
               strength to open up a location where more people could come and
@@ -183,7 +188,7 @@ function About() {
               walking into a familiar kitchen pantry where your mom or
               grandmother would be baking away for loved ones.
             </p>
-            <p>
+            <p className="p-p2">
               The early 2020 opening was postponed due to construction delays,
               and then postponed yet again due to a little pandemic…..
               nevertheless, the doors were opened in August of that year. Right
@@ -247,23 +252,7 @@ function About() {
         <div
           className="Timeline_Line Cool_Anim Fade"
           style={{ transform: "translate(-50%, 0%)", opacity: 1 }}
-        >
-          <div className="Timeline_Inner" style={{ height: "5.1713%" }}></div>
-          {events.map((event) => (
-            <a key={event.id} href={`#${event.id}`} className="Timeline_Anchor">
-              <div className="Contain_Fluid">
-                <img
-                  className="img-timeline"
-                  src={`//bernicebakery.com/cdn/shop/files/${event.image}?v=1738794346&width=100`}
-                  alt=""
-                  srcSet={`//bernicebakery.com/cdn/shop/files/${event.image}?v=1738794346&width=40 40w`}
-                  width={event.width}
-                  height={event.height}
-                />
-              </div>
-            </a>
-          ))}
-        </div>
+        ></div>
 
         {/* /////////////////// */}
 

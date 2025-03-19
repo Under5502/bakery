@@ -18,6 +18,9 @@
     color: #147c98;
 
     width: 4000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .main-title {
     font-size: 46px;
@@ -68,6 +71,111 @@
       transform: translateY(-15px);
     }
   }
+}
+
+.main-section {
+  position: relative;
+  text-align: center;
+  padding: 80px 0;
+  background: #f8f8f2;
+  color: #112229;
+  display: flex;
+
+  gap: 100px;
+
+  .main-heading {
+    align-items: center;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 1;
+    color: #147c98;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: 180px;
+      height: auto;
+      margin-top: 20px;
+    }
+  }
+
+  .main-title {
+    font-size: 40px;
+    color: #147c98;
+
+    span {
+      display: block;
+      font-size: 42px;
+    }
+  }
+
+  .main-content {
+    padding: 0 20px;
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 24px;
+    line-height: 1.6;
+    color: #147c98;
+
+    p {
+      font-family: "balto", sans-serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      text-align: left;
+      margin: 0;
+    }
+  }
+
+  .parallax-image {
+    position: relative;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    animation: parallaxMove 5s infinite alternate ease-in-out;
+
+    img {
+      width: 150px;
+      height: auto;
+    }
+  }
+  @media (max-width: 768px) {
+    padding: 40px 10px;
+    gap: 50px;
+    display: flex;
+    flex-direction: column;
+    .main-heading {
+      font-size: 24px;
+      img {
+        width: 120px;
+      }
+    }
+
+    .main-title {
+      font-size: 28px;
+      margin-top: 20p;
+
+      span {
+        font-size: 30px;
+        font-weight: 800;
+      }
+    }
+
+    .main-content {
+      font-size: 18px;
+      padding: 0%;
+
+      p {
+        font-size: 18px;
+        text-align: center;
+        margin-left: 0;
+        margin-right: -60px;
+      }
+    }
+  }
+
+  // ** Responsive for Mobile **
 }
 
 ////////product css///////////////////////
@@ -285,6 +393,57 @@
 }
 
 /* 📌 Nút Add to Cart */
+@media (max-width: 768px) {
+  /* Làm mềm kích thước sản phẩm trên mobile */
+  .product-item {
+    width: 100%;
+    flex-basis: 100%;
+    height: auto;
+    padding: 20px;
+    border-radius: 150px 150px 30px 30px;
+  }
+
+  .product-image {
+    height: 200px;
+  }
+
+  .product-info h3 {
+    font-size: 18px;
+  }
+
+  .product-info span {
+    font-size: 12px;
+  }
+
+  .price {
+    font-size: 18px;
+  }
+
+  .quantity-selector button,
+  .quantity-selector input {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+
+  .quantity-selector input {
+    font-size: 14px;
+  }
+
+  .add-to-cart {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  /* Chữ chạy nền: giảm font size và tránh tràn */
+  .marquee-content div {
+    font-size: 36px !important;
+  }
+
+  .marquee-content {
+    gap: 30px;
+  }
+}
 .products-section {
   display: flex;
   justify-content: space-around;
@@ -391,12 +550,32 @@
   font-size: 1.5rem;
   font-weight: 500;
   cursor: pointer;
+  border: 2px solid #ffa7ee;
   z-index: 2;
   border-radius: 100px;
   background-color: #ffa7ee;
-  &:hover {
-    background-color: #f8f8f2;
-  }
+  transition: 0.3s ease all;
+  position: relative; /* Đảm bảo phần tử chính có thể chứa ::before */
+  overflow: hidden; /* Đảm bảo phần tử ::before không vượt ra ngoài */
+}
+
+.add-to-cart:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  height: 100%;
+  background-color: white;
+  z-index: -1;
+  transform-origin: bottom left;
+  transform: rotate(-90deg);
+  transition: 0.5s;
+}
+
+.add-to-cart:hover:before {
+  transform: rotate(0deg);
 }
 
 //////Images//////
@@ -440,6 +619,53 @@ h2.SectionTitle.Cool_Text_Anim.Lines {
       display: block; // Removes bottom gap
       transition: transform 0.8s ease-in-out;
       // Smooth transform effect
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    gap: 16px;
+
+    .Window_Image1 {
+      border-radius: 100px 100px 0 0;
+      width: 50%;
+      max-width: 90vw;
+
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        aspect-ratio: 3/4; // Giữ tỉ lệ đứng
+      }
+    }
+
+    .Arches_Display_Heading {
+      text-align: center;
+      padding: 0 10px;
+
+      h2 {
+        font-size: 24px;
+        line-height: 1.4;
+        .Line {
+          font-size: 36px;
+          line-height: 1.4;
+          font-weight: 800;
+        }
+      }
+    }
+
+    .Arches_Display_Container {
+      width: 100%;
+      overflow-x: scroll;
+      display: flex;
+      flex-direction: row;
+      scroll-snap-type: x mandatory;
+
+      .Window_Image1 {
+        flex: 0 0 auto;
+        scroll-snap-align: center;
+        margin-right: 12px;
+      }
     }
   }
 }
@@ -517,6 +743,63 @@ h2.SectionTitle.Cool_Text_Anim.Lines {
   }
 }
 ///product////
+///
+@media screen and (max-width: 768px) {
+  .product-cookies {
+    margin: 20px 10px; // giảm margin cho mobile
+    flex-direction: column;
+    gap: 20px; // tạo khoảng cách giữa các item
+  }
+
+  .product-item-cookies {
+    max-width: 100%; // chiếm toàn bộ chiều ngang
+    margin: 0 auto 20px auto;
+    padding: 12px;
+    min-height: auto; // bỏ chiều cao cố định nếu cần
+  }
+
+  .product-image-cookies {
+    height: 220px; // giảm chiều cao hình ảnh cho mobile
+  }
+
+  .product-item-cookies h3 {
+    font-size: 18px;
+  }
+
+  .product-info span,
+  .price {
+    font-size: 14px;
+  }
+
+  .quantity-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    button {
+      width: 28px;
+      height: 28px;
+      font-size: 18px;
+    }
+
+    input {
+      width: 40px;
+      text-align: center;
+    }
+  }
+
+  .add-to-cart {
+    padding: 8px 12px;
+    font-size: 14px;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .ingredient-label {
+    font-size: 12px;
+    padding: 2px 6px;
+  }
+}
 
 .product-cookies {
   display: flex;
@@ -526,7 +809,6 @@ h2.SectionTitle.Cool_Text_Anim.Lines {
 }
 .product-item-cookies {
   box-sizing: border-box;
-  flex: 1 1 200px; /* Adjusts basis to allow shrinking below 200px if necessary */
   margin: 10px; /* Adjust spacing as needed */
   max-width: 416px; /* Maximum width for each item */
   min-height: 623px; /* Keeps height consistent */
@@ -536,7 +818,6 @@ h2.SectionTitle.Cool_Text_Anim.Lines {
   justify-content: space-between;
 
   .product-image-cookies {
-    display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;

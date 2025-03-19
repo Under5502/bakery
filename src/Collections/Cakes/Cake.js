@@ -51,38 +51,38 @@ function Cake() {
       weight: "4oz",
       price: "$29",
       image1:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-100_websize_noBG.png?v=1728434205&width=480",
+        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-100_websize_noBG.png?v=1728434205&width=350",
       image2:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-111_websize_noBG.png?v=1728434172&width=480",
+        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-111_websize_noBG.png?v=1728434172&width=350",
       link: "/product",
-      ingredients: ["White chocolate", "Sprinkles"],
+      ingredients: [],
     },
     {
       id: "43122499289285",
       name: "Chocolate Chunk",
+      quantity: 1,
       format: "Box of 6",
       weight: "4oz",
-      quantity: 1,
       price: "$29",
       image1:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-83_websize_noBG.png?v=1728434128&width=480",
+        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-83_websize_noBG.png?v=1728434128&width=350",
       image2:
-        "https://bernicebakery.com/cdn/shop/files/Bernice-28.png?v=1728434336&width=480",
+        "https://bernicebakery.com/cdn/shop/files/Bernice-28.png?v=1728434336&width=350",
       link: "/product",
-      ingredients: ["White chocolate", "Dark chocolate", "Chunks"],
+      ingredients: [],
     },
     {
       name: "S'mores",
       format: "Box of 6",
+      quantity: 1,
       weight: "4oz",
       price: "$29",
-      quantity: 1,
       image1:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-89_websize_noBG.png?v=1728434267&width=480",
+        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-89_websize_noBG.png?v=1728434267&width=350",
       image2:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-130_websize_noBG.png?v=1728434280&width=480",
+        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-130_websize_noBG.png?v=1728434280&width=350",
       link: "/product",
-      ingredients: ["Marshmallows", "Dark chocolate", "Graham crackers"],
+      ingredients: [],
     },
     {
       name: "CARAMEL",
@@ -91,11 +91,11 @@ function Cake() {
       quantity: 1,
       price: "$29",
       image1:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=480",
+        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=350",
       image2:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=352 352w, //bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=480 480w",
+        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=350",
       link: "/product",
-      ingredients: ["Marshmallows", "Dark chocolate", "Graham crackers"],
+      ingredients: [],
     },
     {
       name: "CARAMEL",
@@ -104,11 +104,11 @@ function Cake() {
       quantity: 1,
       price: "$29",
       image1:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=480",
+        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=350",
       image2:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=352 352w, //bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=480 480w",
+        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=350",
       link: "/product",
-      ingredients: ["Marshmallows", "Dark chocolate", "Graham crackers"],
+      ingredients: [],
     },
     {
       name: "CARAMEL",
@@ -117,11 +117,11 @@ function Cake() {
       quantity: 1,
       price: "$29",
       image1:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=480",
+        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=350",
       image2:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=352 352w, //bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=480 480w",
+        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=350",
       link: "/product",
-      ingredients: ["Marshmallows", "Dark chocolate", "Graham crackers"],
+      ingredients: [],
     },
     {
       name: "CARAMEL",
@@ -130,11 +130,11 @@ function Cake() {
       quantity: 1,
       price: "$29",
       image1:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=480",
+        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=350",
       image2:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=352 352w, //bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=480 480w",
+        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=350",
       link: "/product",
-      ingredients: ["Marshmallows", "Dark chocolate", "Graham crackers"],
+      ingredients: [],
     },
   ]);
   return (

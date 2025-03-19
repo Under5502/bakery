@@ -2,6 +2,109 @@
   background-color: #f8f8f2;
   padding: 155px 70px;
 
+  .Cool_Anim {
+    margin-right: 40%;
+    @media (max-width: 768px) {
+      margin: 0;
+      padding-right: 20px;
+      margin-right: -110px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 0;
+    padding-top: 150px;
+    margin: 0 20px;
+
+    .Cool_Anim {
+      span {
+        padding: 0;
+      }
+    }
+    .cookies-footer-children {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .other-cookies,
+    .special-cake {
+      flex-basis: 100%;
+      border-radius: 1rem;
+      padding: 2rem;
+    }
+
+    .other-cookies img,
+    .special-cake img {
+      width: 150px;
+      height: 150px;
+    }
+
+    h3 {
+      font-size: 24px; /* Giảm kích thước font cho màn hình nhỏ */
+    }
+
+    .cookies {
+      .Collection-top h2 {
+        font-size: 50px; /* Điều chỉnh lại tiêu đề cho mobile */
+        text-align: center;
+      }
+
+      .Cool_Anim p {
+        font-size: 14px; /* Giảm kích thước văn bản */
+      }
+
+      .product-cookies1 {
+        display: flex;
+      }
+
+      .product-item-cookies {
+        margin-bottom: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cookies-footer-children {
+        .other-cookies img,
+        .special-cake img {
+          width: 120px;
+          height: 120px;
+        }
+
+        h3 {
+          font-size: 20px;
+        }
+      }
+
+      .Collection-top h2 {
+        font-size: 20px;
+      }
+
+      .product-cookies1 {
+        grid-template-columns: 1fr; /* Đặt sản phẩm theo cột cho màn hình nhỏ */
+      }
+
+      .product-item-cookies {
+        text-align: center; /* Căn giữa sản phẩm */
+      }
+
+      .product-info h3 {
+        font-size: 16px;
+      }
+
+      .quantity-selector {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .quantity-selector input {
+        width: 40px;
+      }
+    }
+  }
+
+  ////////////////////
   .cookies-footer-children {
     .other-cookies {
       background-color: #112229;
@@ -64,10 +167,6 @@
     font-weight: 800;
   }
 
-  .Cool_Anim {
-    padding-right: 600px;
-  }
-
   p {
     padding-right: 80px;
     font-size: 16px;
@@ -83,6 +182,7 @@
   display: flex;
   flex-wrap: wrap;
   border: none;
+  gap: 5%;
 }
 
 h2.h2-cake {

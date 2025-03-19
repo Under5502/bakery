@@ -12,6 +12,7 @@ import Contact from "./Collections/Contact/Contact";
 import ProductPage from "./ProductPage/ProductPage";
 import DatePicker from "./components/Body/DatePicker";
 import ScrollTop from "./components/ScrollTop";
+import "./App.scss";
 import { AnimatePresence, motion } from "framer-motion";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

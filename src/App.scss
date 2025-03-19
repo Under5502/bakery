@@ -1,5 +1,17 @@
+#root {
+  overflow-x: hidden;
+}
 .position-relative {
   background-color: #f8f8f2;
+}
+.container {
+  display: flex;
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 
 @tailwind base;

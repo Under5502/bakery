@@ -15,6 +15,9 @@
     .hero-h1 {
       font-size: 158px;
       font-weight: 800;
+      @media (max-width: 768px) {
+        font-size: 40px;
+      }
     }
     .indulge {
       h1 {
@@ -36,11 +39,27 @@
       transition: 0.9s all cubic-bezier(0.28, 0.71, 0, 0.98);
       transform: rotate(30deg);
       margin: 150px 80px;
-        &:hover {
+      &:hover {
         transform: scale(0.9) rotate(10deg);
 
         mask-image: url(https://bernicebakery.com/cdn/shop/t/2/assets/bite-mask.svg?v=85915998415614872721715593152);
       }
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 16px;
+        }
+
+        padding: 3rem;
+        margin: 60px 40px;
+        margin-right: 42px;
+        margin-top: -10px;
+      }
     }
+  }
+  @media (max-width: 768px) {
+    background-size: 130%; // Phóng to nhẹ hình để tránh bị zoom quá cận mặt
+    background-position: top center; // Canh chỉnh lại để bố cục đẹp hơn trên mobile
+    height: 400px;
+    background-size: cover;
   }
 }

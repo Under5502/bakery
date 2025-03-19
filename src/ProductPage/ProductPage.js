@@ -47,10 +47,9 @@ function ProductPage() {
       price: "$29",
       image1:
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-100_websize_noBG.png?v=1728434205&width=480",
-      image2:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-111_websize_noBG.png?v=1728434172&width=480",
+
       link: "/product",
-      ingredients: ["White chocolate", "Sprinkles"],
+      ingredients: [],
     },
     {
       id: "43122499289285",
@@ -61,10 +60,9 @@ function ProductPage() {
       price: "$29",
       image1:
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-83_websize_noBG.png?v=1728434128&width=480",
-      image2:
-        "https://bernicebakery.com/cdn/shop/files/Bernice-28.png?v=1728434336&width=480",
+
       link: "/product",
-      ingredients: ["White chocolate", "Dark chocolate", "Chunks"],
+      ingredients: [],
     },
     {
       name: "S'mores",
@@ -74,10 +72,9 @@ function ProductPage() {
       price: "$29",
       image1:
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-89_websize_noBG.png?v=1728434267&width=480",
-      image2:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-130_websize_noBG.png?v=1728434280&width=480",
+
       link: "/product",
-      ingredients: ["Marshmallows", "Dark chocolate", "Graham crackers"],
+      ingredients: [],
     },
   ]);
   return (
@@ -297,11 +294,6 @@ function ProductPage() {
                   src={product.image1}
                   alt={product.name}
                   className="img-default"
-                />
-                <img
-                  src={product.image2}
-                  alt={product.name}
-                  className="img-hover"
                 />
               </Link>
               <div className="product-info">

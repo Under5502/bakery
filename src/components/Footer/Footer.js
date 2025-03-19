@@ -70,17 +70,17 @@ const Footer = () => {
             </div>
           </Col>
         </Row>
-        <div className="Footer_Big_Logo">
-          <h1 className="footer-big-logo">Bernice </h1>
-        </div>
-
-        {/* Dòng Bản Quyền */}
-        <div className="footer-bottom">
-          <p>Copyright 2025 | Bernice Bakery</p>
-          <p>Terms of use | Privacy policy</p>
-          <p>Made by Casa Media</p>
-        </div>
       </Container>
+      <div className="Footer_Big_Logo">
+        <h1 className="footer-big-logo">Bernice </h1>
+      </div>
+
+      {/* Dòng Bản Quyền */}
+      <div className="footer-bottom">
+        <p>Copyright 2025 | Bernice Bakery</p>
+        <p>Terms of use | Privacy policy</p>
+        <p>Made by Casa Media</p>
+      </div>
     </footer>
   );
 };

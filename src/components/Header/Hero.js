@@ -28,7 +28,10 @@ const Hero = () => {
         variants={slideFromBottomLeft}
       >
         <div className="text-hero">
-          <h1 className="hero-h1">A BAKING LOVE AFFAIR</h1>
+          <h1 className="hero-h1">
+            A BAKING
+            <br /> LOVE AFFAIR
+          </h1>
         </div>
 
         <div className="indulge">

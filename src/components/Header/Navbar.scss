@@ -10,19 +10,22 @@
   padding: 30px 4vw;
   transition: all 1s cubic-bezier(0.28, 0.71, 0, 0.98);
 
-  .header-nav-1 {
-    display: flex;
-    gap: 210px;
-  }
   .menu-container {
     display: flex;
-    gap: 20px;
+    gap: 40px;
     font-size: 20px;
-    margin-right: 95px;
+  }
+  .menu-right {
+    display: flex;
+    gap: 20px;
+    .hamburger-menu {
+      color: white;
+    }
   }
 
   .main-menu {
     display: flex;
+    color: white;
 
     svg.Icon-cart {
       height: 12px;
@@ -31,7 +34,6 @@
 }
 
 .main-menu_right {
-  margin-top: 20px;
   display: flex;
   gap: 20px;
 }
@@ -86,10 +88,12 @@ a {
 
   .nav-light {
     display: flex;
-    gap: 230px;
+
     margin-bottom: 40px;
+    padding: 0px 4vw;
   }
 
+  /////////////////////////////////////////SEarch///////////
   .Search_Popup_Inner {
     display: flex;
     gap: 740px;
@@ -118,12 +122,8 @@ a {
 
   .menu-container-nav {
     display: flex;
-    gap: 20px;
+    gap: 40px;
     font-size: 20px;
-  }
-
-  .menu-right-nav {
-    margin-top: 22px;
   }
 
   button.Button.Button--primary {
@@ -152,6 +152,59 @@ a {
     }
   }
 
+  @media (max-width: 768px) {
+    .Search_Popup {
+      padding: 0px;
+      margin-right: 46%;
+    }
+
+    .Search_Popup_Inner {
+      flex-direction: column;
+      gap: 12px;
+      padding-bottom: 12px;
+    }
+
+    .Search.Form {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    input#result-q {
+      width: 100% !important;
+      height: 48px;
+      font-size: 16px;
+      padding-left: 16px;
+      border-radius: 50px;
+    }
+
+    input#result-q::placeholder {
+      font-size: 15px;
+    }
+
+    button.Button.Button--primary {
+      width: 190% !important;
+      height: 48px;
+      font-size: 16px;
+      border-radius: 50px;
+    }
+
+    button.search-close {
+      position: absolute;
+      top: 100px;
+      right: 10px;
+      width: 20px;
+      height: 32px;
+    }
+
+    .menu-container-nav {
+      flex-direction: column;
+      gap: 16px;
+      font-size: 16px;
+      text-align: center;
+    }
+  }
+
+  ////////////////////////////////////////////
   .main-menu-nav {
     display: flex;
 
@@ -201,4 +254,268 @@ a {
 
 .Search_Popup {
   top: 0;
+}
+
+.hamburger-menu {
+  display: none; // <-- Ẩn ở desktop
+  font-size: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #112229;
+  padding: 4px;
+}
+
+.logo-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.Logo-Light img,
+.Logo-Dark img {
+  width: 180px !important;
+  height: auto;
+}
+
+.menu_icon,
+.menu_icon-nav {
+  font-size: 20px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.mobile-nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  padding: 16px;
+  background-color: #fff;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 999;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-nav-menu a {
+  color: #112229;
+  text-decoration: none;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.mobile-nav-menu a:hover {
+  color: #ffa7ee;
+}
+
+////////////////////////
+.menu-right-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+@media screen and (max-width: 768px) {
+  /* Ẩn menu links trên mobile */
+  .main-menu-nav {
+    display: none !important;
+  }
+
+  /* Hamburger menu hiện trên mobile */
+  .hamburger-menu {
+    display: block !important;
+    font-size: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #112229;
+    padding: 4px;
+  }
+
+  /* Giữ lại phần menu-right-nav (cart + search icon) hiển thị */
+
+  .menu_icon-nav {
+    font-size: 20px;
+    color: #112229;
+    cursor: pointer;
+  }
+
+  .mobile-nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    padding: 16px;
+    background-color: #fff;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 999;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .mobile-nav-menu a {
+    color: #112229;
+    text-decoration: none;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .mobile-nav-menu a:hover {
+    color: #ffa7ee;
+  }
+}
+
+.desktop-only {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+
+  .nav-icons-right {
+    display: flex !important;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .hamburger-menu {
+    display: inline-block !important;
+    background: none;
+    font-size: 1.5rem;
+    border: none;
+    cursor: pointer;
+  }
+
+  .main-menu-nav,
+  .main-menu {
+    display: none !important;
+  }
+
+  .mobile-nav-menu {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 1rem;
+    border-top: 1px solid #ddd;
+  }
+
+  .mobile-nav-menu a {
+    padding: 0.5rem 0;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #333;
+    text-decoration: none;
+  }
+
+  .mobile-nav-menu a:hover {
+    color: #b78a64;
+  }
+}
+.header-container-nav .nav-icons-right {
+  display: flex !important;
+  gap: 20px;
+  align-items: center;
+}
+
+.header-container-nav .menu_icon-nav {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.header-container-nav .Icon-cart-nav,
+.header-container-nav .Icon-search-nav {
+  color: #333; // hoặc màu phù hợp với theme
+  font-size: 20px;
+}
+
+.desktop-only {
+  display: flex; // THÊM DÒNG NÀY
+  align-items: center;
+  gap: 40px; // hoặc tuỳ chỉnh spacing
+}
+
+.header-container-nav .main-menu-nav .menu_icon-nav svg.Icon-cart-nav {
+  height: 20px;
+}
+
+@media (max-width: 768px) {
+  .menu-right-nav,
+  .nav-icons-right {
+    gap: 10px !important;
+  }
+
+  .menu_icon-nav {
+    font-size: 18px !important;
+  }
+
+  .Icon-cart-nav,
+  .Icon-search-nav {
+    font-size: 18px !important;
+  }
+
+  .hamburger-menu {
+    font-size: 20px !important;
+    padding: 2px !important;
+  }
+
+  .Logo-Light img,
+  .Logo-Dark img {
+    width: 120px !important; // nhỏ hơn logo
+  }
+
+  .header-container,
+  .header-container-nav {
+    padding: 20px 4vw !important; // giảm padding tổng thể header
+  }
+}
+
+.header-container-nav .nav-light {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    gap: 20px;
+  }
+}
+
+.Form__Input {
+  border: 1px solid;
+  border-radius: 50px;
+  height: 50px;
+  width: 400px;
+  background-color: #ffa7ee;
+  color: white;
+  @media (max-width: 768px) {
+    width: 160%;
+  }
+}
+.Form__Input::placeholder {
+  padding-left: 20px;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+}
+.nav-icons-right {
+  display: flex;
+  gap: 20px;
 }

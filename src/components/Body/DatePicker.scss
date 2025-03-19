@@ -88,3 +88,71 @@
     padding: 0 20px;
   }
 }
+@media (max-width: 768px) {
+  .Date_Picker_Popup_Content {
+    width: 100vw;
+    height: 100vh;
+    padding: 15px;
+    overflow-y: auto;
+    right: 0;
+
+    .Popup-Inner-content {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .Drawer_Top {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .date {
+      font-size: 20px;
+      text-align: center;
+      padding-top: 10px;
+    }
+
+    .date-hr {
+      margin: 10px 0;
+    }
+
+    .date-p {
+      font-size: 15px;
+      margin: 20px 0;
+      text-align: left;
+      font-weight: 500;
+    }
+
+    .form-date {
+      gap: 12px;
+      margin: 0;
+    }
+
+    .title-date {
+      font-size: 16px;
+    }
+
+    .date-submit {
+      height: 55px;
+      font-size: 15px;
+    }
+
+    .Cart_Checkout_Button {
+      height: 50px;
+      font-size: 16px;
+    }
+
+    .span-date {
+      font-size: 18px;
+    }
+
+    .Drawer_Close {
+      width: 20px;
+      height: 35px;
+      position: absolute;
+      top: 1%;
+      right: 6%;
+    }
+  }
+}

@@ -1,54 +1,66 @@
 .Collection-container-cake {
-  padding: 155px 70px;
-  background-color: #f8f8f2;
+  padding: 150px 70px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
 
-  .cookies-footer-children-cake {
-    .other-cookies-cake {
-      background-color: #147c98;
-      flex-basis: 50%;
-      border-radius: 3rem;
-      color: #f8f8f2;
+  @media (max-width: 768px) {
+    padding: 0;
+    padding-top: 150px;
+
+    .cookies-footer-children-cake {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
+      flex-direction: column; /* Xếp theo chiều dọc */
+      gap: 20px; /* Khoảng cách giữa các phần tử */
+      padding-bottom: 20px;
 
-    .special-cake-cake {
-      background-color: #ffa7ee;
-      flex-basis: 50%;
-      border-radius: 3rem;
-      color: #f8f8f2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      padding: 3rem;
-    }
-
-    img {
-      border-radius: 50%;
-      height: 200px;
-      width: 200px;
-      margin-bottom: 30px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      transition: transform 0.3s ease;
-      cursor: pointer;
-      &:hover {
-        transform: scale(1.2);
+      .other-cookies-cake {
+        margin-top: 20px;
+        padding-top: 20px;
       }
     }
+    .Cool_Anim-cake {
+      padding: 0;
+    }
+    .cookies-cake,
+    .special-cookies-cake {
+      padding: 15px;
+    }
 
-    h3 {
-      font-family: "Apfel Grotezk", sans-serif;
-      font-weight: 800;
-      font-size: 40px;
-      text-align: center;
+    .product-item-cookies {
+      margin-bottom: 20px;
+      padding: 10px;
+    }
+
+    .product-info h3 {
+      font-size: 1.2rem;
+    }
+
+    .quantity-selector {
+      flex-direction: column;
+    }
+
+    .add-to-cart {
+      font-size: 1rem;
+      padding: 10px 20px;
+    }
+
+    .img-default,
+    .img-hover {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .product-cookies1-cake {
+      display: flex;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      flex-direction: column;
+    }
+    .Cool_Anim-cake p {
+      padding-right: 0;
     }
   }
-
   h2 {
     display: flex;
     flex-direction: column;
@@ -64,15 +76,107 @@
     font-weight: 800;
   }
 
-  .Cool_Anim-cake {
-    padding-right: 600px;
+  /* Điều chỉnh cho các thiết bị nhỏ hơn */
+  @media (max-width: 480px) {
+    h2 {
+      font-size: 3.5rem;
+      font-weight: 800;
+    }
+
+    .product-item-cookies {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .product-info {
+      text-align: center;
+    }
+
+    .quantity-selector {
+      width: 100%;
+    }
+
+    .Minus,
+    .Plus {
+      font-size: 1.5rem;
+      padding: 10px;
+    }
+  }
+}
+
+///////////////////////
+.cookies-footer-children-cake {
+  .other-cookies-cake {
+    background-color: #147c98;
+    flex-basis: 50%;
+    border-radius: 3rem;
+    color: #f8f8f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 
-  p {
-    padding-right: 80px;
-    font-size: 17px;
-    font-weight: 400;
+  .special-cake-cake {
+    background-color: #ffa7ee;
+    flex-basis: 50%;
+    border-radius: 3rem;
+    color: #f8f8f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 3rem;
   }
+
+  img {
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    margin-bottom: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  h3 {
+    font-family: "Apfel Grotezk", sans-serif;
+    font-weight: 800;
+    font-size: 40px;
+    text-align: center;
+  }
+}
+
+h2 {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  translate: none;
+  rotate: none;
+  scale: none;
+  transform: translate3d(0px, -1.01rem, 0px);
+  font-size: 5rem;
+  margin: 1rem 0;
+  text-transform: uppercase;
+  font-family: "Apfel Grotezk", sans-serif;
+  font-weight: 800;
+}
+
+.Cool_Anim-cake {
+  padding-right: 600px;
+}
+
+p {
+  padding-right: 80px;
+  font-size: 17px;
+  font-weight: 400;
+  padding-bottom: 20px;
 }
 
 .Collection-bottom-cake {
@@ -83,6 +187,7 @@
   display: flex;
   flex-wrap: wrap;
   border: none;
+  gap: 5%;
 }
 
 h2.h2-cake-cake {
@@ -92,4 +197,9 @@ h2.h2-cake-cake {
 .cookies-footer-children-cake {
   display: flex;
   gap: 4vh;
+}
+@media (min-width: 769px) {
+  .Cool_Anim-cake {
+    padding-right: 600px; // Áp dụng padding 600px chỉ cho desktop
+  }
 }

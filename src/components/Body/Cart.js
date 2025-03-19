@@ -44,7 +44,7 @@ function Cart({ onClose, onCheckoutClick }) {
     },
     {
       id: 2,
-      name: "Chocolate Chunk",
+      name: "Chocolate",
       price: "$29.00",
       quantity: 1,
       image1:

@@ -4,9 +4,12 @@ import Hero from "../Header/Hero";
 import { Link } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
 import { useState } from "react";
+import Cart from "./Cart";
 import { motion } from "framer-motion";
 
 const Main = () => {
+  const [cartItems, setCartItems] = useState([]);
+  const [isCartVisible, setIsCartVisible] = useState(false);
   const [currentTab, setCurrentTab] = useState("cookies"); // Mặc định hiển thị Cookies
 
   const handleTabClick = (tab) => {
@@ -62,11 +65,11 @@ const Main = () => {
       quantity: 1,
       price: "$29",
       image1:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-100_websize_noBG.png?v=1728434205&width=480",
+        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-100_websize_noBG.png?v=1728434205&width=340",
       image2:
-        "https://bernicebakery.com/cdn/shop/files/Bernice-28.png?v=1728434336&width=480",
+        "https://bernicebakery.com/cdn/shop/files/Bernice-28.png?v=1728434336&width=350",
       link: "/product",
-      ingredients: ["White chocolate", "Sprinkles"],
+      ingredients: [],
     },
     {
       id: 2,
@@ -76,11 +79,11 @@ const Main = () => {
       quantity: 1,
       price: "$29",
       image1:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-83_websize_noBG.png?v=1728434128&width=480",
+        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-83_websize_noBG.png?v=1728434128&width=350",
       image2:
-        "https://bernicebakery.com/cdn/shop/files/Bernice-28.png?v=1728434336&width=480",
+        "https://bernicebakery.com/cdn/shop/files/Bernice-28.png?v=1728434336&width=350",
       link: "/product",
-      ingredients: ["White chocolate", "Dark chocolate", "Chunks"],
+      ingredients: [],
     },
     {
       id: 3,
@@ -90,11 +93,11 @@ const Main = () => {
       quantity: 1,
       price: "$29",
       image1:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-83_websize_noBG.png?v=1728434128&width=480",
+        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-83_websize_noBG.png?v=1728434128&width=350",
       image2:
-        "https://bernicebakery.com/cdn/shop/files/Bernice-28.png?v=1728434336&width=480",
+        "https://bernicebakery.com/cdn/shop/files/Bernice-28.png?v=1728434336&width=350",
       link: "/product",
-      ingredients: ["White chocolate", "Dark chocolate", "Chunks"],
+      ingredients: [],
     },
   ]);
 
@@ -143,7 +146,25 @@ const Main = () => {
       link: "/product",
     },
   ];
-
+  const handleAddToCart = (product) => {
+    setCartItems((prevCartItems) => {
+      // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
+      const existingProduct = prevCartItems.find(
+        (item) => item.id === product.id
+      );
+      if (existingProduct) {
+        // Nếu sản phẩm đã có, tăng số lượng
+        return prevCartItems.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      } else {
+        // Nếu chưa có, thêm sản phẩm vào giỏ hàng với số lượng 1
+        return [...prevCartItems, { ...product, quantity: 1 }];
+      }
+    });
+  };
   return (
     <>
       <Hero />
@@ -427,11 +448,6 @@ const Main = () => {
                   src={product.image1}
                   alt={product.name}
                   className="img-default"
-                />
-                <img
-                  src={product.image2}
-                  alt={product.name}
-                  className="img-hover"
                 />
               </Link>
               <div className="product-info">

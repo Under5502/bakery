@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Main from "./components/Body/Main";
 import Cart from "./components/Body/Cart";
 import DatePicker from "./components/Body/DatePicker";
+import "./App.scss";
 
 function App() {
   const [isCartVisible, setIsCartVisible] = useState(false);
