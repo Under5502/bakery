@@ -1,10 +1,10 @@
 import React from "react";
-import "../Body/Main.scss"; // Import SCSS
-import Hero from "../Header/Hero";
+import "./Main.scss"; // Import SCSS
+import Hero from "../../components/Header/Hero";
 import { Link } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
 import { useState } from "react";
-import Cart from "./Cart";
+import Cart from "../../components/Cart/Cart";
 import { motion } from "framer-motion";
 
 const Main = () => {

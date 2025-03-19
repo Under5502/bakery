@@ -1,4 +1,4 @@
-import "../Body/Cart.scss";
+import "./Cart.scss";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingBag, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons"; // ✔️ Thư viện đúng
 import { motion } from "framer-motion";
-import "../Header/Navbar.scss";
+import "./Navbar.scss";
 import { Link, useLocation } from "react-router-dom";
 
 function Navbar({ onCartClick }) {

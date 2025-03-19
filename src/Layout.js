@@ -1,8 +1,8 @@
-import Cart from "./components/Body/Cart";
-import Footer from "./components/Footer/Footer";
-import Newsletter from "./components/Footer/Newsletter";
+import Cart from "./components/Cart/Cart";
+import Footer from "./Page/Footer/Footer";
+import Newsletter from "./Page/Footer/Newsletter";
 import Navbar from "./components/Header/Navbar";
-import DatePicker from "./components/Body/DatePicker";
+import DatePicker from "./components/Cart/DatePicker";
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { motion } from "framer-motion";

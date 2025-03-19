@@ -4,14 +4,15 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import Layouts from "./Layout";
-import Main from "./components/Body/Main";
 import Cookie from "./Collections/Cookies/Cookie";
 import Cake from "./Collections/Cakes/Cake";
 import About from "./Collections/About/About";
 import Contact from "./Collections/Contact/Contact";
 import ProductPage from "./ProductPage/ProductPage";
-import DatePicker from "./components/Body/DatePicker";
 import ScrollTop from "./components/ScrollTop";
+import Main from "./Page/Body/Main";
+import DatePicker from "./components/Cart/DatePicker";
+
 import "./App.scss";
 import { AnimatePresence, motion } from "framer-motion";
 

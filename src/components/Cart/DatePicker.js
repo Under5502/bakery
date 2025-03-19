@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../Body/DatePicker.scss";
+import "./DatePicker.scss";
 
 const DatePicker = ({ onClose, onSubmit }) => {
   const [date, setDate] = useState("");
@@ -128,7 +128,7 @@ const DatePicker = ({ onClose, onSubmit }) => {
         </form>
       </div>
     </div>
-      );
+  );
 };
 
 export default DatePicker;

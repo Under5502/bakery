@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import "../Footer/Footer.scss"; // Import SCSS
+import "./Footer.scss"; // Import SCSS
 import { Link } from "react-router-dom";
 
 const Footer = () => {

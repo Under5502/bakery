@@ -1,5 +1,5 @@
   import React, { useState } from "react";
-  import "../Footer/Newsletter.scss";
+  import "./Newsletter.scss";
   import Button from "react-bootstrap/Button";
   import { motion } from "framer-motion";
 
