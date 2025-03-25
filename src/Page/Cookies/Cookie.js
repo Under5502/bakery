@@ -92,7 +92,7 @@ function Cookie() {
       image1:
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=350",
       image2:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=350",
+        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-130_websize_noBG.png?v=1728434280&width=350",
       link: "/product",
       ingredients: [],
     },
@@ -105,7 +105,7 @@ function Cookie() {
       image1:
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=350",
       image2:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=350",
+        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-130_websize_noBG.png?v=1728434280&width=350",
       link: "/product",
       ingredients: [],
     },
@@ -118,20 +118,7 @@ function Cookie() {
       image1:
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=350",
       image2:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=350",
-      link: "/product",
-      ingredients: [],
-    },
-    {
-      name: "CARAMEL",
-      format: "Box of 6",
-      weight: "4oz",
-      quantity: 1,
-      price: "$29",
-      image1:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=350",
-      image2:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=350",
+        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-130_websize_noBG.png?v=1728434280&width=350",
       link: "/product",
       ingredients: [],
     },
@@ -143,7 +130,7 @@ function Cookie() {
           <h2>COOKIES</h2>
           <div className="Cool_Anim">
             <p>
-              <span>
+              <span className="sp-ck">
                 Our cookies are known for a chewy exterior and an ooey-gooey
                 center. They are loaded with different types of chocolate and
                 tons of butter. We believe these are the key ingredients for the
@@ -156,7 +143,7 @@ function Cookie() {
                 className="c-mrkdwn__br"
                 data-stringify-type="paragraph-break"
               ></span>
-              <span>
+              <span className="sp-ck">
                 We offer over a dozen different varieties that come in both 4
                 ounces and 6 ounces. No matter what type of chocaholic you
                 identify as, you will certainly find one perfect for you.
@@ -185,11 +172,15 @@ function Cookie() {
                     src={product.image1}
                     alt={product.name}
                     className="img-default"
+                    onMouseEnter={(e) => (e.target.src = product.image2)} // Change image on hover
+                    onMouseLeave={(e) => (e.target.src = product.image1)} // Revert to the original image
                   />
                   <img
-                    src={product.image2}
+                    src={product.image1}
                     alt={product.name}
-                    className="img-hover"
+                    className="img-default"
+                    onMouseEnter={(e) => (e.target.src = product.image2)} // Change image on hover
+                    onMouseLeave={(e) => (e.target.src = product.image1)} // Revert to the original image
                   />
                 </Link>
                 <div className="product-info">
@@ -259,11 +250,15 @@ function Cookie() {
                     src={product.image1}
                     alt={product.name}
                     className="img-default"
+                    onMouseEnter={(e) => (e.target.src = product.image2)} // Change image on hover
+                    onMouseLeave={(e) => (e.target.src = product.image1)} // Revert to the original image
                   />
                   <img
-                    src={product.image2}
+                    src={product.image1}
                     alt={product.name}
-                    className="img-hover"
+                    className="img-default"
+                    onMouseEnter={(e) => (e.target.src = product.image2)} // Change image on hover
+                    onMouseLeave={(e) => (e.target.src = product.image1)} // Revert to the original image
                   />
                 </Link>
                 <div className="product-info">

@@ -5,7 +5,7 @@ import Navbar from "./components/Header/Navbar";
 import DatePicker from "./components/Cart/DatePicker";
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 function Layouts() {
   const [isCartVisible, setIsCartVisible] = useState(false);
@@ -40,34 +40,40 @@ function Layouts() {
   };
 
   return (
-    <motion.div
-      initial="hidden"
-      animate="visible"
-      exit="exit"
-      variants={pageVariants}
-    >
-      <Navbar onCartClick={handleOpenCart} />
-      <main>
-        <Outlet
-          context={{
-            onAddToCart: handleOpenCart,
-            onCheckoutClick: handleCheckoutClick,
-          }}
-        />
-      </main>
-      <Newsletter />
-      <Footer />
+    <AnimatePresence mode="wait">
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        variants={pageVariants}
+        transition={{ duration: 0.5 }}
+      >
+        <Navbar onCartClick={handleOpenCart} />
+        <main>
+          <Outlet
+            context={{
+              onAddToCart: handleOpenCart,
+              onCheckoutClick: handleCheckoutClick,
+            }}
+          />
+        </main>
+        <Newsletter />
+        <Footer />
 
-      {isCartVisible && (
-        <Cart onClose={handleCloseCart} onCheckoutClick={handleCheckoutClick} />
-      )}
-      {isDatePickerVisible && (
-        <DatePicker
-          onClose={handleDatePickerClose}
-          onSubmit={handleDatePickerSubmit}
-        />
-      )}
-    </motion.div>
+        {isCartVisible && (
+          <Cart
+            onClose={handleCloseCart}
+            onCheckoutClick={handleCheckoutClick}
+          />
+        )}
+        {isDatePickerVisible && (
+          <DatePicker
+            onClose={handleDatePickerClose}
+            onSubmit={handleDatePickerSubmit}
+          />
+        )}
+      </motion.div>
+    </AnimatePresence>
   );
 }
 

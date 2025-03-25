@@ -108,7 +108,13 @@ function Navbar({ onCartClick }) {
           </div>
         </div>
       ) : (
-        <div className="header-container-nav">
+        <motion.div
+          className="header-container-nav"
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -100, opacity: 0 }}
+          transition={{ duration: 0.2, ease: "easeOut" }}
+        >
           <div className="nav-light">
             <div className="logo-nav">
               <Link to="/" className="Logo-Dark">
@@ -162,7 +168,7 @@ function Navbar({ onCartClick }) {
                 initial="hidden"
                 animate="visible"
                 viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+                transition={{ duration: 0.8, delay: 1 }}
                 variants={slideFromBottomLeft}
               >
                 <div className="logo">
@@ -222,8 +228,20 @@ function Navbar({ onCartClick }) {
           {/* Search Popup */}
           {showSearch && (
             <div className="Search_Popup">
-              <div className="Search_Popup_Inner">
-                <form className="Search Form">
+              <motion.div
+                className="Search_Popup_Inner"
+                initial={{ y: -100, opacity: 0, delay: 1 }}
+                animate={{ y: 0, opacity: 1, delay: 1 }}
+                exit={{ y: -100, opacity: 0, delay: 1 }}
+                transition={{ duration: 0.4, ease: "easeOut", delay: 1 }}
+              >
+                <motion.form
+                  className="Search Form"
+                  initial={{ y: -100, opacity: 0, delay: 1 }}
+                  animate={{ y: 0, opacity: 1, delay: 1 }}
+                  exit={{ y: -100, opacity: 0, delay: 1 }}
+                  transition={{ duration: 0.4, ease: "easeOut", delay: 1 }}
+                >
                   <input
                     type="text"
                     name="q"
@@ -235,7 +253,7 @@ function Navbar({ onCartClick }) {
                       Search
                     </button>
                   </div>
-                </form>
+                </motion.form>
                 <button className="search-close" onClick={handleCloseSearch}>
                   <svg className="Icon Icon-close" viewBox="0 0 16 14">
                     <path
@@ -245,10 +263,10 @@ function Navbar({ onCartClick }) {
                     />
                   </svg>
                 </button>
-              </div>
+              </motion.div>
             </div>
           )}
-        </div>
+        </motion.div>
       )}
     </>
   );

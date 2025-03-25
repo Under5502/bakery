@@ -7,16 +7,16 @@
       font-size: 3rem;
     }
   }
-  padding-top: 100px;
+  padding-top: 13%;
   @media (max-width: 768px) {
     padding-top: 60px; // Reduce padding on mobile
   }
 }
 
 .about-container {
-  margin: 70px 0;
   padding-left: 70px;
   background-color: #f8f8f2;
+  padding-bottom: 7%;
   @media (max-width: 768px) {
     padding-left: 20px; // Adjust padding for mobile
     margin: 40px 0;
@@ -123,10 +123,10 @@ img.img-timeline {
 .Timeline_Line {
   position: absolute;
   width: 5px;
-  height: 245%;
+  height: 244%;
   background-color: #ccc;
   border-radius: 10px;
-  top: 85%;
+  top: 91%;
   left: 51%;
   transform: translate(-50%);
   display: flex;
@@ -147,7 +147,7 @@ img.img-timeline {
 
   background-color: #147c97;
   border-radius: 10px;
-  top: 85%;
+  top: 91%;
   left: 51%;
   transform: translate(-50%);
   display: flex;

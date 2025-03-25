@@ -98,6 +98,7 @@ a {
     display: flex;
     gap: 740px;
     padding-bottom: 20px;
+    
   }
 
   .Search.Form {
@@ -567,4 +568,9 @@ a {
   height: 36%;
   border-radius: 25px;
   object-fit: cover;
+}
+
+span.Line {
+  font-size: 90%;
+  font-weight: 900;
 }

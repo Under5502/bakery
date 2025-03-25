@@ -1,3 +1,8 @@
+.main-container {
+  background: #f8f8f2;
+}
+
+
 .main-section {
   position: relative;
   text-align: center;
@@ -21,33 +26,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-  .main-title {
-    font-size: 46px;
-    color: #147c98;
-
-    span {
-      font-size: 50px;
-    }
-  }
-  .main-content {
-    padding-left: 60px;
-    max-width: 700px;
-
-    font-size: 28px;
-    line-height: 1.6;
-    color: #333;
-    color: #147c98;
-
-    p {
-      font-family: "balto", sans-serif;
-      font-size: 1.6rem;
-      color: #147c98;
-      font-weight: 400;
-      text-align: left;
-
-      margin-left: -100px;
-    }
   }
 
   .parallax-image {
@@ -93,11 +71,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-right: 50%;
 
     img {
-      width: 180px;
+      width: 150px;
       height: auto;
       margin-top: 20px;
+      margin-right: 47%;
     }
   }
 
@@ -106,25 +86,27 @@
     color: #147c98;
 
     span {
+      font-size: 140%;
+      font-weight: 800;
       display: block;
-      font-size: 42px;
     }
   }
 
   .main-content {
-    padding: 0 20px;
+    padding-left: 5%;
     max-width: 700px;
     margin: 0 auto;
     font-size: 24px;
     line-height: 1.6;
     color: #147c98;
+    margin-left: -50%;
 
     p {
       font-family: "balto", sans-serif;
-      font-size: 1.4rem;
-      font-weight: 400;
+      font-size: 1.5rem;
+      font-weight: 500;
       text-align: left;
-      margin: 0;
+      line-height: 1.4;
     }
   }
 
@@ -167,10 +149,7 @@
       padding: 0%;
 
       p {
-        font-size: 18px;
-        text-align: center;
-        margin-left: 0;
-        margin-right: -60px;
+        font-size: 20px;
       }
     }
   }
@@ -606,6 +585,7 @@ h2.SectionTitle.Cool_Text_Anim.Lines {
   gap: 20px; // Space between each image
   padding-bottom: 80px; // Padding around the entire section for spacing from the page edges
   overflow-x: hidden;
+  background: #f8f8f2;
   .Window_Image1 {
     border-radius: 150px 150px 0 0; // Rounded corners
     overflow: hidden; // Ensures images don't spill outside the border
@@ -693,13 +673,14 @@ h2.SectionTitle.Cool_Text_Anim.Lines {
 /////////GallerySection//////////////////////////
 .Section-btn {
   padding: 50px;
+  background: #f8f8f2;
 
   .Collection_Browser_Tabs {
     display: flex;
     padding: 12px;
     .Collection_Browser_Tab_Button-Cookies {
       padding-right: 20px;
-      button {
+      .btn-main-cookie {
         display: block;
         text-align: center;
         width: 100%;
@@ -707,28 +688,34 @@ h2.SectionTitle.Cool_Text_Anim.Lines {
         border-radius: 10000px;
         border: 2px solid;
         padding: 1rem 2rem;
-        color: var(--dark);
+
         background-color: white;
         color: black;
         font-weight: 600;
+        position: relative; /* Đảm bảo phần tử chính có thể chứa ::before */
+        z-index: 2;
+        overflow: hidden;
 
         &:hover {
           background-color: black;
+          color: white;
+        }
+
+        &.active {
+          background-color: #333;
           color: white;
         }
       }
     }
 
     .Collection_Browser_Tab_Button-Cake {
-      button {
+      .btn-main-cake {
         display: block;
         text-align: center;
         width: 100%;
         height: 100%;
         border-radius: 10000px;
-
         padding: 1rem 2rem;
-
         font-weight: 600;
         color: black;
         background-color: white;
@@ -736,6 +723,12 @@ h2.SectionTitle.Cool_Text_Anim.Lines {
 
         &:hover {
           background-color: #ffa7ee;
+          color: white;
+        }
+
+        &.active {
+          // Khi tab "CAKES" được active
+          background-color: #ff66b3;
           color: white;
         }
       }
@@ -806,6 +799,7 @@ h2.SectionTitle.Cool_Text_Anim.Lines {
   flex-wrap: wrap; /* Allows items to wrap onto the next line */
   justify-content: space-between; /* Maintains spacing between items */
   margin: 40px; /* This negative margin can help manage spacing between wrap items */
+  background: #f8f8f2;
 }
 .product-item-cookies {
   box-sizing: border-box;
@@ -873,6 +867,7 @@ h2.SectionTitle.Cool_Text_Anim.Lines {
 .Testimonial-container {
   display: flex;
   overflow: hidden;
+  width: 106%;
 }
 .Testimonial {
   background-color: #147c98;
@@ -883,7 +878,28 @@ h2.SectionTitle.Cool_Text_Anim.Lines {
   border-radius: 3rem;
   margin-bottom: 30px;
 
-  animation: scroll-left 15s linear infinite;
+  animation: scroll-left 10s linear infinite;
+  .p-p {
+    width: 100%;
+    padding: 20px 0;
+    margin-right: 300px;
+  }
+}
+.Testimonial2 {
+  background-color: black;
+  color: #f8f8f2;
+  padding: 3rem;
+  width: 520px;
+  margin-right: 4vw;
+  border-radius: 3rem;
+  margin-bottom: 30px;
+
+  animation: scroll-left 10s linear infinite;
+  .p-p {
+    width: 100%;
+    padding: 20px 0;
+    margin-right: 300px;
+  }
 }
 
 @keyframes scroll-left {
@@ -900,4 +916,11 @@ h2.SectionTitle.Cool_Text_Anim.Lines {
   flex-wrap: wrap; /* Allows items to wrap onto the next line */
   justify-content: space-between; /* Maintains spacing between items */
   margin: 40px; /* This negative margin can help manage spacing between wrap items */
+}
+
+// //////////////////////////////////////////////
+.a-a-a {
+  position: absolute;
+  top: 40%;
+  right: 25%;
 }

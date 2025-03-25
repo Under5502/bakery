@@ -16,11 +16,11 @@ function About() {
       const documentHeight = document.documentElement.scrollHeight;
       const scrollY = window.scrollY;
       const isMobile = window.innerWidth <= 768;
-      const baseScroll = isMobile ? 525 : 320;
+      const baseScroll = isMobile ? 525 : 390;
       const rawScroll =
         (scrollY / (documentHeight - windowHeight)) * baseScroll;
 
-      const maxScroll = isMobile ? 520 : 245;
+      const maxScroll = isMobile ? 520 : 244;
       const scrollPercent = Math.max(0, Math.min(rawScroll, maxScroll));
 
       setScroll(scrollPercent);

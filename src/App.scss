@@ -13,6 +13,9 @@
     gap: 10px;
   }
 }
+.main-content {
+  flex: 1; /* Đẩy footer xuống dưới */
+}
 
 @tailwind base;
 @tailwind components;

@@ -1,8 +1,11 @@
 import "./Cart.scss";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 function Cart({ onClose, onCheckoutClick }) {
+  const [isCartOpen, setIsCartOpen] = useState(false); // Track cart open state
+
   const getTotalPrice = () => {
     return products
       .reduce((total, product) => {
@@ -31,6 +34,7 @@ function Cart({ onClose, onCheckoutClick }) {
       )
     );
   };
+
 
   const [products, setProducts] = useState([
     {
@@ -68,105 +72,113 @@ function Cart({ onClose, onCheckoutClick }) {
   };
 
   return (
-    <div className="cart-container">
-      <div className="cart-main">
-        <div className="cart-top">
-          <h2 className="h2-cart">CART</h2>
-          <button className="cart-close" onClick={onClose}>
-            <svg
-              className="Icon Icon-close"
-              role="presentation"
-              viewBox="0 0 16 14"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M15 0L1 14m14 0L1 0"
-                stroke="currentColor"
-                fill="none"
-                fillRule="evenodd"
-              />
-            </svg>
-          </button>
-        </div>
-        <hr className="cart-hr" />
-        <div className="cart-content">
-          <div className="cart-content-product">
-            <div className="cart-image">
-              {products.map((product) => (
-                <div key={product.id} className="cart-item">
-                  <Link to={product.link} className="cart-item">
-                    <img
-                      src={product.image1}
-                      alt={product.name}
-                      className="cart-default"
-                    />
-                  </Link>
-                </div>
-              ))}
-            </div>
-
-            <div className="cart-display">
-              {products.map((product) => (
-                <div key={product.id} className="cart-item">
-                  <div className="cart-info">
-                    <h3 className="cart-name">
-                      <Link to={product.link}>{product.name}</Link>
-                    </h3>
-                    <span className="price-cart">{product.price}</span>
+    <AnimatePresence>
+      <motion.div
+        initial={{ x: 500 }} // Bắt đầu từ phải (100px) và ẩn
+        animate={{ x: 0 }} // Trượt qua trái (0px) và hiện lên
+        exit={{ x: 500 }} // Khi đóng lại trượt về phải
+        transition={{ duration: 0.8, ease: "easeInOut" }}
+        className={`cart-container ${isCartOpen ? "open" : ""}`}
+      >
+        <div className="cart-main">
+          <div className="cart-top">
+            <h2 className="h2-cart">CART</h2>
+            <button className="cart-close" onClick={onClose}>
+              <svg
+                className="Icon Icon-close"
+                role="presentation"
+                viewBox="0 0 16 14"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15 0L1 14m14 0L1 0"
+                  stroke="currentColor"
+                  fill="none"
+                  fillRule="evenodd"
+                />
+              </svg>
+            </button>
+          </div>
+          <hr className="cart-hr" />
+          <div className="cart-content">
+            <div className="cart-content-product">
+              <div className="cart-image">
+                {products.map((product) => (
+                  <div key={product.id} className="cart-item">
+                    <Link to={product.link} className="cart-item">
+                      <img
+                        src={product.image1}
+                        alt={product.name}
+                        className="cart-default"
+                      />
+                    </Link>
                   </div>
-                  <div className="cart-item-change">
-                    <div className="cart-details">
-                      <div className="cart-selector">
+                ))}
+              </div>
+
+              <div className="cart-display">
+                {products.map((product) => (
+                  <div key={product.id} className="cart-item">
+                    <div className="cart-info">
+                      <h3 className="cart-name">
+                        <Link to={product.link}>{product.name}</Link>
+                      </h3>
+                      <span className="price-cart">{product.price}</span>
+                    </div>
+                    <div className="cart-item-change">
+                      <div className="cart-details">
+                        <div className="cart-selector">
+                          <button
+                            className="Minus-cart"
+                            onClick={() => handleDecreaseQuantity(product.id)}
+                          >
+                            <span className="cart-btn">-</span>
+                          </button>
+                          <input
+                            type="number"
+                            name="quantity"
+                            value={product.quantity}
+                            pattern="[0-9]*"
+                            aria-label="Quantity"
+                          />
+                          <button
+                            className="Plus-cart"
+                            onClick={() => handleIncreaseQuantity(product.id)}
+                          >
+                            <span className="cart-btn">+</span>
+                          </button>
+                        </div>
+                      </div>
+                      <div className="cart-remove">
                         <button
-                          className="Minus-cart"
-                          onClick={() => handleDecreaseQuantity(product.id)}
+                          className="btn-remove"
+                          onClick={() => handleRemove(product.id)}
                         >
-                          <span className="cart-btn">-</span>
-                        </button>
-                        <input
-                          type="number"
-                          name="quantity"
-                          value={product.quantity}
-                          pattern="[0-9]*"
-                          aria-label="Quantity"
-                        />
-                        <button
-                          className="Plus-cart"
-                          onClick={() => handleIncreaseQuantity(product.id)}
-                        >
-                          <span className="cart-btn">+</span>
+                          Remove
                         </button>
                       </div>
                     </div>
-                    <div className="cart-remove">
-                      <button
-                        className="btn-remove"
-                        onClick={() => handleRemove(product.id)}
-                      >
-                        Remove
-                      </button>
-                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
+          <div className="cart-bottom">
+            <button
+              type="button"
+              className="btn-checkout"
+              onClick={onCheckoutClick}
+            >
+              <div className="in-btn">
+                <span className="checkout">Check Out</span>
+                <span className="btn-cham"></span>
+                <span className="price-sum">${getTotalPrice()}</span>
+              </div>
+            </button>
+          </div>
         </div>
-        <div className="cart-bottom">
-          <button
-            type="button"
-            className="btn-checkout"
-            onClick={onCheckoutClick}
-          >
-            <div className="in-btn">
-              <span className="checkout">Check Out</span>
-              <span className="btn-cham"></span>
-              <span className="price-sum">${getTotalPrice()}</span>
-            </div>
-          </button>
-        </div>
-      </div>
-    </div>
+      </motion.div>
+    </AnimatePresence>
   );
 }
 

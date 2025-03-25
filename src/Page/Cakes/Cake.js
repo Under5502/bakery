@@ -51,9 +51,9 @@ function Cake() {
       weight: "4oz",
       price: "$29",
       image1:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-100_websize_noBG.png?v=1728434205&width=350",
+        "//bernicebakery.com/cdn/shop/files/Untitled_design_29.png?v=1729798251&width=350",
       image2:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-111_websize_noBG.png?v=1728434172&width=350",
+        "//bernicebakery.com/cdn/shop/files/Untitled_design_30.png?v=1730216848&width=350",
       link: "/product",
       ingredients: [],
     },
@@ -65,9 +65,9 @@ function Cake() {
       weight: "4oz",
       price: "$29",
       image1:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-83_websize_noBG.png?v=1728434128&width=350",
+        "//bernicebakery.com/cdn/shop/files/celebrationscake2.jpg?v=1721247301&width=350",
       image2:
-        "https://bernicebakery.com/cdn/shop/files/Bernice-28.png?v=1728434336&width=350",
+        "//bernicebakery.com/cdn/shop/files/Bernice-6.jpg?v=1727835563&width=350",
       link: "/product",
       ingredients: [],
     },
@@ -78,9 +78,9 @@ function Cake() {
       weight: "4oz",
       price: "$29",
       image1:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-89_websize_noBG.png?v=1728434267&width=350",
+        "//bernicebakery.com/cdn/shop/files/Bernice-3.jpg?v=1727835563&width=350",
       image2:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-130_websize_noBG.png?v=1728434280&width=350",
+        "//bernicebakery.com/cdn/shop/files/Bernice-7.jpg?v=1727835563&width=350",
       link: "/product",
       ingredients: [],
     },
@@ -91,9 +91,9 @@ function Cake() {
       quantity: 1,
       price: "$29",
       image1:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=350",
+        "//bernicebakery.com/cdn/shop/files/Bernice-2.jpg?v=1727835563&width=350",
       image2:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=350",
+        "//bernicebakery.com/cdn/shop/files/Bernice-12.png?v=1727835564&width=350",
       link: "/product",
       ingredients: [],
     },
@@ -104,20 +104,7 @@ function Cake() {
       quantity: 1,
       price: "$29",
       image1:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=350",
-      image2:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=350",
-      link: "/product",
-      ingredients: [],
-    },
-    {
-      name: "CARAMEL",
-      format: "Box of 6",
-      weight: "4oz",
-      quantity: 1,
-      price: "$29",
-      image1:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=350",
+        "//bernicebakery.com/cdn/shop/files/Bernice-1.jpg?v=1727835563&width=350",
       image2:
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=350",
       link: "/product",
@@ -130,9 +117,9 @@ function Cake() {
       quantity: 1,
       price: "$29",
       image1:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=350",
+        "//bernicebakery.com/cdn/shop/files/Bernice-1.jpg?v=1727835563&width=350",
       image2:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=350",
+        "//bernicebakery.com/cdn/shop/files/Bernice-11.jpg?v=1727835564&width=350",
       link: "/product",
       ingredients: [],
     },
@@ -188,11 +175,15 @@ function Cake() {
                     src={product.image1}
                     alt={product.name}
                     className="img-default"
+                    onMouseEnter={(e) => (e.target.src = product.image2)} // Change image on hover
+                    onMouseLeave={(e) => (e.target.src = product.image1)} // Revert to the original image
                   />
                   <img
-                    src={product.image2}
+                    src={product.image1}
                     alt={product.name}
-                    className="img-hover"
+                    className="img-default"
+                    onMouseEnter={(e) => (e.target.src = product.image2)} // Change image on hover
+                    onMouseLeave={(e) => (e.target.src = product.image1)} // Revert to the original image
                   />
                 </Link>
                 <div className="product-info">
@@ -262,11 +253,15 @@ function Cake() {
                     src={product.image1}
                     alt={product.name}
                     className="img-default"
+                    onMouseEnter={(e) => (e.target.src = product.image2)} // Change image on hover
+                    onMouseLeave={(e) => (e.target.src = product.image1)} // Revert to the original image
                   />
                   <img
-                    src={product.image2}
+                    src={product.image1}
                     alt={product.name}
-                    className="img-hover"
+                    className="img-default"
+                    onMouseEnter={(e) => (e.target.src = product.image2)} // Change image on hover
+                    onMouseLeave={(e) => (e.target.src = product.image1)} // Revert to the original image
                   />
                 </Link>
                 <div className="product-info">

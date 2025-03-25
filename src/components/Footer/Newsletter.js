@@ -1,32 +1,33 @@
-  import React, { useState } from "react";
-  import "./Newsletter.scss";
-  import Button from "react-bootstrap/Button";
-  import { motion } from "framer-motion";
+import React, { useState } from "react";
+import "./Newsletter.scss";
+import Button from "react-bootstrap/Button";
+import { motion } from "framer-motion";
 
-  function Newsletter() {
-    const [email, setEmail] = useState("");
+function Newsletter() {
+  const [email, setEmail] = useState("");
 
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      // Add logic to handle the subscription, such as an API call.
-      console.log("Submitted:", email);
-    };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Add logic to handle the subscription, such as an API call.
+    console.log("Submitted:", email);
+  };
 
-    const slideFromBottomLeft = {
-      hidden: {
-        opacity: 0,
-        x: -50,
-        y: 50,
-      },
-      visible: {
-        opacity: 1,
-        x: 0,
-        y: 0,
-      },
-    };
+  const slideFromBottomLeft = {
+    hidden: {
+      opacity: 0,
+      x: -50,
+      y: 50,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+    },
+  };
 
-    return (
-      <div className="Newsletter_Container">
+  return (
+    <div className="Newsletter-container">
+      <div className="Newsletter_Content">
         <motion.h2
           className="Cool_Text_Anim"
           aria-label="Get 15% off your first order"
@@ -87,7 +88,8 @@
           />
         </div>
       </div>
-    );
-  }
+    </div>
+  );
+}
 
-  export default Newsletter;
+export default Newsletter;

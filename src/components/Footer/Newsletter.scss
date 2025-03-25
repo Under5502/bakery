@@ -1,8 +1,8 @@
-body {
+.Newsletter-container {
   background-color: #f8f8f2;
+  margin-bottom: 20px;
 }
-
-.Newsletter_Container {
+.Newsletter_Content {
   border: 1px solid #333;
   background-color: #147c98;
   color: #f8f8f2;
@@ -15,7 +15,7 @@ body {
   flex-direction: column;
   align-items: center;
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 41%;
 
   .Cool_Text_Anim {
     font-size: 4rem;
@@ -23,6 +23,12 @@ body {
     text-align: center;
     margin: 40px;
     color: white;
+    font-weight: 800;
+
+    @media screen and (max-width: 768px) {
+      font-size: 21px;
+      margin: 20px 0;
+    }
   }
 
   p {
@@ -91,60 +97,79 @@ body {
   height: 140px;
 }
 ////////////////////////////////////////////////////
-
 @media screen and (max-width: 768px) {
-  .Newsletter_Container {
-    width: 90%;
-    min-width: unset;
-    padding: 1.5rem 1rem;
-    border-radius: 1rem;
+  .Newsletter-container {
+    width: 100%;
+    max-width: 396px;
+    padding: 1rem;
+    /* border-radius: 0.8rem; */
+    margin-bottom: 5%;
+  }
 
-    .Cool_Text_Anim {
-      font-size: 1.6rem; // hoặc 1.8rem tuỳ bạn muốn
-      margin: 20px 0;
-      line-height: 1.3;
-      font-weight: 800;
+  .Cool_Text_Anim {
+    font-size: 1.2rem;
+    margin: 8px 0;
+    line-height: 1.2;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .Newsletter_Content {
+    padding: 1.5rem;
+    width: 100%;
+
+    min-width: auto;
+    margin-bottom: 10%;
+    max-width: 360px;
+    display: flex;
+  }
+
+  .Newsletter_Content p {
+    font-size: 0.8rem;
+    text-align: center;
+    margin: 6px 0 12px;
+  }
+
+  .Newsletter__Inner {
+    align-items: center;
+
+    .btn-join {
+      font-size: 13px;
+      height: 53px;
+      margin-top: 0px;
+      background-color: black;
+      color: white;
     }
+  }
 
-    p {
-      font-size: 0.95rem;
-      text-align: center;
-      margin: 10px 0 25px;
-    }
+  .Form__Input {
+    width: 100%;
+    max-width: 220px;
+    font-size: 0.8rem;
+    height: 36px;
+    padding: 0.5rem;
+  }
 
-    .Newsletter__Inner {
-      align-items: center;
+  .btn-join {
+    width: 100%;
+    max-width: 220px;
+    padding: 6px;
+    font-size: 13px;
+    height: 36px;
+    margin-top: 6px;
+  }
 
-      .Form__Input {
-        width: 100%;
+  .Newsletter_Floating_Img.Left {
+    width: 35px;
+    top: -10px;
+    left: -8px;
+  }
 
-        font-size: 0.95rem;
-        height: 45px;
-      }
-
-      .btn-join {
-        width: 32%;
-        padding: 10px 20px;
-        font-size: 15px;
-        margin-left: 0;
-        height: 44px;
-        margin-left: 10px;
-      }
-    }
-
-    .Newsletter_Floating_Img.Left {
-      width: 80px;
-      top: -25px;
-      left: -20px;
-    }
-
-    .Newsletter_Floating_Img.Right {
-      width: 80px;
-      height: 80px;
-      left: auto;
-      right: -20px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
+  .Newsletter_Floating_Img.Right {
+    width: 35px;
+    height: 35px;
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }

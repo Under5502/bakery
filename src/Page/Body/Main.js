@@ -6,6 +6,7 @@ import { useOutletContext } from "react-router-dom";
 import { useState } from "react";
 import Cart from "../../components/Cart/Cart";
 import { motion } from "framer-motion";
+import CollectionsCTASection from "../MainFooter/CollectionsCTASection ";
 
 const Main = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -65,9 +66,9 @@ const Main = () => {
       quantity: 1,
       price: "$29",
       image1:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-100_websize_noBG.png?v=1728434205&width=340",
+        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-100_websize_noBG.png?v=1728434205&width=350",
       image2:
-        "https://bernicebakery.com/cdn/shop/files/Bernice-28.png?v=1728434336&width=350",
+        "//bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-111_websize_noBG.png?v=1728434172&width=350",
       link: "/product",
       ingredients: [],
     },
@@ -79,9 +80,9 @@ const Main = () => {
       quantity: 1,
       price: "$29",
       image1:
-        "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-83_websize_noBG.png?v=1728434128&width=350",
+        "//bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-89_websize_noBG.png?v=1728434267&width=350",
       image2:
-        "https://bernicebakery.com/cdn/shop/files/Bernice-28.png?v=1728434336&width=350",
+        "//bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-130_websize_noBG.png?v=1728434280&width=350",
       link: "/product",
       ingredients: [],
     },
@@ -166,7 +167,7 @@ const Main = () => {
     });
   };
   return (
-    <>
+    <div className="main-container">
       <Hero />
       <section className="main-section">
         {/* Tiêu đề */}
@@ -179,11 +180,11 @@ const Main = () => {
           variants={slideFromBottomLeft}
         >
           <h2 className="main-title">
-            <span>Good food should</span>
+            <span className="sp-h2m">Good food should</span>
 
-            <span>both comfort and</span>
+            <span className="sp-h2m">both comfort and</span>
 
-            <span>nourish the soul.</span>
+            <span className="sp-h2m">nourish the soul.</span>
           </h2>
           <motion.img
             src="https://bernicebakery.com/cdn/shop/files/cake.svg?v=1714513357&width=400"
@@ -207,7 +208,7 @@ const Main = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           variants={slideFromBottomLeft}
         >
-          <p>
+          <p className="mp">
             We are centrally located in the neighborhood of St-Henri. Stop by
             for a coffee, catch up on work, or grab some of our delicious
             goodies to go. With cookies and cakes available for online order,
@@ -238,9 +239,11 @@ const Main = () => {
             <div key={product.id} className="product-item">
               <Link to={product.link} className="product-image">
                 <img
-                  src={product.image1} // Chỉ hiển thị 1 ảnh mặc định
+                  src={product.image1}
                   alt={product.name}
                   className="img-default"
+                  onMouseEnter={(e) => (e.target.src = product.image2)} // Change image on hover
+                  onMouseLeave={(e) => (e.target.src = product.image1)} // Revert to the original image
                 />
               </Link>
 
@@ -360,14 +363,32 @@ const Main = () => {
       {/* GallerySection */}
       <div className="Section-btn">
         <div className="Collection_Browser_Tabs">
-          <div className="Collection_Browser_Tab_Button-Cookies">
-            <button onClick={() => handleTabClick("cookies")}>
-              <span>COOKIES</span>
+          <div
+            className={`Collection_Browser_Tab_Button-Cookies ${
+              currentTab === "cookies" ? "active" : ""
+            }`}
+          >
+            <button
+              className={`btn-main-cookie ${
+                currentTab === "cookies" ? "active" : ""
+              }`}
+              onClick={() => handleTabClick("cookies")}
+            >
+              <span className="main-cookies">COOKIES</span>
             </button>
           </div>
-          <div className="Collection_Browser_Tab_Button-Cake">
-            <button onClick={() => handleTabClick("cake")}>
-              <span>CAKES</span>
+          <div
+            className={`Collection_Browser_Tab_Button-Cake ${
+              currentTab === "cake" ? "active" : ""
+            }`}
+          >
+            <button
+              onClick={() => handleTabClick("cake")}
+              className={`btn-main-cake ${
+                currentTab === "cake" ? "active" : ""
+              }`}
+            >
+              <span className="main-cakes">CAKES</span>
             </button>
           </div>
         </div>
@@ -379,20 +400,13 @@ const Main = () => {
           products.map((product) => (
             <div key={product.id} className="product-item-cookies">
               <Link to={product.link} className="product-image-cookies">
-                {product.ingredients.map((ingredient, index) => (
-                  <span key={index} className="ingredient-label">
-                    {ingredient}
-                  </span>
-                ))}
-                <img
-                  src={product.image2}
-                  alt={product.name}
-                  className="img-default"
-                />
+                {/* Hover effect for image */}
                 <img
                   src={product.image1}
                   alt={product.name}
-                  className="img-hover"
+                  className="img-default"
+                  onMouseEnter={(e) => (e.target.src = product.image2)} // Change image on hover
+                  onMouseLeave={(e) => (e.target.src = product.image1)} // Revert to the original image
                 />
               </Link>
               <div className="product-info">
@@ -448,6 +462,8 @@ const Main = () => {
                   src={product.image1}
                   alt={product.name}
                   className="img-default"
+                  onMouseEnter={(e) => (e.target.src = product.image2)} // Change image on hover
+                  onMouseLeave={(e) => (e.target.src = product.image1)} // Revert to the original image
                 />
               </Link>
               <div className="product-info">
@@ -525,7 +541,7 @@ const Main = () => {
       <div className="Testimonial-container">
         <div className="Testimonial">
           <h3 className="Citations">‘’</h3>
-          <p>
+          <p className="p-p">
             Why You Need To Go: This is one of those bakeries that's like
             stepping into a little oasis. Not only is the decor so beautiful and
             so serene, but the pastries themselves are incredible, too.
@@ -541,11 +557,14 @@ const Main = () => {
             />
           </div>
         </div>
-        <div className="Testimonial">
+        <div className="Testimonial2">
           <h3 className="Citations">‘’</h3>
-          <p>
-            Bernice puts forth the kind of sweets that take you back to
-            childhood. Nothing too complex, but everything is well done.
+          <p className="p-p">
+            I still remember that bite. A moist crumb which caresses here and
+            which does not take long to melt, releasing its aromas of spices,
+            and which does not saturate the palate with sugar. A brown butter
+            icing, a bitter caramel. Bernice's Pumpkin, Carrot and Spice Layer
+            Cake is sinful!
           </p>
           <div className="Testimonial-logo">
             <img
@@ -560,7 +579,7 @@ const Main = () => {
         </div>
         <div className="Testimonial">
           <h3 className="Citations">‘’</h3>
-          <p>
+          <p className="p-p">
             I still remember that bite. A moist crumb which caresses here and
             which does not take long to melt, releasing its aromas of spices,
             and which does not saturate the palate with sugar.
@@ -576,9 +595,9 @@ const Main = () => {
             />
           </div>
         </div>
-        <div className="Testimonial">
+        <div className="Testimonial2">
           <h3 className="Citations">‘’</h3>
-          <p>
+          <p className="p-p">
             I still remember that bite. A moist crumb which caresses here and
             which does not take long to melt, releasing its aromas of spices,
             and which does not saturate the palate with sugar.
@@ -594,9 +613,9 @@ const Main = () => {
             />
           </div>
         </div>
-        <div className="Testimonial">
+        <div className="Testimonial2">
           <h3 className="Citations">‘’</h3>
-          <p>
+          <p className="p-p">
             I still remember that bite. A moist crumb which caresses here and
             which does not take long to melt, releasing its aromas of spices,
             and which does not saturate the palate with sugar.
@@ -613,7 +632,11 @@ const Main = () => {
           </div>
         </div>
       </div>
-    </>
+
+      <div className="main-footer">
+        <CollectionsCTASection />
+      </div>
+    </div>
   );
 };
 
