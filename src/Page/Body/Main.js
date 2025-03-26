@@ -4,11 +4,33 @@ import Hero from "../../components/Header/Hero";
 import { Link } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
 import { useState } from "react";
-import Cart from "../../components/Cart/Cart";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import CollectionsCTASection from "../MainFooter/CollectionsCTASection ";
 
 const Main = () => {
+  const handleEnter = (e, id) => {
+    const circle = document.getElementById(`reveal-${id}`);
+    if (!circle) return;
+    circle.classList.add("active");
+  };
+
+  const handleLeave = (e, id) => {
+    const circle = document.getElementById(`reveal-${id}`);
+    if (!circle) return;
+    circle.classList.remove("active");
+  };
+
+  const handleMove = (e, id) => {
+    const circle = document.getElementById(`reveal-${id}`);
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    if (circle) {
+      circle.style.left = `${x - 10}px`;
+      circle.style.top = `${y - 10}px`;
+    }
+  };
+
   const [cartItems, setCartItems] = useState([]);
   const [isCartVisible, setIsCartVisible] = useState(false);
   const [currentTab, setCurrentTab] = useState("cookies"); // Mặc định hiển thị Cookies
@@ -279,8 +301,18 @@ const Main = () => {
                   </button>
                 </div>
               </div>
-              <button className="add-to-cart" onClick={handleClick}>
-                Add To Cart
+              <button
+                className="add-to-cart"
+                onClick={handleClick}
+                onMouseEnter={(e) => handleEnter(e, product.id)}
+                onMouseMove={(e) => handleMove(e, product.id)}
+                onMouseLeave={(e) => handleLeave(e, product.id)}
+              >
+                <span
+                  className="reveal-circle"
+                  id={`reveal-${product.id}`}
+                ></span>
+                <span className="text">Add To Cart</span>
               </button>
             </div>
           ))}
@@ -394,118 +426,142 @@ const Main = () => {
         </div>
       </div>
       {/* ////product//// */}
-
-      <div className="product-cookies">
-        {currentTab === "cookies" &&
-          products.map((product) => (
-            <div key={product.id} className="product-item-cookies">
-              <Link to={product.link} className="product-image-cookies">
-                {/* Hover effect for image */}
-                <img
-                  src={product.image1}
-                  alt={product.name}
-                  className="img-default"
-                  onMouseEnter={(e) => (e.target.src = product.image2)} // Change image on hover
-                  onMouseLeave={(e) => (e.target.src = product.image1)} // Revert to the original image
-                />
-              </Link>
-              <div className="product-info">
-                <Link to={product.link}>
-                  <h3>{product.name}</h3>
-                  <span>{product.format}</span>
-                  <span className="separator-dot"> • </span>
-                  <span>{product.weight}</span>
-                </Link>
-              </div>
-              <div className="product-details">
-                <span className="price">{product.price}</span>
-                <div className="quantity-selector">
-                  <button
-                    className="Minus"
-                    onClick={() => handleDecreaseQuantity(product.id)}
-                  >
-                    <span>-</span>
-                  </button>
-                  <input
-                    type="number"
-                    name="quantity"
-                    value={product.quantity}
-                    pattern="[0-9]*"
+      <AnimatePresence mode="wait">
+        {currentTab === "cookies" && (
+          <motion.div
+            key="cookies"
+            className="product-cookies"
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            transition={{ duration: 0.5 }}
+            variants={slideFromBottomLeft}
+          >
+            {products.map((product) => (
+              <div key={product.id} className="product-item-cookies">
+                <Link to={product.link} className="product-image-cookies">
+                  <img
+                    src={product.image1}
+                    alt={product.name}
+                    className="img-default"
+                    onMouseEnter={(e) => (e.target.src = product.image2)}
+                    onMouseLeave={(e) => (e.target.src = product.image1)}
                   />
-                  <button
-                    className="Plus"
-                    onClick={() => handleIncreaseQuantity(product.id)}
-                  >
-                    <span>+</span>
-                  </button>
-                </div>
-              </div>
-              <button className="add-to-cart" onClick={handleClick}>
-                Add To Cart
-              </button>
-            </div>
-          ))}
-      </div>
-
-      {/* Cake//////////// */}
-      <div className="product-cookies">
-        {currentTab === "cake" &&
-          products.map((product) => (
-            <div key={product.id} className="product-item-cookies">
-              <Link to={product.link} className="product-image-cookies">
-                {product.ingredients.map((ingredient, index) => (
-                  <span key={index} className="ingredient-label">
-                    {ingredient}
-                  </span>
-                ))}
-                <img
-                  src={product.image1}
-                  alt={product.name}
-                  className="img-default"
-                  onMouseEnter={(e) => (e.target.src = product.image2)} // Change image on hover
-                  onMouseLeave={(e) => (e.target.src = product.image1)} // Revert to the original image
-                />
-              </Link>
-              <div className="product-info">
-                <Link to={product.link}>
-                  <h3>{product.name}</h3>
-                  <span>{product.format}</span>
-                  <span className="separator-dot"> • </span>
-                  <span>{product.weight}</span>
                 </Link>
-              </div>
-              <div className="product-details">
-                <span className="price">{product.price}</span>
-                <div className="quantity-selector">
-                  <button
-                    className="Minus"
-                    onClick={() => handleDecreaseQuantity(product.id)}
-                  >
-                    <span>-</span>
-                  </button>
-                  <input
-                    type="number"
-                    name="quantity"
-                    value={product.quantity}
-                    pattern="[0-9]*"
-                  />
-                  <button
-                    className="Plus"
-                    onClick={() => handleIncreaseQuantity(product.id)}
-                  >
-                    <span>+</span>
-                  </button>
+                <div className="product-info">
+                  <Link to={product.link}>
+                    <h3>{product.name}</h3>
+                    <span>{product.format}</span>
+                    <span className="separator-dot"> • </span>
+                    <span>{product.weight}</span>
+                  </Link>
                 </div>
+                <div className="product-details">
+                  <span className="price">{product.price}</span>
+                  <div className="quantity-selector">
+                    <button
+                      className="Minus"
+                      onClick={() => handleDecreaseQuantity(product.id)}
+                    >
+                      <span>-</span>
+                    </button>
+                    <input type="number" value={product.quantity} readOnly />
+                    <button
+                      className="Plus"
+                      onClick={() => handleIncreaseQuantity(product.id)}
+                    >
+                      <span>+</span>
+                    </button>
+                  </div>
+                </div>
+                <button
+                  className="add-to-cart"
+                  onClick={() => handleClick(product)}
+                  onMouseEnter={(e) => handleEnter(e, product.id)}
+                  onMouseMove={(e) => handleMove(e, product.id)}
+                  onMouseLeave={(e) => handleLeave(e, product.id)}
+                >
+                  <span
+                    className="reveal-circle"
+                    id={`reveal-${product.id}`}
+                  ></span>
+                  <span className="text">Add To Cart</span>
+                </button>
               </div>
-              <button
-                className="add-to-cart"
-                onClick={() => handleClick(product)}
-              >
-                Add To Cart
-              </button>
-            </div>
-          ))}
-      </div>
+            ))}
+          </motion.div>
+        )}
+
+        {currentTab === "cake" && (
+          <motion.div
+            key="cake"
+            className="product-cookies"
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            transition={{ duration: 0.5 }}
+            variants={slideFromBottomLeft}
+          >
+            {products.map((product) => (
+              <div key={product.id} className="product-item-cookies">
+                <Link to={product.link} className="product-image-cookies">
+                  {product.ingredients.map((ingredient, index) => (
+                    <span key={index} className="ingredient-label">
+                      {ingredient}
+                    </span>
+                  ))}
+                  <img
+                    src={product.image1}
+                    alt={product.name}
+                    className="img-default"
+                    onMouseEnter={(e) => (e.target.src = product.image2)}
+                    onMouseLeave={(e) => (e.target.src = product.image1)}
+                  />
+                </Link>
+                <div className="product-info">
+                  <Link to={product.link}>
+                    <h3>{product.name}</h3>
+                    <span>{product.format}</span>
+                    <span className="separator-dot"> • </span>
+                    <span>{product.weight}</span>
+                  </Link>
+                </div>
+                <div className="product-details">
+                  <span className="price">{product.price}</span>
+                  <div className="quantity-selector">
+                    <button
+                      className="Minus"
+                      onClick={() => handleDecreaseQuantity(product.id)}
+                    >
+                      <span>-</span>
+                    </button>
+                    <input type="number" value={product.quantity} readOnly />
+                    <button
+                      className="Plus"
+                      onClick={() => handleIncreaseQuantity(product.id)}
+                    >
+                      <span>+</span>
+                    </button>
+                  </div>
+                </div>
+                <button
+                  className="add-to-cart"
+                  onClick={() => handleClick(product)}
+                  onMouseEnter={(e) => handleEnter(e, product.id)}
+                  onMouseMove={(e) => handleMove(e, product.id)}
+                  onMouseLeave={(e) => handleLeave(e, product.id)}
+                >
+                  <span
+                    className="reveal-circle"
+                    id={`reveal-${product.id}`}
+                  ></span>
+                  <span className="text">Add To Cart</span>
+                </button>
+              </div>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Bottom */}
       <div className="bottom">

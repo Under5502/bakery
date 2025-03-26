@@ -2,7 +2,6 @@
   background: #f8f8f2;
 }
 
-
 .main-section {
   position: relative;
   text-align: center;
@@ -533,28 +532,30 @@
   z-index: 2;
   border-radius: 100px;
   background-color: #ffa7ee;
-  transition: 0.3s ease all;
-  position: relative; /* Đảm bảo phần tử chính có thể chứa ::before */
-  overflow: hidden; /* Đảm bảo phần tử ::before không vượt ra ngoài */
-}
+  position: relative;
+  overflow: hidden;
 
-.add-to-cart:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  top: 0;
-  left: 0;
+  .text {
+    position: relative;
+    z-index: 2;
+    font-weight: 700;
+  }
 
-  height: 100%;
-  background-color: white;
-  z-index: -1;
-  transform-origin: bottom left;
-  transform: rotate(-90deg);
-  transition: 0.5s;
-}
+  .reveal-circle {
+    position: absolute;
+    width: 32px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.5s ease-in-out;
+    z-index: 1;
+    pointer-events: none;
+  }
 
-.add-to-cart:hover:before {
-  transform: rotate(0deg);
+  &:hover .reveal-circle {
+    transform: scale(20);
+  }
 }
 
 //////Images//////

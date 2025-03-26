@@ -1,4 +1,5 @@
 .product-container {
+  background-color: #f8f8f2;
   padding-top: 150px;
 
   .product-top {
@@ -154,10 +155,28 @@
     font-weight: 600;
     margin: 20px 0;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
 
-    &:hover {
-      background-color: #f8f8f2;
-      border: 2px solid #ffa7ee;
+    .text {
+      position: relative;
+      z-index: 2;
+    }
+
+    .reveal-circle {
+      border: 1px solid #ffa7ee;
+      position: absolute;
+      width: 70px;
+      height: 20px;
+      background-color: white;
+      border-radius: 50%;
+      transform: scale(0);
+      transition: transform 1s ease-in-out;
+      z-index: 1;
+      pointer-events: none;
+    }
+    &:hover .reveal-circle {
+      transform: scale(20);
     }
   }
 }
@@ -220,10 +239,11 @@
 // //////////////////////////////////////////bottom//////////////////
 .product-bottom {
   margin-left: 40px;
-  margin-bottom: 100px;
+  padding-bottom: 100px;
+
   @media (max-width: 768px) {
     margin: 0 20px;
-    margin-bottom: 100px;
+    padding-bottom: 100px;
   }
 
   .product-cookies1-cake-1 {

@@ -4,6 +4,29 @@ import React from "react";
 import { useState } from "react";
 
 function ProductPage() {
+  const handleEnter = (e) => {
+    const circle = e.currentTarget.querySelector(".reveal-circle");
+    if (!circle) return;
+    circle.classList.add("active");
+  };
+
+  const handleLeave = (e) => {
+    const circle = e.currentTarget.querySelector(".reveal-circle");
+    if (!circle) return;
+    circle.classList.remove("active");
+  };
+
+  const handleMove = (e) => {
+    const circle = e.currentTarget.querySelector(".reveal-circle");
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    if (circle) {
+      circle.style.left = `${x - 10}px`;
+      circle.style.top = `${y - 10}px`;
+    }
+  };
+
   const [mainProductQuantity, setMainProductQuantity] = useState(1);
 
   const handleIncreaseMainQuantity = () => {
@@ -226,8 +249,15 @@ function ProductPage() {
             {/* ////////// */}
 
             <div className="product-form-bottom">
-              <button className="add-to-cart-product" onClick={onAddToCart}>
-                ADD TO CART
+              <button
+                className="add-to-cart-product"
+                onClick={onAddToCart}
+                onMouseEnter={(e) => handleEnter(e)}
+                onMouseMove={(e) => handleMove(e)}
+                onMouseLeave={handleLeave}
+              >
+                <span className="reveal-circle"></span>
+                <span className="text">ADD TO CART</span>
               </button>
             </div>
           </div>
@@ -328,7 +358,16 @@ function ProductPage() {
                   </button>
                 </div>
               </div>
-              <button className="add-to-cart">Add To Cart</button>
+              <button
+                className="add-to-cart"
+                onMouseEnter={(e) => handleEnter(e)}
+                onMouseMove={(e) => handleMove(e)}
+                onMouseLeave={handleLeave}
+              >
+                {" "}
+                <span className="reveal-circle"></span>
+                <span className="text">Add To Cart</span>
+              </button>
             </div>
           ))}
         </div>

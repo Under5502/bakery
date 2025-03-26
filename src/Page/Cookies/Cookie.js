@@ -3,7 +3,32 @@ import { Link } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useRef } from "react";
+
 function Cookie() {
+  const handleEnter = (e, id) => {
+    const circle = document.getElementById(`reveal-${id}`);
+    if (!circle) return;
+    circle.classList.add("active");
+  };
+
+  const handleLeave = (e, id) => {
+    const circle = document.getElementById(`reveal-${id}`);
+    if (!circle) return;
+    circle.classList.remove("active");
+  };
+
+  const handleMove = (e, id) => {
+    const circle = document.getElementById(`reveal-${id}`);
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    if (circle) {
+      circle.style.left = `${x - 10}px`;
+      circle.style.top = `${y - 10}px`;
+    }
+  };
+
   const { onAddToCart } = useOutletContext();
   const handleIncreaseQuantity = (id) => {
     setProducts(
@@ -215,8 +240,18 @@ function Cookie() {
                     </button>
                   </div>
                 </div>
-                <button className="add-to-cart" onClick={onAddToCart}>
-                  Add To Cart
+                <button
+                  className="add-to-cart"
+                  onClick={onAddToCart}
+                  onMouseEnter={(e) => handleEnter(e, product.id)}
+                  onMouseMove={(e) => handleMove(e, product.id)}
+                  onMouseLeave={(e) => handleLeave(e, product.id)}
+                >
+                  <span
+                    className="reveal-circle"
+                    id={`reveal-${product.id}`}
+                  ></span>
+                  <span className="text">Add To Cart</span>
                 </button>
               </div>
             ))}
@@ -293,8 +328,18 @@ function Cookie() {
                     </button>
                   </div>
                 </div>
-                <button className="add-to-cart" onClick={onAddToCart}>
-                  Add To Cart
+                <button
+                  className="add-to-cart"
+                  onClick={onAddToCart}
+                  onMouseEnter={(e) => handleEnter(e, product.id)}
+                  onMouseMove={(e) => handleMove(e, product.id)}
+                  onMouseLeave={(e) => handleLeave(e, product.id)}
+                >
+                  <span
+                    className="reveal-circle"
+                    id={`reveal-${product.id}`}
+                  ></span>
+                  <span className="text">Add To Cart</span>
                 </button>
               </div>
             ))}

@@ -324,8 +324,18 @@ function Cake() {
                     </button>
                   </div>
                 </div>
-                <button className="add-to-cart" onClick={onAddToCart}>
-                  Add To Cart
+                <button
+                  className="add-to-cart"
+                  onClick={onAddToCart}
+                  onMouseEnter={(e) => handleEnter(e, product.id)}
+                  onMouseMove={(e) => handleMove(e, product.id)}
+                  onMouseLeave={(e) => handleLeave(e, product.id)}
+                >
+                  <span
+                    className="reveal-circle"
+                    id={`reveal-${product.id}`}
+                  ></span>
+                  <span className="text">Add To Cart</span>
                 </button>
               </div>
             ))}
