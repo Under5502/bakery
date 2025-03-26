@@ -3,8 +3,29 @@ import { Link, useOutletContext } from "react-router-dom";
 import "../Cakes/Cake.scss";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useRef } from "react";
 
 function Cake() {
+  const circleRef = useRef(null);
+
+  const handleMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    if (circleRef.current) {
+      circleRef.current.style.left = `${x - 10}px`;
+      circleRef.current.style.top = `${y - 10}px`;
+    }
+  };
+
+  const handleEnter = () => {
+    circleRef.current?.classList.add("active");
+  };
+
+  const handleLeave = () => {
+    circleRef.current?.classList.remove("active");
+  };
   const handleIncreaseQuantity = (id) => {
     setProducts(
       products.map((product) =>
@@ -218,8 +239,15 @@ function Cake() {
                     </button>
                   </div>
                 </div>
-                <button className="add-to-cart" onClick={onAddToCart}>
-                  Add To Cart
+                <button
+                  className="add-to-cart"
+                  onClick={onAddToCart}
+                  onMouseMove={handleMove}
+                  onMouseEnter={handleEnter}
+                  onMouseLeave={handleLeave}
+                >
+                  <span className="reveal-circle" ref={circleRef}></span>
+                  <span className="text"> Add To Cart</span>
                 </button>
               </div>
             ))}

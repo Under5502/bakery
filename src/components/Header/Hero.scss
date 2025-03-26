@@ -30,6 +30,7 @@
         margin-left: 20px;
       }
     }
+
     .indulge {
       h1 {
         font-size: 30px;
@@ -46,52 +47,23 @@
       align-items: center;
       justify-content: center;
       transition: 0.9s all cubic-bezier(0.28, 0.71, 0, 0.98);
-      transform: rotate(30deg);
+      transform: rotate(35deg);
       margin: 150px 80px;
       position: absolute;
       top: 30%;
       right: -2%;
 
-      // Mask Image khi hover vào
+      user-select: none;
+
       &:hover {
+        -webkit-mask-image: url("https://bernicebakery.com/cdn/shop/t/2/assets/bite-mask.svg?v=8591599");
+        mask-image: url("https://bernicebakery.com/cdn/shop/t/2/assets/bite-mask.svg?v=8591599");
+        -webkit-mask-size: cover;
+        mask-size: cover;
         transform: scale(0.9) rotate(10deg);
-        mask-image: url(https://bernicebakery.com/cdn/shop/t/2/assets/bite-mask.svg?v=85915998415614872721715593152);
-        -webkit-mask-image: url(https://bernicebakery.com/cdn/shop/t/2/assets/bite-mask.svg?v=85915998415614872721715593152);
       }
 
-      // Particle styles
-      .particle {
-        position: absolute;
-        left: 50%;
-        top: 30%; /* ✅ Xuất phát thấp hơn một chút */
-        width: 20px; /* ✅ Hạt to hơn */
-        height: 20px;
-        background-color: #ffa7ee;
-        border-radius: 50%;
-        opacity: 1;
-        transform: translate(-50%, -50%);
-        animation: riseAndFall 1.2s ease-out forwards;
-        pointer-events: none;
-      }
-
-      @keyframes riseAndFall {
-        0% {
-          transform: translate(-50%, -50%) translate(var(--dx), var(--dy))
-            scale(0.7);
-          opacity: 1;
-        }
-        50% {
-          transform: translate(-50%, -50%)
-            translate(calc(var(--dx) + 10px), calc(var(--dy) - 20px)) scale(1.4);
-          opacity: 0.9;
-        }
-        100% {
-          transform: translate(-50%, -50%)
-            translate(var(--dx), calc(var(--dy) + 10px)) scale(1);
-          opacity: 0;
-        }
-      }
-
+      // /////////////////////////////////////////////////////////
       @media (max-width: 768px) {
         h1 {
           font-size: 16px;
@@ -116,4 +88,13 @@
     height: 400px;
     background-size: cover;
   }
+}
+.crumb {
+  position: absolute;
+  width: 30px;
+  height: 40px;
+  background: #ffa7ee;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 5;
 }

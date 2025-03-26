@@ -2,8 +2,34 @@ import "./Cart.scss";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRef } from "react";
 
 function Cart({ onClose, onCheckoutClick }) {
+
+  const circleRef = useRef(null);
+
+const handleMove = (e) => {
+  const rect = e.currentTarget.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+
+  if (circleRef.current) {
+    circleRef.current.style.left = `${x - 10}px`;
+    circleRef.current.style.top = `${y - 10}px`;
+  }
+};
+
+const handleHover = () => {
+  if (circleRef.current) {
+    circleRef.current.classList.add("active");
+  }
+};
+
+const handleLeave = () => {
+  if (circleRef.current) {
+    circleRef.current.classList.remove("active");
+  }
+};
   const [isCartOpen, setIsCartOpen] = useState(false); // Track cart open state
 
   const getTotalPrice = () => {
@@ -166,7 +192,11 @@ function Cart({ onClose, onCheckoutClick }) {
             type="button"
             className="btn-checkout"
             onClick={onCheckoutClick}
+            onMouseEnter={handleHover}
+  onMouseLeave={handleLeave}
+  onMouseMove={handleMove}
           >
+            <span className="reveal-circle" ref={circleRef}></span>
             <div className="in-btn">
               <span className="checkout">Check Out</span>
               <span className="btn-cham"></span>

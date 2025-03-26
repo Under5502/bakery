@@ -13,6 +13,7 @@
   z-index: 9999;
   box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
   width: 560px;
+  opacity: 1;
   height: 100%;
   transition: right 2s ease-in-out;
 
@@ -101,10 +102,30 @@
       background-color: #ffa7ee;
       border-radius: 50px;
       cursor: pointer;
-      position: relative; /* Đảm bảo phần tử chính có thể chứa ::before */
-      z-index: 2;
+      position: relative; /* ✅ Cần để chứa tuyệt đối */
+      overflow: hidden; /* ✅ Chặn hiệu ứng trắng tràn ra ngoài */
+      z-index: 1;
+      .reveal-circle {
+        position: absolute;
+        width: 80px;
+        height: 20px;
+        background-color: white;
+        border-radius: 50%;
+        transform: scale(0);
+        transition: transform 0.5s ease-in-out;
+        z-index: 0;
+        pointer-events: none;
+      }
 
-      overflow: hidden; /* Đảm bảo phần tử ::before không vượt ra ngoài */
+      &:hover .reveal-circle {
+        transform: scale(20); /* scale to phủ toàn nút */
+      }
+
+      .in-btn {
+        position: relative; // giữ nội dung trên vùng trắng
+        z-index: 2;
+      }
+
       .in-btn {
         display: flex;
         justify-content: center;
@@ -130,24 +151,6 @@
           /* align-items: center; */
         }
       }
-    }
-    .btn-checkout:before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      top: 0;
-      left: 0;
-
-      height: 100%;
-      background-color: white;
-      z-index: -1;
-      transform-origin: bottom left;
-      transform: rotate(-90deg);
-      transition: 0.5s;
-    }
-
-    .btn-checkout:hover:before {
-      transform: rotate(0deg);
     }
   }
 

@@ -1,41 +1,71 @@
-import React, { useState, useEffect } from "react";
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { motion } from "framer-motion";
-import "./Hero.scss";
+import "./Hero.scss"; // Đảm bảo là import đúng file SCSS
+gsap.registerPlugin(MotionPathPlugin);
 
 const Hero = () => {
-  const [particles, setParticles] = useState([]);
+  const containerRef = useRef(null);
 
-  const createParticles = () => {
-    const newParticles = Array.from({ length: 10 }).map((_, i) => ({
-      id: Date.now() + i,
-      dx: `${Math.random() * 80 - 40}px`, // Bay lệch về hai phía
-      dy: `${-Math.random() * 100 - 50}px`, // Bay lên cao hơn
-      size: `${15 + Math.random() * 10}px`, // Hạt có kích thước ngẫu nhiên
-    }));
-    setParticles(newParticles);
+  const handleHover = () => {
+    const container = containerRef.current;
+    container.classList.add("bite"); // ✅ dùng class thường
+
+    const rect = container.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    for (let i = 0; i < 3; i++) {
+      const crumb = document.createElement("div");
+      crumb.className = "crumb"; // ✅ không dùng styles.crumb
+      document.body.appendChild(crumb);
+
+      const offsetX = 50 + Math.random() * 30;
+      const offsetY = 40 + Math.random() * 30;
+      const startLeft = centerX + offsetX;
+      const startTop = centerY - offsetY;
+
+      crumb.style.left = `${startLeft}px`;
+      crumb.style.top = `${startTop}px`;
+
+      gsap.to(crumb, {
+        duration: 1.2 + Math.random() * 0.2,
+        ease: "power2.inOut",
+        motionPath: {
+          path: [
+            { x: 0, y: 0 },
+            {
+              x: 10 + Math.random() * 10, // nhẹ sang phải
+              y: -40 - Math.random() * 20, // nhẹ lên trên
+            },
+            {
+              x: 30 + Math.random() * 20, // rơi xa hơn chút
+              y: 180 + Math.random() * 60,
+            },
+          ],
+          curviness: 1.1,
+          autoRotate: false,
+        },
+        scale: 0.4,
+        rotation: Math.random() * 90,
+        opacity: 1,
+        onComplete: () => crumb.remove(),
+      });
+    }
   };
 
-  useEffect(() => {
-    if (particles.length > 0) {
-      const timer = setTimeout(() => setParticles([]), 1800);
-      return () => clearTimeout(timer);
-    }
-  }, [particles]);
-
-  const slideFromBottomLeft = {
-    hidden: { opacity: 0, x: -50, y: 50 },
-    visible: { opacity: 1, x: 0, y: 0 },
+  const handleLeave = () => {
+    containerRef.current.classList.remove("bite"); // ✅ remove lại class
   };
 
   return (
     <div className="hero-container">
       <motion.div
         className="hero-content"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        initial={{ opacity: 1, x: -50, y: 50 }}
+        animate={{ opacity: 1, x: 0, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        variants={slideFromBottomLeft}
       >
         <div className="text-hero">
           <h1 className="hero-h1">
@@ -44,19 +74,13 @@ const Hero = () => {
           </h1>
         </div>
 
-        <div className="indulge" onMouseEnter={createParticles}>
+        <div
+          className="indulge"
+          ref={containerRef}
+          onMouseEnter={handleHover}
+          onMouseLeave={handleLeave}
+        >
           <h1>INDULGE</h1>
-          {particles.map((p) => (
-            <span
-              key={p.id}
-              className="particle"
-              style={{
-                "--dx": p.dx,
-                "--dy": p.dy,
-                "--size": p.size,
-              }}
-            />
-          ))}
         </div>
       </motion.div>
     </div>

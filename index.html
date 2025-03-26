@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reveal From Cursor (REAL small start)</title>
+  <style>
+    body {
+      background: #fff0f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: sans-serif;
+    }
+
+    .Product_Item_Submit_Container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .Product_Item_Submit {
+      position: relative;
+      padding: 2rem 4rem;
+      font-size: 1.5rem;
+      background: #ffa7ee;
+      color: #111;
+      border: none;
+      border-radius: 100px;
+      cursor: pointer;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .reveal-circle {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: white;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: scale(0);
+      opacity: 1;
+      z-index: 0;
+      transition: transform 2s ease-in-out;
+    }
+
+    .reveal-circle.active {
+      transform: scale(20); /* đủ lớn để phủ toàn nút */
+    }
+
+    .Product_Item_Submit span {
+      position: relative;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="Product_Item_Submit_Container">
+    <button class="Product_Item_Submit" id="btn">
+      <span>Add To Cart</span>
+      <div class="reveal-circle" id="circle"></div>
+    </button>
+  </div>
+
+  <script>
+    const btn = document.getElementById("btn");
+    const circle = document.getElementById("circle");
+
+    btn.addEventListener("mouseenter", (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      circle.style.left = `${x - 10}px`; // căn giữa 20px
+      circle.style.top = `${y - 10}px`;
+      circle.classList.add("active");
+    });
+
+    btn.addEventListener("mouseleave", () => {
+      circle.classList.remove("active");
+    });
+  </script>
+
+</body>
+</html>
