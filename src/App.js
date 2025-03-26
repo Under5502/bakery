@@ -17,7 +17,6 @@ function App() {
   const handleCloseCart = () => {
     setIsCartVisible(false);
   };
-
   const handleCheckoutClick = () => {
     // ✅ Khi click Check Out: ẩn Cart, hiện DatePicker ngay
 
