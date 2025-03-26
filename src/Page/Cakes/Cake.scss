@@ -37,10 +37,6 @@
       font-size: 1.2rem;
     }
 
-    .quantity-selector {
-      flex-direction: column;
-    }
-
     .add-to-cart {
       font-size: 1rem;
       padding: 10px 20px;
@@ -96,6 +92,7 @@
 
     .quantity-selector {
       width: 100%;
+      padding-left: 5%;
     }
 
     .Minus,
@@ -192,12 +189,10 @@ p {
 }
 
 h2.h2-cake-cake {
-  
-    color: black;
-    font-weight: 800;
-    font-size: 500%;
-    font-family: "Apfel Grotezk", sans-serif;
-
+  color: black;
+  font-weight: 800;
+  font-size: 500%;
+  font-family: "Apfel Grotezk", sans-serif;
 }
 
 .cookies-footer-children-cake {
