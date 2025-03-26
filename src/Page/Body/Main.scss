@@ -502,7 +502,6 @@
     justify-content: center;
 
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.28, 0.71, 0, 0.98);
 
     &:hover {
       mask-image: url("https://bernicebakery.com/cdn/shop/t/2/assets/bite-mask.svg?v=85915998415614872721715593152");
@@ -934,4 +933,65 @@ h2.SectionTitle.Cool_Text_Anim.Lines {
   position: absolute;
   top: 40%;
   right: 25%;
+}
+.crumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+// === BUTTON COOKIES ===
+.Plus-Cookie,
+.Minus-Cookie {
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    mask-image: url("https://bernicebakery.com/cdn/shop/t/2/assets/bite-mask.svg?v=85915998415614872721715593152");
+    transform: rotate(15deg);
+  }
+}
+
+.Plus-Cookie {
+  background-color: #ffa7ee;
+  color: #0a6e90;
+}
+
+.Minus-Cookie {
+  background-color: #0a6e90;
+  color: white;
+}
+
+// === BUTTON CAKES ===
+// Cookies màu hồng và xanh biển
+.Plus-Cookie {
+  background-color: #ffa7ee !important;
+  color: #0a6e90;
+}
+
+.Minus-Cookie {
+  background-color: #0a6e90 !important;
+  color: white;
+}
+
+// Cakes màu hồng đậm và đen
+.Plus-Cake {
+  background-color: #ff66b3 !important;
+  color: white;
+}
+
+.Minus-Cake {
+  background-color: #0a6e90 !important;
+  color: white;
 }

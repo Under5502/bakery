@@ -6,8 +6,54 @@ import { useOutletContext } from "react-router-dom";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import CollectionsCTASection from "../MainFooter/CollectionsCTASection ";
+import gsap from "gsap";
+import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+gsap.registerPlugin(MotionPathPlugin);
 
 const Main = () => {
+  const handleCrumbEffect = (e, type = "plus") => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    const crumbColor = type === "plus" ? "#ffa7ee" : "#0a6e90";
+
+    for (let i = 0; i < 3; i++) {
+      const crumb = document.createElement("div");
+      crumb.className = "crumb";
+      crumb.style.backgroundColor = crumbColor;
+      crumb.style.position = "fixed";
+      crumb.style.left = `${centerX}px`;
+      crumb.style.top = `${centerY}px`;
+      crumb.style.width = "20px";
+      crumb.style.height = "20px";
+      crumb.style.borderRadius = "50%";
+      crumb.style.zIndex = "9999";
+      document.body.appendChild(crumb);
+
+      gsap.to(crumb, {
+        duration: 1 + Math.random() * 0.3,
+        ease: "power2.out",
+        motionPath: {
+          path: [
+            { x: 0, y: 0 },
+            { x: 0, y: -10 },
+            {
+              x: (Math.random() - 0.5) * 30,
+              y: 70 + Math.random() * 40,
+            },
+          ],
+          curviness: 1.1,
+          autoRotate: false,
+        },
+        scale: 0.5,
+        opacity: 1,
+        rotation: Math.random() * 180,
+        onComplete: () => crumb.remove(),
+      });
+    }
+  };
+
   const handleEnter = (e, id) => {
     const circle = document.getElementById(`reveal-${id}`);
     if (!circle) return;
@@ -281,8 +327,10 @@ const Main = () => {
                 <span className="price">{product.price}</span>
                 <div className="quantity-selector">
                   <button
+                    id={`crumb-minus-${product.id}`}
                     className="Minus"
                     onClick={() => handleDecreaseQuantity(product.id)}
+                    onMouseEnter={(e) => handleCrumbEffect(e, "minus")}
                   >
                     <span>-</span>
                   </button>
@@ -294,8 +342,10 @@ const Main = () => {
                     aria-label="Quantity"
                   />
                   <button
+                    id={`crumb-plus-${product.id}`}
                     className="Plus"
                     onClick={() => handleIncreaseQuantity(product.id)}
+                    onMouseEnter={(e) => handleCrumbEffect(e, "plus")}
                   >
                     <span>+</span>
                   </button>
@@ -460,15 +510,19 @@ const Main = () => {
                   <span className="price">{product.price}</span>
                   <div className="quantity-selector">
                     <button
-                      className="Minus"
+                      id={`crumb-minus-${product.id}`}
+                      className="Minus Minus-Cookie"
                       onClick={() => handleDecreaseQuantity(product.id)}
+                      onMouseEnter={(e) => handleCrumbEffect(e, "minus")}
                     >
                       <span>-</span>
                     </button>
                     <input type="number" value={product.quantity} readOnly />
                     <button
-                      className="Plus"
+                      id={`crumb-plus-${product.id}`}
+                      className="Plus Plus-Cookie"
                       onClick={() => handleIncreaseQuantity(product.id)}
+                      onMouseEnter={(e) => handleCrumbEffect(e, "plus")}
                     >
                       <span>+</span>
                     </button>
@@ -530,15 +584,19 @@ const Main = () => {
                   <span className="price">{product.price}</span>
                   <div className="quantity-selector">
                     <button
-                      className="Minus"
+                      id={`crumb-minus-${product.id}`}
+                      className="Minus Minus-Cake"
                       onClick={() => handleDecreaseQuantity(product.id)}
+                      onMouseEnter={(e) => handleCrumbEffect(e, "minus")}
                     >
                       <span>-</span>
                     </button>
                     <input type="number" value={product.quantity} readOnly />
                     <button
-                      className="Plus"
+                      id={`crumb-plus-${product.id}`}
+                      className="Plus Plus-Cookie"
                       onClick={() => handleIncreaseQuantity(product.id)}
+                      onMouseEnter={(e) => handleCrumbEffect(e, "plus")}
                     >
                       <span>+</span>
                     </button>
