@@ -137,6 +137,10 @@ const Main = () => {
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-100_websize_noBG.png?v=1728434205&width=350",
       image2:
         "//bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-111_websize_noBG.png?v=1728434172&width=350",
+      image3:
+        "//bernicebakery.com/cdn/shop/files/Bernice-3.jpg?v=1727835563&width=350",
+      image4:
+        "//bernicebakery.com/cdn/shop/files/Bernice-7.jpg?v=1727835563&width=350",
       link: "/product",
       ingredients: [],
     },
@@ -151,6 +155,10 @@ const Main = () => {
         "//bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-89_websize_noBG.png?v=1728434267&width=350",
       image2:
         "//bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-130_websize_noBG.png?v=1728434280&width=350",
+      image3:
+        "//bernicebakery.com/cdn/shop/files/Bernice-2.jpg?v=1727835563&width=350",
+      image4:
+        "//bernicebakery.com/cdn/shop/files/Bernice-12.png?v=1727835564&width=350",
       link: "/product",
       ingredients: [],
     },
@@ -165,6 +173,10 @@ const Main = () => {
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-83_websize_noBG.png?v=1728434128&width=350",
       image2:
         "https://bernicebakery.com/cdn/shop/files/Bernice-28.png?v=1728434336&width=350",
+      image3:
+        "//bernicebakery.com/cdn/shop/files/Bernice-1.jpg?v=1727835563&width=350",
+      image4:
+        "//bernicebakery.com/cdn/shop/files/Bernice-12.png?v=1727835564&width=350",
       link: "/product",
       ingredients: [],
     },
@@ -565,11 +577,11 @@ const Main = () => {
                     </span>
                   ))}
                   <img
-                    src={product.image1}
+                    src={product.image3}
                     alt={product.name}
                     className="img-default"
-                    onMouseEnter={(e) => (e.target.src = product.image2)}
-                    onMouseLeave={(e) => (e.target.src = product.image1)}
+                    onMouseEnter={(e) => (e.target.src = product.image3)}
+                    onMouseLeave={(e) => (e.target.src = product.image4)}
                   />
                 </Link>
                 <div className="product-info">

@@ -107,7 +107,7 @@
 
   .text-container {
     position: absolute;
-    top: 9%;
+    top: 5%;
     left: 50%;
     transform: translateX(-50%);
     transition: transform 0.2s ease-out;
@@ -115,6 +115,7 @@
     svg {
       font-size: 8px;
       width: 100%;
+      
     }
   }
 
@@ -172,5 +173,10 @@
     padding: 0;
     font-size: 16px;
     line-height: 1;
+  }
+}
+@media (max-width: 768px) {
+  .collections-cta-section svg {
+    display: none;
   }
 }

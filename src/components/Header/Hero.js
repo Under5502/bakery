@@ -10,24 +10,24 @@ const Hero = () => {
 
   const handleHover = () => {
     const container = containerRef.current;
-    container.classList.add("bite"); // ✅ dùng class thường
+    container.classList.add("bite");
 
+    // Lấy bounding rect và cộng thêm giá trị scroll để có tọa độ tuyệt đối
     const rect = container.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
+    const startLeft = rect.right + window.scrollX;
+    const startTop = rect.top + window.scrollY;
 
+    // Tạo 3 crumb tại vị trí góc trên bên phải
     for (let i = 0; i < 3; i++) {
       const crumb = document.createElement("div");
-      crumb.className = "crumb"; // ✅ không dùng styles.crumb
+      crumb.className = "crumb";
       document.body.appendChild(crumb);
 
-      const offsetX = 50 + Math.random() * 30;
-      const offsetY = 40 + Math.random() * 30;
-      const startLeft = centerX + offsetX;
-      const startTop = centerY - offsetY;
-
-      crumb.style.left = `${startLeft}px`;
-      crumb.style.top = `${startTop}px`;
+      // Lệch ngẫu nhiên nhẹ
+      const offsetX = Math.random() * 20;
+      const offsetY = Math.random() * 20;
+      crumb.style.left = `${startLeft - offsetX - 70}px`;
+      crumb.style.top = `${startTop + offsetY + 30}px`;
 
       gsap.to(crumb, {
         duration: 1.2 + Math.random() * 0.2,
@@ -36,11 +36,11 @@ const Hero = () => {
           path: [
             { x: 0, y: 0 },
             {
-              x: 10 + Math.random() * 10, // nhẹ sang phải
-              y: -40 - Math.random() * 20, // nhẹ lên trên
+              x: 10 + Math.random() * 10, // chuyển động nhẹ sang phải
+              y: -40 - Math.random() * 20, // chuyển động nhẹ lên trên
             },
             {
-              x: 30 + Math.random() * 20, // rơi xa hơn chút
+              x: 30 + Math.random() * 20, // chuyển động xa hơn một chút
               y: 180 + Math.random() * 60,
             },
           ],

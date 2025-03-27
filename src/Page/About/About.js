@@ -16,7 +16,7 @@ function About() {
       const documentHeight = document.documentElement.scrollHeight;
       const scrollY = window.scrollY;
       const isMobile = window.innerWidth <= 768;
-      const baseScroll = isMobile ? 525 : 390;
+      const baseScroll = isMobile ? 525 : 350;
       const rawScroll =
         (scrollY / (documentHeight - windowHeight)) * baseScroll;
 
@@ -34,20 +34,27 @@ function About() {
     {
       id: "event_KwADYX",
       image: "VANILLE_804bc794-6c20-4a6a-b5a1-c267603a85c5.svg",
-      width: 40,
-      height: 19,
+      width: 800,
+      height: 800,
+      top: "-10%",
+
+      threshold: 40,
     },
     {
       id: "event_y4D64K",
       image: "VACHE_5a7f30f0-346c-473e-b770-8017e022e2b1.svg",
-      width: 40,
-      height: 25,
+      width: 400,
+      height: 205,
+      top: "-10%",
+      threshold: 120,
     },
     {
       id: "event_6c77pR",
       image: "cookie_b8046837-de86-4692-bac5-2ebe2b627f60.svg",
-      width: 40,
-      height: 22,
+      width: 400,
+      height: 220,
+      top: "-10%",
+      threshold: 200,
     },
   ];
 
@@ -252,20 +259,49 @@ function About() {
         <div
           className="Timeline_Line Cool_Anim Fade"
           style={{ transform: "translate(-50%, 0%)", opacity: 1 }}
-        ></div>
+        >
+          {" "}
+          {events.map((event) => (
+            <a
+              key={event.id}
+              href={`#${event.id}`}
+              className="Timeline_Anchor"
+              style={{ position: "relative", zIndex: 2 }}
+            >
+              <div></div>
+            </a>
+          ))}
+        </div>
 
         {/* /////////////////// */}
-
+        <div className="Timeline_Line-3 Cool_Anim Fade">
+          {events.map((event) => (
+            <a
+              key={event.id}
+              href={`#${event.id}`}
+              className="Timeline_Anchor-3"
+              style={{ position: "relative", zIndex: 2 }}
+            >
+              <div className="Contain_Fluid-3">
+                {scroll >= event.threshold && (
+                  <motion.img
+                    src={`https://bernicebakery.com/cdn/shop/files/${event.image}`}
+                    alt="Timeline event"
+                    style={{ position: "absolute", top: event.top, zIndex: 10 }}
+                    initial={{ opacity: 0, rotate: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, rotate: 360, scale: 1 }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                  />
+                )}
+              </div>
+            </a>
+          ))}
+        </div>
         <div
           className="Timeline_Line-2 Cool_Anim Fade"
           style={{ height: `${scroll}%` }}
         >
           <div className="Timeline_Inner"></div>
-          {events.map((event) => (
-            <a key={event.id} href={`#${event.id}`} className="Timeline_Anchor">
-              <div className="Contain_Fluid"></div>
-            </a>
-          ))}
         </div>
       </div>
     </div>

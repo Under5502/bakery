@@ -133,12 +133,49 @@ img.img-timeline {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-
+  z-index: 1;
   @media (max-width: 768px) {
     height: 415%;
     /* margin-right: 58px; */
     margin-left: 135px;
   }
+}
+
+.Timeline_Line-3 {
+  position: absolute;
+  width: 5px;
+  height: 244%;
+
+  border-radius: 10px;
+  top: 91%;
+  left: 51%;
+  transform: translate(-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 5;
+  @media (max-width: 768px) {
+    height: 415%;
+    /* margin-right: 58px; */
+    margin-left: 135px;
+  }
+}
+.Contain_Fluid-3 img {
+  position: absolute; /* Nếu bạn cần định vị ảnh tuyệt đối */
+
+  left: -24%;
+  top: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 500px;
+  background-color: #147c97;
+  max-width: 115px;
+  height: 117px;
+  z-index: 5;
+  width: auto;
+  border: none;
+  outline: none;
+  box-sizing: content-box;
 }
 
 .Timeline_Line-2 {
@@ -154,6 +191,8 @@ img.img-timeline {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  z-index: 2;
+
   @media (max-width: 768px) {
     height: 415%;
     /* margin-right: 58px; */
@@ -232,4 +271,27 @@ img.img-timeline {
 
 .Timeline-Image-2 {
   margin-top: 11%;
+}
+
+.Timeline_Anchor {
+  z-index: 2;
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  background-color: #ccc;
+
+  transform: scale(0.6);
+}
+.Timeline_Anchor-3 {
+  z-index: 2;
+  padding: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  background-color: #ccc;
+  z-index: 5;
+  transform: scale(0.6);
 }

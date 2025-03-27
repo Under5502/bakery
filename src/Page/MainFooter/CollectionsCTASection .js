@@ -34,24 +34,24 @@ const CollectionsCTASection = () => {
     <section className="collections-cta-section">
       <div className="text-container">
         <svg
-          width="700"
-          height="900"
+          width="100%"
+          height="120vh"
           viewBox="0 0 600 500"
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
             <path
               id="arcPath"
-              d="M50,250 A250,250 0 0,1 550,350"
+              d="M100 900 V300 C100 50, 500 50, 500 300 V900"
               fill="transparent"
             />
           </defs>
 
-          <text fontSize="70" fontFamily="Arial" fontWeight="bold" fill="black">
+          <text fontSize="60" fontFamily="Arial" fontWeight="bold" fill="black">
             <textPath
               ref={textRef}
               href="#arcPath"
-              startOffset="10%"
+              startOffset="20%"
               textAnchor="middle"
             >
               CELEBRATE WITH CAKE
