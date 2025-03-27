@@ -6,57 +6,48 @@ import "./Hero.scss"; // Đảm bảo là import đúng file SCSS
 gsap.registerPlugin(MotionPathPlugin);
 
 const Hero = () => {
-  const containerRef = useRef(null);
+  const buttonRef = useRef(null);
 
   const handleHover = () => {
-    const container = containerRef.current;
-    container.classList.add("bite");
-
-    // Lấy bounding rect và cộng thêm giá trị scroll để có tọa độ tuyệt đối
-    const rect = container.getBoundingClientRect();
+    const button = buttonRef.current;
+    button.classList.add("bite");
+    const rect = button.getBoundingClientRect();
     const startLeft = rect.right + window.scrollX;
     const startTop = rect.top + window.scrollY;
 
-    // Tạo 3 crumb tại vị trí góc trên bên phải
     for (let i = 0; i < 3; i++) {
       const crumb = document.createElement("div");
       crumb.className = "crumb";
       document.body.appendChild(crumb);
 
-      // Lệch ngẫu nhiên nhẹ
-      const offsetX = Math.random() * 20;
-      const offsetY = Math.random() * 20;
-      crumb.style.left = `${startLeft - offsetX - 70}px`;
-      crumb.style.top = `${startTop + offsetY + 30}px`;
+      const randomScale = 0.5 + Math.random() * 1; // Kích thước từ 0.5 đến 1.7 lần
+      crumb.style.transform = `scale(${randomScale})`;
+
+      const offsetX = i * 20 + Math.random() * 10;
+      const offsetY = Math.random() * 30;
+      crumb.style.left = `${startLeft - offsetX - 80}px`;
+      crumb.style.top = `${startTop + offsetY + 50}px`;
 
       gsap.to(crumb, {
-        duration: 1.2 + Math.random() * 0.2,
-        ease: "power2.inOut",
+        duration: 1.7 + Math.random() * 1.8,
+        ease: "power1.out",
         motionPath: {
           path: [
-            { x: 0, y: 0 },
-            {
-              x: 10 + Math.random() * 10, // chuyển động nhẹ sang phải
-              y: -40 - Math.random() * 20, // chuyển động nhẹ lên trên
-            },
-            {
-              x: 30 + Math.random() * 20, // chuyển động xa hơn một chút
-              y: 180 + Math.random() * 60,
-            },
+            { x: 20 + Math.random() * 10, y: 10 - Math.random() * 20 },
+            { x: 30 + Math.random() * 20, y: 440 + Math.random() * 60 },
           ],
-          curviness: 1.1,
+          curviness: 1,
           autoRotate: false,
         },
-        scale: 0.4,
+        scale: 1,
         rotation: Math.random() * 90,
-        opacity: 1,
         onComplete: () => crumb.remove(),
       });
     }
   };
 
   const handleLeave = () => {
-    containerRef.current.classList.remove("bite"); // ✅ remove lại class
+    buttonRef.current.classList.remove("bite"); // ✅ remove lại class
   };
 
   return (
@@ -76,7 +67,7 @@ const Hero = () => {
 
         <div
           className="indulge"
-          ref={containerRef}
+          ref={buttonRef}
           onMouseEnter={handleHover}
           onMouseLeave={handleLeave}
         >
