@@ -62,9 +62,11 @@ a {
   border: none;
   background-color: transparent;
   color: white;
+  width: 20px;
   font-size: 25px;
   cursor: pointer;
   transition: color 0.3s ease;
+
   &:hover {
     color: #ffa7ee;
   }
@@ -98,7 +100,6 @@ a {
     display: flex;
     gap: 740px;
     padding-bottom: 20px;
-    
   }
 
   .Search.Form {
@@ -248,6 +249,7 @@ a {
   font-size: 25px;
   cursor: pointer;
   transition: color 0.3s ease;
+  width: 22px;
   &:hover {
     color: #ffa7ee;
   }
@@ -282,9 +284,10 @@ a {
 
 .menu_icon,
 .menu_icon-nav {
-  font-size: 20px;
+  font-size: 22px;
   color: #ffffff;
   cursor: pointer;
+  width: 22px;
 }
 
 .mobile-nav-menu {
