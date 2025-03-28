@@ -141,7 +141,7 @@ const Main = () => {
         "//bernicebakery.com/cdn/shop/files/Bernice-3.jpg?v=1727835563&width=350",
       image4:
         "//bernicebakery.com/cdn/shop/files/Bernice-7.jpg?v=1727835563&width=350",
-      link: "/product",
+      Link: "/product",
       ingredients: [],
     },
     {
@@ -159,7 +159,7 @@ const Main = () => {
         "//bernicebakery.com/cdn/shop/files/Bernice-2.jpg?v=1727835563&width=350",
       image4:
         "//bernicebakery.com/cdn/shop/files/Bernice-12.png?v=1727835564&width=350",
-      link: "/product",
+      Link: "/product",
       ingredients: [],
     },
     {
@@ -177,7 +177,7 @@ const Main = () => {
         "//bernicebakery.com/cdn/shop/files/Bernice-1.jpg?v=1727835563&width=350",
       image4:
         "//bernicebakery.com/cdn/shop/files/Bernice-12.png?v=1727835564&width=350",
-      link: "/product",
+      Link: "/product",
       ingredients: [],
     },
   ]);
@@ -189,42 +189,42 @@ const Main = () => {
       alt: "Description for image 168",
       width: "500",
       height: "750",
-      link: "/product",
+      Link: "/product",
     },
     {
       src: "//bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-50.jpg?v=1721423202&width=500",
       alt: "Description for image 50",
       width: "500",
       height: "750",
-      link: "/product",
+      Link: "/product",
     },
     {
       src: "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-164.jpg?v=1721423202&width=500",
       alt: "Description for image 123",
       width: "500",
       height: "750",
-      link: "/product",
+      Link: "/product",
     },
     {
       src: "//bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-59.jpg?v=1721423202&width=500",
       alt: "Description for image 531",
       width: "500",
       height: "750",
-      link: "/product",
+      Link: "/product",
     },
     {
       src: "//bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-160.jpg?v=1716391349&width=500",
       alt: "Description for image 531",
       width: "500",
       height: "750",
-      link: "/product",
+      Link: "/product",
     },
     {
       src: "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-4.jpg?v=1721423203&width=500",
       alt: "Description for image 531",
       width: "500",
       height: "750",
-      link: "/product",
+      Link: "/product",
     },
   ];
   const handleAddToCart = (product) => {
@@ -317,7 +317,7 @@ const Main = () => {
         <div className="product-display">
           {products.map((product) => (
             <div key={product.id} className="product-item">
-              <Link to={product.link} className="product-image">
+              <Link to={product.Link} className="product-image">
                 <img
                   src={product.image1}
                   alt={product.name}
@@ -328,7 +328,7 @@ const Main = () => {
               </Link>
 
               <div className="product-info">
-                <Link to={product.link}>
+                <Link to={product.Link}>
                   <h3>{product.name}</h3>
                   <span>{product.format}</span>
                   <span className="separator-dot"> • </span>
@@ -501,7 +501,7 @@ const Main = () => {
           >
             {products.map((product) => (
               <div key={product.id} className="product-item-cookies">
-                <Link to={product.link} className="product-image-cookies">
+                <Link to={product.Link} className="product-image-cookies">
                   <img
                     src={product.image1}
                     alt={product.name}
@@ -511,7 +511,7 @@ const Main = () => {
                   />
                 </Link>
                 <div className="product-info">
-                  <Link to={product.link}>
+                  <Link to={product.Link}>
                     <h3>{product.name}</h3>
                     <span>{product.format}</span>
                     <span className="separator-dot"> • </span>
@@ -570,7 +570,7 @@ const Main = () => {
           >
             {products.map((product) => (
               <div key={product.id} className="product-item-cookies">
-                <Link to={product.link} className="product-image-cookies">
+                <Link to={product.Link} className="product-image-cookies">
                   {product.ingredients.map((ingredient, index) => (
                     <span key={index} className="ingredient-label">
                       {ingredient}
@@ -585,7 +585,7 @@ const Main = () => {
                   />
                 </Link>
                 <div className="product-info">
-                  <Link to={product.link}>
+                  <Link to={product.Link}>
                     <h3>{product.name}</h3>
                     <span>{product.format}</span>
                     <span className="separator-dot"> • </span>

@@ -121,7 +121,7 @@ function Cake() {
         "//bernicebakery.com/cdn/shop/files/Untitled_design_29.png?v=1729798251&width=350",
       image2:
         "//bernicebakery.com/cdn/shop/files/Untitled_design_30.png?v=1730216848&width=350",
-      link: "/product",
+      Link: "/product",
       ingredients: [],
     },
     {
@@ -135,7 +135,7 @@ function Cake() {
         "//bernicebakery.com/cdn/shop/files/celebrationscake2.jpg?v=1721247301&width=350",
       image2:
         "//bernicebakery.com/cdn/shop/files/Bernice-6.jpg?v=1727835563&width=350",
-      link: "/product",
+      Link: "/product",
       ingredients: [],
     },
     {
@@ -148,7 +148,7 @@ function Cake() {
         "//bernicebakery.com/cdn/shop/files/Bernice-3.jpg?v=1727835563&width=350",
       image2:
         "//bernicebakery.com/cdn/shop/files/Bernice-7.jpg?v=1727835563&width=350",
-      link: "/product",
+      Link: "/product",
       ingredients: [],
     },
     {
@@ -161,7 +161,7 @@ function Cake() {
         "//bernicebakery.com/cdn/shop/files/Bernice-2.jpg?v=1727835563&width=350",
       image2:
         "//bernicebakery.com/cdn/shop/files/Bernice-12.png?v=1727835564&width=350",
-      link: "/product",
+      Link: "/product",
       ingredients: [],
     },
     {
@@ -174,7 +174,7 @@ function Cake() {
         "//bernicebakery.com/cdn/shop/files/Bernice-1.jpg?v=1727835563&width=350",
       image2:
         "https://bernicebakery.com/cdn/shop/files/Two_Food_Photograhers-86_websize_noBG_05dc09c3-ad95-474b-ba25-40af1610a20b.png?v=1721333419&width=350",
-      link: "/product",
+      Link: "/product",
       ingredients: [],
     },
     {
@@ -187,7 +187,7 @@ function Cake() {
         "//bernicebakery.com/cdn/shop/files/Bernice-1.jpg?v=1727835563&width=350",
       image2:
         "//bernicebakery.com/cdn/shop/files/Bernice-11.jpg?v=1727835564&width=350",
-      link: "/product",
+      Link: "/product",
       ingredients: [],
     },
   ]);
@@ -232,7 +232,7 @@ function Cake() {
           <iv className="product-cookies1-cake">
             {products.map((product) => (
               <div key={product.id} className="product-item-cookies">
-                <Link to={product.link} className="product-image-cookies">
+                <Link to={product.Link} className="product-image-cookies">
                   {product.ingredients.map((ingredient, index) => (
                     <span key={index} className="ingredient-label">
                       {ingredient}
@@ -254,7 +254,7 @@ function Cake() {
                   />
                 </Link>
                 <div className="product-info">
-                  <Link to={product.link}>
+                  <Link to={product.Link}>
                     <h3>{product.name}</h3>
                     <span>{product.format}</span>
                     <span className="separator-dot"> • </span>
@@ -319,7 +319,7 @@ function Cake() {
           <div className="product-cookies1-cake">
             {products.map((product) => (
               <div key={product.id} className="product-item-cookies">
-                <Link to={product.link} className="product-image-cookies">
+                <Link to={product.Link} className="product-image-cookies">
                   {product.ingredients.map((ingredient, index) => (
                     <span key={index} className="ingredient-label">
                       {ingredient}
@@ -341,7 +341,7 @@ function Cake() {
                   />
                 </Link>
                 <div className="product-info">
-                  <Link to={product.link}>
+                  <Link to={product.Link}>
                     <h3>{product.name}</h3>
                     <span>{product.format}</span>
                     <span className="separator-dot"> • </span>
