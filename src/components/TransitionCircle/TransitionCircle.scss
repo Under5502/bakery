@@ -1,0 +1,12 @@
+.transition-circle {
+  position: fixed;
+  top: 90%;
+  left: -10%;
+  transform: translateX(-50%);
+  width: 2000px;
+  height: 2000px;
+  background: white;
+  border-radius: 50%;
+  z-index: 9999;
+  pointer-events: none;
+}
