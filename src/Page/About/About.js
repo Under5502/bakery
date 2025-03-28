@@ -36,7 +36,7 @@ function About() {
       image: "VANILLE_804bc794-6c20-4a6a-b5a1-c267603a85c5.svg",
       width: 800,
       height: 800,
-      top: "-20%",
+      top: "-25%",
 
       threshold: 40,
     },
@@ -45,7 +45,7 @@ function About() {
       image: "VACHE_5a7f30f0-346c-473e-b770-8017e022e2b1.svg",
       width: 400,
       height: 205,
-      top: "-20%",
+      top: "-25%",
       threshold: 120,
     },
     {
@@ -53,7 +53,7 @@ function About() {
       image: "cookie_b8046837-de86-4692-bac5-2ebe2b627f60.svg",
       width: 400,
       height: 220,
-      top: "-20%",
+      top: "-25%",
       threshold: 200,
     },
   ];
