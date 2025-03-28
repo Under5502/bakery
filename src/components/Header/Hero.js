@@ -73,6 +73,13 @@ const Hero = () => {
         >
           <h1>INDULGE</h1>
         </div>
+        <svg width="0" height="0">
+          <defs>
+            <clipPath id="roundedTopLeft" clipPathUnits="objectBoundingBox">
+              <path d="M0.1,0.1 Q0.1,0 0.2,0 L0.9,0.1 L0.75,0.8 L0.2,1 Z" />
+            </clipPath>
+          </defs>
+        </svg>
       </motion.div>
     </div>
   );
